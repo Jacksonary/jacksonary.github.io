@@ -54,7 +54,9 @@
 		
 		
 		<hgroup>
-		  <h5 class="header-author"><script type="text/javascript" src="https://s96.cnzz.com/z_stat.php?id=1277619867&web_id=1277619867"></script></h5>
+		  <h5 class="header-author">
+		  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277619867'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1277619867' type='text/javascript'%3E%3C/script%3E"));</script>
+		  </h5>
 		</hgroup>
 
 		<nav class="header-menu">
@@ -319,6 +321,33 @@
 
 
 
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "JEriszm6sFPewt3EThd5L6u9-gzGzoHsz",
+            app_key: "gMfBdVclpInoSNbxcfTl8pVl",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+
+
+
   
   
   
@@ -370,7 +399,6 @@ var gitment = new Gitment({
 gitment.render('gitment-ctn')
 </script>
   
-
 
           </div>
         </div>
