@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://jacksonary.github.io/"/>
   <updated>2019-05-18T08:51:04.250Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://jacksonary.github.io/</id>
   
   <author>
     <name>Weiguo Liu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>关于GraphEasy的简单捣腾</title>
-    <link href="http://yoursite.com/2019/05/18/%E5%85%B3%E4%BA%8EGraphEasy%E7%9A%84%E7%AE%80%E5%8D%95%E6%8D%A3%E8%85%BE/"/>
-    <id>http://yoursite.com/2019/05/18/关于GraphEasy的简单捣腾/</id>
+    <link href="https://jacksonary.github.io/2019/05/18/%E5%85%B3%E4%BA%8EGraphEasy%E7%9A%84%E7%AE%80%E5%8D%95%E6%8D%A3%E8%85%BE/"/>
+    <id>https://jacksonary.github.io/2019/05/18/关于GraphEasy的简单捣腾/</id>
     <published>2019-05-18T07:22:25.000Z</published>
     <updated>2019-05-18T08:51:04.250Z</updated>
     
@@ -31,19 +31,19 @@
     
     </summary>
     
-      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://jacksonary.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="GraphEasy" scheme="http://yoursite.com/tags/GraphEasy/"/>
+      <category term="GraphEasy" scheme="https://jacksonary.github.io/tags/GraphEasy/"/>
     
-      <category term="ASCII Flow" scheme="http://yoursite.com/tags/ASCII-Flow/"/>
+      <category term="ASCII Flow" scheme="https://jacksonary.github.io/tags/ASCII-Flow/"/>
     
   </entry>
   
   <entry>
     <title>java常用函数收录集</title>
-    <link href="http://yoursite.com/2019/05/16/java%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%94%B6%E5%BD%95%E9%9B%86/"/>
-    <id>http://yoursite.com/2019/05/16/java常用函数收录集/</id>
+    <link href="https://jacksonary.github.io/2019/05/16/java%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%94%B6%E5%BD%95%E9%9B%86/"/>
+    <id>https://jacksonary.github.io/2019/05/16/java常用函数收录集/</id>
     <published>2019-05-16T11:08:21.000Z</published>
     <updated>2019-05-18T08:48:19.244Z</updated>
     
@@ -55,19 +55,19 @@
     
     </summary>
     
-      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://jacksonary.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="java" scheme="https://jacksonary.github.io/tags/java/"/>
     
-      <category term="工具类" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+      <category term="工具类" scheme="https://jacksonary.github.io/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
     
   </entry>
   
   <entry>
     <title>归程随笔</title>
-    <link href="http://yoursite.com/2017/10/13/%E5%BD%92%E7%A8%8B%E9%9A%8F%E7%AC%94/"/>
-    <id>http://yoursite.com/2017/10/13/归程随笔/</id>
+    <link href="https://jacksonary.github.io/2017/10/13/%E5%BD%92%E7%A8%8B%E9%9A%8F%E7%AC%94/"/>
+    <id>https://jacksonary.github.io/2017/10/13/归程随笔/</id>
     <published>2017-10-13T03:49:29.000Z</published>
     <updated>2019-05-18T08:45:48.536Z</updated>
     
@@ -79,10 +79,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="http://yoursite.com/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
     
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
