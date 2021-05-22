@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jacksonary.github.io/"/>
-  <updated>2019-05-18T14:02:17.002Z</updated>
+  <updated>2021-05-22T12:55:03.323Z</updated>
   <id>https://jacksonary.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UML学习记录</title>
+    <link href="https://jacksonary.github.io/2019/05/30/UML%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <id>https://jacksonary.github.io/2019/05/30/UML学习记录/</id>
+    <published>2019-05-30T12:34:00.000Z</published>
+    <updated>2021-05-22T12:55:03.323Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1.基本概念"></a>1.基本概念</h2><p>&emsp;UML即统一建模语言(Unified Modeling Language)，具备如下特点：</p><ul><li>面向对象；</li><li>可视化，表达能力强；</li><li>独立于过程；</li><li>独立于程序设计；</li><li>容易掌握使用；<a id="more"></a></li></ul><p>&emsp;从UML整个架构来看，是由视图（View）、图（Diagrams）、模型元素（Model elements）和通用机制等几个部分构成：</p><ul><li>视图：用来表示被建模系统的各个方面。由多个图构成，它不是一个图片，而是在某一个抽象层上，对系统的抽象表示。如果要为系统建立一个完整的模型图，只需定义一定数量的视图，每个视图表示系统的一个特殊方面就可以了。视图还把建模语言和系统开发时选择的方法或过程连接起来。</li><li>图：由各种图片构成，用来描述一个视图的内容。UML语言定了9中不同的图的类型，把它们有机地结合起来就可以描述系统的所有视图。</li><li>模型元素：代表面向对象中的类、对象、消息和关系等概念，是构成图的最基本的常用概念。</li><li>通用机制：用于表示其他信息，比如注释、模型元素的语义等。它还提供扩展机制，使UML语言能够适应一个特殊的方法（或过程）、或扩充至一个组织或用户。</li></ul><p>&emsp;UML系统可以由不同的用户使用，可以是开发人员、测试人员、商务人士、分析师等等，所以要设计一个系统的体系结构，最重要的是做到从不同的角度来看，实现可视化系统，这样也可以让我们自己更好的了解系统，让它达到一个更好的效果。从不同的角度使用 UML 定义一个系统的起着重要的作用，这些角度是：</p><ul><li>设计</li><li>实现</li><li>处理</li><li>部署</li></ul><p>该中心是连接所有这四个用例视图，一个用例代表了系统的功能。因此，其他的角度连接使用的情况下：</p><ul><li>系统设计包括类，接口和协作。UML类图，对象图支持；</li><li>实现定义的组件组装在一起，使一个完整的物理系统。UML组件图是用来支持实施的角度；</li><li>流程定义了系统的流动。因此，在设计中所用的相同的元件也可用来支持当前角度看；</li><li>部署代表物理节点的硬件系统构成。UML部署图是用来支持这个角度来看；</li></ul><h2 id="2-UML中的构建模块"><a href="#2-UML中的构建模块" class="headerlink" title="2. UML中的构建模块"></a>2. UML中的构建模块</h2><p>&emsp;UML主要由如下的三部分组成：</p><ul><li>事物(Things)：UML模型中最基本的构成元素，是具有代表性成分的抽象；</li><li>关系(Relationships)：关系把事物紧密联系在一起；</li><li>图(Diagrams )：图是事物和关系的可视化表示；</li></ul><h3 id="2-1-事物"><a href="#2-1-事物" class="headerlink" title="2.1 事物"></a>2.1 事物</h3><p>&emsp;事物在实体抽象化的结果，是UML构件模块中最重要的组成部分，事物主要分为：结构事物、行为事物、分组事物、注释事物。</p><ul><li>结构事物：结构事物是模型中的静态部分，用以呈现概念或实体的表现元素，是软件建模中最常见的元素；</li><li>行为事物：行为事物时UML模型中的动态部分，代表语句中的“动词”，表示模型中随着时空不断变化的部分；</li><li>分组事物：可以将分组事物看作一个盒子，模型在其中可以被分解，目前只有一种分组事物，即包(package)，结构事物、动作事物甚至分组事物都有可能放在一个包中。<font color="red">包纯粹是概念上的，只存在于开发阶段，而组件在运行时存在</font>；</li><li>注释事物：注释事物可以被定义为一种机制来捕捉 UML 模型元素的言论，说明和注释，注释是唯一一个注释事物；</li></ul><p>关于事物在UML中的表示，具体如下所示：</p><p><img src="https://i.postimg.cc/Qt9C95n1/UML.png" alt="UML中的事物"></p><h3 id="2-2-关系"><a href="#2-2-关系" class="headerlink" title="2.2 关系"></a>2.2 关系</h3><p>&emsp;关系是UML中又一重要构建块，它表示元素之间的关联关系，UML中定义了四种关系：</p><ul><li>依赖关系：依赖是两件事物之间的语义联系，其中一个事物的变化也影响到另一个事物；</li><li>协作：一种描述一组对象之间连接的结构关系，如聚合关系（描述了整体和部分间的结构关系）；</li><li>泛化：泛化可以被定义为一个专门的元件连接关系与一个广义的元素，它基本上描述了在对象世界中的继承关系，是一种一般化-特殊化的关系；</li><li>实现：类之间的语义关系，其中的一个类指定了由另一个类保证执行的契约；</li></ul><p>关于关系的四种表示如下所示：</p><p><img src="https://i.postimg.cc/Gmd474Hn/UML.png" alt="UML中关系"></p><h3 id="2-3-图"><a href="#2-3-图" class="headerlink" title="2.3 图"></a>2.3 图</h3><p>&emsp;UML的核心是图表，主要分为结构图和行为图：结构图是静态图(如类图、对象图)，行为图是动态图(如序列图、协作图)。关于不同图的简单描述如下：</p><ul><li>类图：描述系统所包含的类、类的内部结构以及类之间的关系；</li><li>对象图：对象图是类图一个具体的实例，所以和类图的基本要素是类似的。对象图是由对象和链接组成，在一个特定的时刻，它捕获该系统的实例。对象图用于原型设计，逆向工程和实际场景建模；</li><li>组件图：描述代码部件的物理结构以及各部件之间的依赖关系，是一种特殊的 UML 图，用于描述系统的静态实现视图。组件图包括物理组件，如库、档案、文件夹等。组件图是从实施的角度。使用一个以上的元件图来表示整个系统，正向和逆向工程技术的使用，使可执行文件组件图；</li><li>部署图：定义系统中软硬件的物理体系结构，部署图是由节点和它们之间的关系构成，一个高效的部署图是应用软件开发的一个组成部分；</li><li>用例图：从用户角度描述系统功能、需求，并指出各功能的操作者，展示系统外部各类角色与系统内部的各种用例之间的关系，用来捕捉系统的动态性质。一个高层次的设计用例图是用来捕捉系统的要求，因此它代表系统的功能和流向。虽然用例图的正向和反向工程是不是一个很好的选择，但他们仍然在一个稍微不同的方法来模拟它；</li><li>交互图：交互图用于捕获系统的动态性质。交互图包括序列图和协作图，其中：序列图显示对象之间的动态合作关系，它强调对象之间消息发送的顺序，同时显示对象之间的交互；协作图描述对象间的协作关系，协作图跟时序图相似，显示对象间的动态合作关系；</li><li>状态图：描述一类对象的所有可能的状态以及事件发生时状态的转移条件，用于模拟一个对象的整个生命周期。一个对象的状态被定义为对象所在的条件下，特定的时间和对象移动对其他状态，在某些事件发生时。状态图还用于正向和反向工程，它着重描述从一个状态到另一个状态的流程，主要有外部事件的参与；</li><li>活动图：描述系统中各种活动的执行顺序，是 UML 的动态模型的一种图形，一般用来描述相关用例图，活动图是一种特殊的状态图。准确的活动图定义如下：活动图描述满足用例要求所要进行的活动以及活动间的约束关系，有利于识别并行活动。活动图是一种特殊的状态图，它对于系统的功能建模特别重要，强调对象间的控制流程；</li><li>顺序图：表示对象之间的动态合作关系；</li><li>协作图：描述对象之间的协作关系；</li></ul><h2 id="3-UML建模"><a href="#3-UML建模" class="headerlink" title="3. UML建模"></a>3. UML建模</h2><p>&emsp;UML建模可以把在复杂世界的许多重要的细节给抽象出。为了区分UML模型，UML建模用不同类型的不同的图，其中UML建模中三个重要类型的建模为：</p><p><strong>结构建模</strong></p><p>&emsp;结构建模具有捕捉静态的功能，包括下列各项：</p><ul><li>类图</li><li>对象图</li><li>部署图</li><li>包图</li><li>复合结构图</li><li>组件图</li></ul><p>&emsp;结构模型代表的系统架构，这个框架的所有其他组件存在的地方。因此，类图，组件图和部署图的部分结构建模。它们都代表的元素和机制将它们组装。但是，从来没有的结构模型描述系统的动态行为。类图中是最广泛使用的结构图。</p><p><strong>行为建模</strong></p><p>&emsp;行为建模描述了在系统中的相互作用，代表之间的交互的结构图，行为建模显示系统的动态性质，包括下列各项：</p><ul><li>活动图</li><li>交互图</li><li>用例图</li></ul><p>所有上述的显示在一个系统中流动的动态序列。</p><p><strong>架构建模</strong></p><p>&emsp;架构建模表示的是一个系统的总体框架，它包含了系统的结构和行为的元素。架构建模可以被定义为整个系统的蓝图。包图是根据架构模型进行的。</p><h2 id="4-UML的基本操作"><a href="#4-UML的基本操作" class="headerlink" title="4. UML的基本操作"></a>4. UML的基本操作</h2><h3 id="4-1-结构事物"><a href="#4-1-结构事物" class="headerlink" title="4.1 结构事物"></a>4.1 结构事物</h3><p>用图形表示法中使用的“结构事物”是UML中使用最广泛的，这些被认为是为UML模型的名词，UML中主要的结构名词有：</p><ul><li>类 Class：在UML中，类（类用来表示对象，对象可以是任何性质和职责）的图在上面学习事物的章节已经涉及到了，主要是Class Name、Attributes和Operation组成，可能还有一些附加组件，注意的权限修饰符的表示法，<code>Public</code>使用<code>+</code>表示，<code>Protected</code>使用<code>#</code>表示(<code>friendly</code>是归到这个表示方式中)，<code>Private</code>使用<code>-</code>表示，属性和方法权限修饰符都是通用的(对象是类的一个具体实例，表示方法一样，只是类名使用下划线标识)；</li><li>接口 Interface：接口只是描述功能，而不执行(无方法体)，使用圆表示接口，接口名写在下面；</li><li>协作 Association：协作表示和接口表示类似，圆变成椭圆，外框变为虚线；</li><li>用例 Use Case：用例可能包含更多职责，它用于捕捉系统的高层次功能；</li><li>活动类：活动类用于描述系统的并发行为；</li><li>组件 Component：必要时，可以添加额外元素；</li><li>节点 Node：节点表示一个物理的系统组件，如服务器、网络；</li></ul><p>它们各自的表示法如下图所示：</p><p><img src="https://i.postimg.cc/3xtxt9s2/image.png" alt="结构事物表示法"></p><h3 id="4-2-行为事物"><a href="#4-2-行为事物" class="headerlink" title="4.2 行为事物"></a>4.2 行为事物</h3><p>&emsp;相互作用的类型包括顺序(顺序图)和协作(协作图)两种。</p><p><strong>交互表示法</strong></p><p>交互是两个UML组件之间的信息交换，下面是交互的小栗子：</p><p><strong>状态机表示法</strong></p><p>状态机描述的是组件在声明周期中的不同状态（状态可以是活动的、空闲的或其他情况），下面是小栗子：</p><p><img src="https://i.postimg.cc/zGQ1LMm2/image.png" alt="状态机表示法"></p><h3 id="4-3-分组事物"><a href="#4-3-分组事物" class="headerlink" title="4.3 分组事物"></a>4.3 分组事物</h3><p>UML中只有“包”可以用于分组，其他不能用于分组。</p><h3 id="4-4-UML关系"><a href="#4-4-UML关系" class="headerlink" title="4.4 UML关系"></a>4.4 UML关系</h3><p>&emsp;UML中提供了不同类型的关系：依赖、协作、泛化，下面是三种关系的表示法：</p><p><img src="https://i.postimg.cc/7Yyhh51J/image.png" alt="关系表示法"></p><p>上述协作关系两端的<code>* 1</code>表示的是一对多的关系，这种关联关系还有一些，如下：</p><table><thead><tr><th>表示方式</th><th>说明</th></tr></thead><tbody><tr><td><code>1...1</code></td><td>表示一对一关联关系(表示两端代表的对象之间的比例)</td></tr><tr><td><code>0...*</code></td><td>表示零对多关联关系</td></tr><tr><td><code>1...*</code></td><td>表示一对多关联关系</td></tr><tr><td><code>0...1</code></td><td>表示零对多关联关系</td></tr><tr><td><code>m...n</code></td><td>表示m对n关联关系</td></tr></tbody></table><h2 id="5-UML标准图"><a href="#5-UML标准图" class="headerlink" title="5. UML标准图"></a>5. UML标准图</h2><p>&emsp;UML中的图分为两大类：</p><ul><li>结构图:<ul><li>类图；</li><li>对象图；</li><li>组件图；</li><li>部署图；</li></ul></li><li>行为图：<ul><li>用例图；</li><li>序列图；</li><li>协作图；</li><li>状态图；</li><li>活动图；</li></ul></li></ul><p>关于各个图的说明在<a href="#23-图">2.3章节</a>已经学习过了。</p><h3 id="5-1-类图"><a href="#5-1-类图" class="headerlink" title="5.1 类图"></a>5.1 类图</h3><p>&emsp;类图是面向对象系统建模中最常用和最重要的图，是定义其它图的基础，主要用来显示系统中的类、接口以及它们之间的静态结构和关系的一种静态模型，不仅用于可视化描述和记录系统的不同方面，也为构建可执行代码的软件应用程序，类图描述一类的属性和操作，也是对系统的约束，被广泛应用于类图的建模的面向对象的系统中，因为它们是唯一的，可以直接映射到面向对象的语言的UML图，类图显示集合的类，接口，关联，协作和约束，也被称为作为结构图。使用类图的目的可以概括为：</p><ul><li>分析和设计应用程序的静态视图；</li><li>描述一个系统的责任；</li><li>基地组件图和部署图；</li><li>正向和逆向工程；</li></ul><p>在绘制类图时，应该注意下面的一些点：</p><ul><li>类图中的名称应该是有意义的描述，并且是面向系统的；</li><li>画类图前应先确定每个元素之间的关系；</li><li>类图中的每个类职责（属性和方法）应该清晰标明；</li><li>对于每个类的属性的最小数量应符合规定，不必要的属性将使图表复杂；</li><li>使用注释来描述图中的某些方面，它应该是可以理解的开发者/编码器；</li></ul><p>下面是一个订单的类图表示法：</p><p><img src="https://i.postimg.cc/jjCdmPTm/image.png" alt="类图表示法"></p><h3 id="5-2-对象图"><a href="#5-2-对象图" class="headerlink" title="5.2 对象图"></a>5.2 对象图</h3><p>&emsp;UML对象图和类图一样反映系统的静态过程，但它是从实际的或原型化的情景来表达的，显示某时刻对象和对象之间的关系，对象图是类图的实例，所以使用的标识基本相同，对象存在生命周期，因此UML对象图只能在系统某一时间段存在（其实就类似于系统某时刻的快照），使用上述订单的栗子，某时刻可以消费者在特定时间购买，存在的对象和上面类图类似，下面是对象图的小栗子：</p><p><img src="https://i.postimg.cc/tJFgDbbg/image.png" alt="对象图表示法"></p><h3 id="5-3-UML组件图"><a href="#5-3-UML组件图" class="headerlink" title="5.3 UML组件图"></a>5.3 UML组件图</h3><p>&emsp;UML组件图（Component Diagram）又称为构件图，描述的是在软件系统中遵从并实现的一组接口的物理、可替换的软件模块，组件图 = 构件（Component）+接口（Interface）+关系（Relationship）+端口（Port）+连接器（Connector），组件图的目的如下：</p><ul><li>可视化系统的组成部分；</li><li>构建的可执行文件，使用正向和反向工程；</li><li>描述的组织和组件的关系；</li></ul><p>如果还以上述订单为例，组件图内部的构件就是文件，所以组件图是显示了应用程序的文件以及它们之间的关系，实际组件图还包含dll文件、库、文件夹等。</p><p><img src="https://i.postimg.cc/Ss60vxnH/image.png" alt="组件图表示法"></p><h3 id="5-4-UML部署图"><a href="#5-4-UML部署图" class="headerlink" title="5.4 UML部署图"></a>5.4 UML部署图</h3><p>&emsp;部署图由节点以及节点之间的关系组成，描述的是系统运行时的结构，展示了硬件的配置及其软件如何部署到网络结构中，用于可视化软件组件部署的系统中的物理组件的拓扑结构，部署图的元素主要如下：</p><ul><li>节点(Node)：存在于运行时的代表计算机资源的物理元素，可以是硬件也可以是运行其上的软件系统，比如64主机、Windows server 2008操作系统、防火墙等；</li><li>节点实例(Node Instance)：与节点的区别在于名称有下划线和结点类型前面有冒号，冒号前面可以有实例名称也可以没有实例名称；</li><li>节点类型(Node Stereotypes)：节点类型有：cdrom、cd-rom、computer、disk array、pc、pc client、pc server、secure、server、storage、unix server、user pc，并在节点的右上角有不同的图标；</li><li>物件(Artifact)：是软件开发过程中的产物，包括过程模型（比如用例图、设计图等等）、源代码、可执行程序、设计文档、测试报告、需求原型、用户手册等等；</li><li>连接(Association)：结点之间的连线表示系统之间进行交互的通信路径，这个通信路径称为连接(Association)，连接中有网络协议；</li><li>节点容器(Node as Container)：一个结点可以包括其他的结点，比如组件或者物件，就形成了节点容器；</li></ul><p>部署元素的表示法如下：</p><p><img src="https://i.postimg.cc/GpS9mzzb/image.png" alt="部署图元素表示法"></p><p>高效的部署图将控制系统：性能、可扩展性、可维护性、可移植性，绘制部署图前应确定节点和节点之间的关系两个构件。以订单系统为例绘制下面的部署图：</p><p><img src="https://i.postimg.cc/GpS9mzzb/image.png" alt="部署图表示法"></p><h3 id="5-5-UML用例图"><a href="#5-5-UML用例图" class="headerlink" title="5.5 UML用例图"></a>5.5 UML用例图</h3><p>&emsp;用例图捕捉了模拟系统中的动态行为，并且描述了用户、需求以及系统功能单元之间的关系，展示了一个外部用户能够观察到的系统功能模型图，由主角，用例和它们之间的关系组成。用例图的目的是捕捉到一个系统的动态方面，用来收集系统的要求，包括内部和外部的影响，上述的订单系统的用例图如下：</p><p><img src="https://i.postimg.cc/pVQx0q8y/image.png" alt="用例图示例"></p><h3 id="5-6-UML交互图"><a href="#5-6-UML交互图" class="headerlink" title="5.6 UML交互图"></a>5.6 UML交互图</h3><p>&emsp;UML交互图描述的是对象之间的动态合作关系以及合作过程中的行为次序，常常用来描述一个用例的行为，显示该用例中所涉及的对象以及这些对象之间的消息传递情况(即一个用例的实现过程)，主要包括对象和消息两类元素，创建交互图的过程实际上就是向对象分配任务的过程，是可视化系统的交互行为。UML交互图包括两种：</p><ul><li>序列图 ：显示对象之间的关系，强调对象之间消息的时间顺序，显示对象之间的交互；</li><li>协作图 ：描述对象之间的交互关系；</li></ul><p><strong>序列图</strong></p><p>下面是订单系统的序列图：</p><p><img src="https://i.postimg.cc/TYCxx1t6/image.png" alt="序列图"></p><p><strong>协作图</strong></p><p>协作图显示对象的组织，下面是订单系统的协作图：</p><p><img src="https://i.postimg.cc/GtRRLy0c/image.png" alt="协作图"></p><h3 id="5-7-UML状态图"><a href="#5-7-UML状态图" class="headerlink" title="5.7 UML状态图"></a>5.7 UML状态图</h3><p>&emsp;UML状态图是图表本身的名称，主要用于描述对象具有的各种状态、状态之间的转换过程以及触发状态转换的各种事件和条件。UML状态图描述了一个状态机，可以被定义为一台机器，它定义了一个对象，这些状态控制外部或内部事件的不同状态，它可以捕获对象、子系统和系统的生命周期，可以告知一个对象可以拥有的状态，并且事件(如消息的接收，时间的流逝、错误、条件为真等)会怎样随着时间的推移来影响这些状态。状态图绘制之前，需要明确几点：</p><ul><li>识识别对象，以进行分析；</li><li>识别状态；</li><li>识别的事件；</li></ul><p>以订单系统为例，下面是状态图：</p><p><img src="https://i.postimg.cc/zGQ1LMm2/image.png" alt="状态机表示法"></p><h3 id="5-8-UML活动图"><a href="#5-8-UML活动图" class="headerlink" title="5.8 UML活动图"></a>5.8 UML活动图</h3><p>&emsp;UML活动图是UML的动态模型的一种图形，一般用来描述满足用例要求所要进行的活动以及活动间的约束关系，活动图能够捕捉到该系统的动态行为，UML中其它的四个图是用来显示从一个对象到另一个消息流，但活动图是用来显示消息流从一个活动到另一个活动图，下面是订单系统的活动图：</p><p><img src="https://i.postimg.cc/jdQ57Rvg/image.png" alt="活动图"></p>]]></content>
+    
+    <summary type="html">
+    
+      UML即统一建模语言(Unified Modeling Language)，具备如下特点:面向对象；可视化，表达能力强；独立于过程；独立于程序设计；容易掌握使用；
+    
+    </summary>
+    
+      <category term="学习" scheme="https://jacksonary.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="UML" scheme="https://jacksonary.github.io/tags/UML/"/>
+    
+  </entry>
   
   <entry>
     <title>关于GraphEasy的简单捣腾</title>
@@ -45,9 +67,9 @@
     <link href="https://jacksonary.github.io/2019/05/16/java%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%94%B6%E5%BD%95%E9%9B%86/"/>
     <id>https://jacksonary.github.io/2019/05/16/java常用函数收录集/</id>
     <published>2019-05-16T11:08:00.000Z</published>
-    <updated>2019-05-18T14:02:12.592Z</updated>
+    <updated>2021-05-22T07:45:15.376Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-获取当前月份的所有日期"><a href="#1-获取当前月份的所有日期" class="headerlink" title="1. 获取当前月份的所有日期"></a>1. 获取当前月份的所有日期</h2><a id="more"></a><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * get all date of specified month(date format)</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> date</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printDays</span><span class="params">(Date date)</span> </span>&#123;</span><br><span class="line">    Calendar calendar = Calendar.getInstance();</span><br><span class="line">    calendar.setTime(date);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get total days of month</span></span><br><span class="line">    <span class="keyword">int</span> daysOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// set 1st day of month,like 2019-03-01</span></span><br><span class="line">    calendar.set(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; daysOfMonth; i++, calendar.add(Calendar.DATE, <span class="number">1</span>)) &#123;</span><br><span class="line">        System.out.println(calendar.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="2-生成指定日期段的每一天日期："><a href="#2-生成指定日期段的每一天日期：" class="headerlink" title="2. 生成指定日期段的每一天日期："></a>2. 生成指定日期段的每一天日期：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Date&gt; <span class="title">listDays</span><span class="params">(Date startDate, Date endDate)</span> </span>&#123;</span><br><span class="line">    List dateList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    dateList.add(startDate);</span><br><span class="line"></span><br><span class="line">    Calendar startCalendar = Calendar.getInstance();</span><br><span class="line">    startCalendar.setTime(startDate);</span><br><span class="line">    Calendar endCalendar = Calendar.getInstance();</span><br><span class="line">    endCalendar.setTime(endDate);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (endDate.after(startCalendar.getTime())) &#123;</span><br><span class="line">        startCalendar.add(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line">        dateList.add(startCalendar.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dateList;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注：如果是指定时段的每个月，只需要将步进值的单位改为月份即可（<code>Calendar.DAY_OF_MONTH</code> -&gt; <code>Calendar.MONTH</code>），根据需要进行格式化即可。</p><h2 id="3-合并多个Map对象"><a href="#3-合并多个Map对象" class="headerlink" title="3. 合并多个Map对象"></a>3. 合并多个<code>Map</code>对象</h2><p><code>merge()</code>函数可以很方便的进行<code>Map</code>对象的合并。下面是将<code>map1</code>和<code>map2</code>合并到一个新的<code>Map</code>对象<code>midMap</code>中：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从map1复制出一个新对象，用于存放合并结果</span></span><br><span class="line">Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(map1);</span><br><span class="line"><span class="comment">// 合并，key不变，value直接相加</span></span><br><span class="line">map2.forEach((key, value) -&gt; map.merge(key, value, (otherKey, otherValue) -&gt; value + otherValue));</span><br></pre></td></tr></table></figure><h2 id="4-List转Map"><a href="#4-List转Map" class="headerlink" title="4. List转Map"></a>4. <code>List</code>转<code>Map</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; dateCountsMap = dateAndCounts.stream().collect(Collectors.toMap(DateAndCount::getDate, DateAndCount::getCount));</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-获取当前月份的所有日期"><a href="#1-获取当前月份的所有日期" class="headerlink" title="1. 获取当前月份的所有日期"></a>1. 获取当前月份的所有日期</h2><a id="more"></a><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * get all date of specified month(date format)</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> date</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printDays</span><span class="params">(Date date)</span> </span>&#123;</span><br><span class="line">    Calendar calendar = Calendar.getInstance();</span><br><span class="line">    calendar.setTime(date);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get total days of month</span></span><br><span class="line">    <span class="keyword">int</span> daysOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// set 1st day of month,like 2019-03-01</span></span><br><span class="line">    calendar.set(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; daysOfMonth; i++, calendar.add(Calendar.DATE, <span class="number">1</span>)) &#123;</span><br><span class="line">        System.out.println(calendar.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="2-生成指定日期段的每一天日期"><a href="#2-生成指定日期段的每一天日期" class="headerlink" title="2. 生成指定日期段的每一天日期"></a>2. 生成指定日期段的每一天日期</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Date&gt; <span class="title">listDays</span><span class="params">(Date startDate, Date endDate)</span> </span>&#123;</span><br><span class="line">    List dateList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    dateList.add(startDate);</span><br><span class="line"></span><br><span class="line">    Calendar startCalendar = Calendar.getInstance();</span><br><span class="line">    startCalendar.setTime(startDate);</span><br><span class="line">    Calendar endCalendar = Calendar.getInstance();</span><br><span class="line">    endCalendar.setTime(endDate);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (endDate.after(startCalendar.getTime())) &#123;</span><br><span class="line">        startCalendar.add(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line">        dateList.add(startCalendar.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dateList;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注：如果是指定时段的每个月，只需要将步进值的单位改为月份即可（<code>Calendar.DAY_OF_MONTH</code> -&gt; <code>Calendar.MONTH</code>），根据需要进行格式化即可。</p><h2 id="3-合并多个Map对象"><a href="#3-合并多个Map对象" class="headerlink" title="3. 合并多个Map对象"></a>3. 合并多个<code>Map</code>对象</h2><p><code>merge()</code>函数可以很方便的进行<code>Map</code>对象的合并。下面是将<code>map1</code>和<code>map2</code>合并到一个新的<code>Map</code>对象<code>midMap</code>中：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从map1复制出一个新对象，用于存放合并结果</span></span><br><span class="line">Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(map1);</span><br><span class="line"><span class="comment">// 合并，key不变，value直接相加</span></span><br><span class="line">map2.forEach((key, value) -&gt; map.merge(key, value, (otherKey, otherValue) -&gt; value + otherValue));</span><br></pre></td></tr></table></figure><h2 id="4-List转Map"><a href="#4-List转Map" class="headerlink" title="4. List转Map"></a>4. <code>List</code>转<code>Map</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; dateCountsMap = dateAndCounts.stream().collect(Collectors.toMap(DateAndCount::getDate, DateAndCount::getCount));</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -69,7 +91,7 @@
     <link href="https://jacksonary.github.io/2018/04/24/%E5%85%B3%E4%BA%8E%E4%B8%80%E6%AC%A1%E7%96%AF%E7%8B%82%E7%9A%84%E6%97%85%E8%A1%8C/"/>
     <id>https://jacksonary.github.io/2018/04/24/关于一次疯狂的旅行/</id>
     <published>2018-04-24T14:39:00.000Z</published>
-    <updated>2019-05-18T14:02:21.617Z</updated>
+    <updated>2021-05-22T12:52:57.898Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;在多年前，一直有一个疯狂的想法，我要去西藏、我要去西藏、我要去西藏，这个想法一遍一遍的出现在我的脑海中，也许和很多人一样，受了部分影视作品和人的毒害，是的，最后我没有去西藏，只是沿着滇藏线走了走。在2018年的4月份，也就是临近我毕业的前两个月，我花了一个星期去准备一些装备，<a id="more"></a>也没有像之前自己想的那样去做类似于攻略这类的计划性规划，在9号的那天晚上，我买了一张去云南的机票，当晚9点就独自一人背着背包，带着一头长发，拿着相机直奔禄口，第一次睡在机场等到凌晨4点，在我的记忆中，近几年除了动不动就在实验室包夜以外，我不曾有过如此疯狂的行为，不对，突然想到自己在去年的春天，我曾经骑着一辆小破车跨了一座城，从常州骑到无锡，就为了去看一次日思夜想的西湖(因为我爱水，西湖在常州看过，在苏州也看过，但唯独没有在最为知名的无锡看过)，从晨起到日落，来回109公里，想想自己也是属于那种神经质的疯子，虽然屁股都麻了，但自己心里确实也是开心，和喝酒时的开心又不太一样，咳！跑题了跑题了，收住！继续本次的话题，因为自己恐高的原因，每次空中旅行对我来说都是一种煎熬，先来几张骑行时拍的路上的照片吧<br><img src="http://b.bst.126.net/common/portrait/face/preview/face1.gif" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/1GLleb56Q9Eqg-slXJHyGA==/1381479185796237133.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br>(&lt;—桥上&nbsp; 路上—&gt;)<br><img src="http://img0.ph.126.net/aDh08un0mCOQhDKJpvheQg==/1816358024814374118.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br>然后就去见太湖(无锡版)<img src="http://img2.ph.126.net/ttS_legndxOXsNwl7uMb3w==/2139209823101446625.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;不断的跑题完，继续<img src="http://b.bst.126.net/common/portrait/face/preview/face56.gif" alt="2018年04月24日 - Jacksonary - 藏在心底的净土">，到达丽江后，在休整一夜的睡眠后，打算直接打算从丽江出发走滇藏线，后来经不住泸沽湖的诱惑，就筹划了一下，花最少钱的看最美的风景走最远路，中间花了两天在湖边走走停停，这湖确实让我着迷，应该算得上是我至今看到的最美的湖水了。<br><img src="http://img1.ph.126.net/UWTvAG1DNdxC4kuol7MQ1Q==/5717541828296007148.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><img src="http://img2.ph.126.net/vlU4vzKL3VJm8z9AbTWWvg==/781937485402579649.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/_s9vlOzaCnZT0URDmUg9YA==/2124854599289196021.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"> <img src="http://img0.ph.126.net/q4lkRIa0F9zjq0er9gHY5g==/6597882305751681378.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/dG-WH3WnIfJ_zOQjFqy-jg==/3864088480384242738.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img2.ph.126.net/6EOmicjIC0wgq5AWcI2Elg==/1964695337540691569.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/DmTA9RXofAZz3wPnEJxdtw==/2180305169701012591.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/VHW2VHwJJE7r4roxYkK1jw==/6597306161658615667.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/tTcxE0_p2DEfrctJV9ydig==/2180305169701012611.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/pt_nhHVhXqf5hSNHIj8zgQ==/2073344678551134894.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;在这两天，我固执的想去看一次日出，即使身边没有姑娘陪着，就这样在大洛水找了一个廉价的旅馆，早晨5点起来直奔码头，所幸天公作美，天气晴朗，虽说冻得直哆嗦，那也物有所值，在这里日出仅是太阳在几秒的时间内完成跳水，令人震撼，湖边大多青年男女结伴过来看日出，是有些浪漫，期间遇见一对情侣，小伙儿是爱尔兰人，勉强会一些汉语，姑娘是湖南人，姑娘捏捏小伙儿的脸，他仅是看着姑娘傻笑，这样的画面我幻想了好多次，着实让人羡慕，帮他们在日出的湖边拍了一张照片，小伙抱起姑娘，在晨起的阳关下……收，又要怀春了<br><img src="http://b.bst.126.net/common/portrait/face/preview/face2.gif" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br>看完日出后，湖边少了不少人，我在湖边随意找了一坐的地儿，晒着太阳，吃着来时在超市买的5块钱的提拉米苏，喝着白开水，活像个大傻子，自己却开心到不行，幻想着自己一路前行应该会遇见很多这样的风景吧，对了中间看到一个小姐姐当时特有意境，面朝蓝蓝的湖水，戴一顶太阳帽，你不曾回头，淹没在芦苇丛中（嗯，那个应该是芦苇吧），抱歉，一时没忍住偷偷为你拍了一张相片，呐，送给你，莫名的姑娘。</p><p>&emsp;短暂的停留后，要开始出发了，背着40L的包一路沿着金沙江逆流而上，太阳晒得人睁不开眼睛，一路尘土飞扬，时热时冷，期间遇见一些如我一般的疯子结伴而言，也减少独行路上的乏味无聊(其实不那么无聊，可以晒着很厉害的紫外线、可以看沿途的雪山、可以瞻仰一路狂奔酷酷的泰国摩托车队)，5个陌生人结伴同行，有年轻帅气的北海飞行员、有一脸猥琐的金融男、还有一黝黑的藏族小伙儿松吉，最后一个厉害了，是一个52岁的大妈级别的徒步者，同行的路上，天南海北的扯，我不是一个善言的人，而且不太喜欢那种话痨，但对于生人我却很宽容，得知不同地域的方言和一切他们觉着漂亮的江海湖泊对于我而言都是非常宝贵的，愿我能有一天可以走遍这天下所有美丽的湖水和江海，途经金沙江大拐弯，一同<br><img src="http://img1.ph.126.net/8mhz0tn6UhMeQqWO2Po0ag==/6632682948281904823.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/tSqNnb79AdtPvD9ofLEhRw==/3255821055712533781.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;在经历了多天的负重徒步，反复的上、下坡，双脚早就磨出了水泡，大拇指的指甲差点脱落，晚上睡前没那么讲究直接用指甲钳剪破放水，第二天早上接着走，一路上看到千奇百怪白云和不知名字的雪山，那种壮观是现在坐在椅子上半瘫着的我无法表达的，在那段时间，我大概知道这个疯子一旦背上了背包可能以后就回不了头了，他会彻彻底底爱上这样疯狂的徒步行为(在这之前，我其实一直不太专业的称这样的行为方式为毅行，因为这种行走的方式需要一定的毅力才能不断的行走下去，中间不会有车来载你（也有骡子，主要太贵，咳，不是太贵了，是我自己想要自己走！），一路只能靠自己一双腿，其实想想这样的行为每个人都有必有找个时间来自虐一下)。路上我几乎不曾太过关注过日期，只是一路在走，一路在看，到达德钦的时候，我不太知道确切的时间，只是知道自己离梅里雪山越来越近了，自己也越来越兴奋，不料当晚不久就出现了一点高反，又是搽风油精、又是吃药，总算缓了下来，在飞来寺的隔壁观看雪山真的是让人一辈子也无法忘记，它带来的震撼不是文字或者言语可以描述的。<br><img src="http://img2.ph.126.net/LBmpPy0eDPKygz4LyEYeZw==/6631575740075000552.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/qAto2SbBFiK2HPBQd5UZUg==/6631584536168031148.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;4月的德钦晚上特别的寒，一行人奢侈地在一家店点了火锅吃的不亦乐乎，不曾敢饮酒，在饱餐过后，在周边的小镇上随意走了走，路上异常冷清，路上仅剩的路灯屈指可数，不禁高原寒风早早回去睡下，次日寻着日出的方向一路向着雨崩前行，这一路真的是自己长这么大走的最艰辛的路，有近3/4的上坡和1/4的下坡，中间跨过3700多海拔的垭口，途中遇见暴雨，一身重装拖着满是水泡的双脚怀着一丝丝的小兴奋在路上走了，在下午4点半左右如愿到达目的地，那会儿双腿都在打颤，其实那会儿已经没有任何想法，这个小山村确实美若仙境，但由于我的屁股沾到床了，实在舒服到不想动，那种疲劳确实是在疯狂行走过上下坡后的最真实的感受，反正在这之前，我很少会有几乎做这样的疯狂的行走，只是偶尔心血来潮会跑到长江边自己走走，记得离开南京那年，固执地要去和她做个告别，冒着随后演变成冰雹的大雨经过3个多小时的车程，到达江边走了大概1个半小时左右，记得那会江边极少有人，极少有人像我一样冒雨前来(这个傻子来时忘了带伞！~~)，次日离开南京去了常州，一呆也不知呆了多久，一直到不久前路过雨崩，在满身疲乏后，淋一场雨，到了旅馆咬着牙冲了冷水澡(山里没有热水)，好在身体好扛得住，钻进被窝草草入睡，第二天早晨醒来，晨光打在梅里山上异常好看，来时曾看过不少徒步者在网上晒过日照金山的宏大景观，不曾想过自己也能亲眼见过，有种潜藏在心里的小激动，小山村弥漫在还未散去的晨雾中，中间还真一段时间让我有亦醒亦梦的错觉，后来发现自己身上好像被什么叮咬的十分严重，以至于现在身上都奇痒难受。启程时出发时，回头一看，“喂马劈柴周游世界”煞有介事地被旅馆老板写在我们出发的路口门框上(姑且叫它门框吧，因为我实在想不出用什么名词来叫它了，但它确实不是门框。。。)，其实我转头看到这一行字的时候，还蛮有感触的，浪归浪，只是还没有到达那种为了满足自己浪荡欲望去放弃现有生活的境界，我只是羡慕那样的境界，这就是作为了一个人都无法避免的尴尬境况吧，就像年少的时候，认为喜欢一姑娘就必定会在一起，长大成人后的我，知道了不是每一份喜欢都要说出来、都要在一起、都要海枯石烂的，年少的时候其实喜欢一个姑娘还是蛮幸福的，偷偷独自欢喜，无性无利，只是单纯的喜欢(愿你快乐)。<br><img src="http://img0.ph.126.net/AS654Z75_QHEDX6s3brnNA==/1496039501317391391.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img2.ph.126.net/o7XgRY03zM467ygOA-ssJw==/6632675251700514677.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/QihFqCyJSIYKMbB8rjLBdA==/1805943450676101675.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;在接下来的几天中，走过泥泞的山路和草甸，穿过森林和峡谷，滑过满是冻冰和白雪的山崖，恐高加上困窘的路况让我一路心惊胆战，不过也更加喜欢路上所有遇见的风景和人，是那种在我人生前26年(好像是26年吧。。)中不可能遇到的经历，中间下坡时候没有带冰爪，幸遇叔叔阿姨搀扶我慢慢爬下去，在去冰湖的路上，大雪弥漫，一行人继续向前，以至于后来本来就狭窄的山路在被大雪覆盖后就更别谈“路”这玩意儿了，一路都是连爬带滚抓着小松树完成的上下坡，当前我们也一路冲到了冰湖到达了目的地，风光无限好，禽兽三连拍<br><img src="http://b.bst.126.net/common/portrait/face/preview/face1.gif" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/zkHZqiOgoB8a5netZmDerw==/1822268999325241812.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/Ogn4HKu4xPFI53oV2ve0FQ==/6608192426285381488.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/iUqvMv4G4WvJN7PaXxZSNA==/1639028789486596921.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/YVak29rhQ4glQVI_A19-3Q==/6631637312726086318.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/bqqVduPUcjJTAOfNTBOKhg==/6597998853984225102.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/VhlaoHdUm0WWxMDoSryejQ==/3775142387743568064.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/5ch81DBGgir9awZMqfIv3g==/6608224312122009225.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/Z70EZ7w1WAFKTqjLVUbakw==/1822268999325241821.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;在随后的一天，我们一行人去了向着神瀑出发，在后来的路上，松吉给我们普及了不少关于神瀑的知识点，没有错，就是知识点，一个个都听得像个大傻子在不断的点头和“奥~~”，全程演绎着十万个为什么。。。其实那么多天，最惊险的就是今天，由于大雪下了七八天，导致在我们去神瀑的路上一直很紧张，一来是上路无路可走全靠自己在雪中创造路，而来频频发生的雪崩不断在我们耳边响着轰隆隆的恐怖声音(生平第一次听到雪崩，又刺激又紧张又害怕。。。)，路上有很多人们祈福的玛尼堆，有大有小<br> ，奇怪的时候我居然可以一眼认出来(这个是最不容易的<br> <img src="http://b.bst.126.net/common/portrait/face/preview/face12.gif" alt="2018年04月24日 - Jacksonary - 藏在心底的净土">)<br> 在到达神瀑时，老天直接在我眼前上演了一次现场雪崩，自己当时其实有点懵逼的，明明害怕的要死，却越来越觉得当时的场景特壮观，由于当天下雪结冰，神瀑其实基本可以说没怎么看到，不过中间的经历也确实让我难忘，小心脏全程绷着，幸亏我活着回来了。。。<br> <img src="http://img1.ph.126.net/BIpOz5RfZ8yxR4D3MMEr6g==/1242993497254603558.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br> <img src="http://img1.ph.126.net/UJQFrHgpaO0WXB7BzDOzGw==/128352589480491442.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;去神瀑的第二天就决定沿着澜沧江穿越尼农峡谷出了雨崩向着香格里拉出发，双臂露在外面全程暴晒，当时没觉着啥除了疼，回来就脱了层皮(ノへ￣、)，在那么岩石化的山体上居然还能看到野生的多肉也是足够让人惊奇的，由于之前学校老师打电话催着返校，这事儿特让我烦心，以至于后来一直想怎么回去的事儿。。。在到香格里拉后，难得在藏族人家吃了顿好吃的，这里的寺庙文化严重，晚上随意瞎转，古城中泛滥的彩光灯让我有些不舒服，不过在夜色的衬托下到也有几分梦幻的样子，途中路过一酒吧，阿姨做东请我们去浪了一波，里面的青梅酒好喝的让我不想走，歌者也是一个十足的段子手，楼上就在撩我上去(你没有听错，就是一个戴墨镜的男歌者撩我上去。。。。就是下面的墨镜那货儿)，中间遇见小姐姐上台唱歌，一群不太熟悉的人在陌生的地儿倒也过得十分开心，旅程至此也就差不多结束了。<br><img src="http://img2.ph.126.net/IK9xe778xEpVX98qtTZtqQ==/6608261695517349518.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/Xl6Xf9JCx3ikmGfO4uAM5A==/6608216615540621769.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/ukCfXp32CqlGfABSd1EjWQ==/844424930232379291.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img2.ph.126.net/Sy-dtCg-hc7OTT6SCEDE3Q==/6597925186705162487.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img1.ph.126.net/5M4sO_cV-LvDN7xT18KsaQ==/6631637312726095150.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img2.ph.126.net/7ARTkvIerdv1nw6-KTpVIQ==/6597667900984258667.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img0.ph.126.net/ZIl9M77cTgr1pE_dQam8rA==/2591258635618501992.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"><br><img src="http://img2.ph.126.net/rkoOkvyPQQJ0Y1BTAo-__Q==/5717515440016956839.jpg" alt="2018年04月24日 - Jacksonary - 藏在心底的净土"></p><p>&emsp;在归程的途中，还是选择了来时的那家青旅，老板娘小丸子永远在嫌弃男朋友做饭太难吃哈哈~临走前的一晚，青旅里的一群人在天台上瞎扯，又是一群不认识的人聊着天南海北的话题，小丸子在大无畏的恒心下终于教会了我送胖子《安河桥》中手鼓部分的演奏（我被嘲笑这个艺术家节奏感太差，空留了一头长发。。。），小哥哥带着我们弹着吉他大半夜一群人大合唱《后来》，后来的台湾小姐姐说话也是真的有意思，91年出生的小中医被我们强迫着为我们每个人把了脉，结果每个男生都得出了肾虚的结果，每个女生都得出了吃饭不规律的毛病，幸亏没有哪个把出来是个喜脉(^人^)，哈哈~~次日，我在这个陌生的地方剪去了来时的一头长发，我是个残忍的人，然后赶了那晚最后的班机回程。。。现在的我耳边听着是孟大宝的《走马》，好了，文章也结束，我想去南极。</p>]]></content>
     
@@ -79,10 +101,12 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+      <category term="旅行" scheme="https://jacksonary.github.io/tags/%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   
@@ -91,7 +115,7 @@
     <link href="https://jacksonary.github.io/2017/11/12/2017%E5%B9%B411%E6%9C%8812%E6%97%A5/"/>
     <id>https://jacksonary.github.io/2017/11/12/2017年11月12日/</id>
     <published>2017-11-12T10:29:00.000Z</published>
-    <updated>2019-05-18T13:50:44.950Z</updated>
+    <updated>2021-05-22T12:51:57.972Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;经历了那么多，也没有说去渴望什么，或者可以说根本就不曾想过会发生这样的事情，就在前一段时间，不知道怎么的，<a id="more"></a>某云音乐大火，随之而来的是源源不断的年轻人的涌入，我把这些视之当然，从15年开始，我开始使用这款播放器，开始接触所谓的民谣，我记得那会儿宋胖子的董小姐身边还没有几个人知道，那会儿李志歌下面的评论也还没有“999+”的标志，在接下来的几年里，是3年吧，我逐渐在这条不归路上越走越远，不能自拔。现在随着这款软件的知名度逐渐上升，用户量也在不断的上升，开始迷失了，我再也看不到刚开始用的那会儿朴素的样子。前几个月在某不知名的歌曲下面留了两句评论，当时也是同样的情况，听过的人不多，在随后的几个月乃至到近几个月，都会隔三差五的收到陌生人的安慰，时间久了，也懒得一一回复。那次无意间写下的评论大火，颇有几分“一人得道，鸡犬升天”的意味。之所以前面废话连篇的那么多，是想记录一下前一个星期左右的认识的她，我们也是由此评论结识，从认识到相爱，不过短短几天而已，却像是像认识了很久，我们无所不谈，就好像我们认识就是为了相爱，我知道现在我这个年纪再去说这样的话听起来有些不着调，可是你何必和一个疯子追究那么多，不会撩姑娘，也不会主动去追求别人，但是感觉对了，就会义无反顾的去追，特别不靠谱，也不会去管她是男是女、是美是丑、是年轻亦或是老迈，我是十足的疯子。在认识的五天后，我们在一起了，每个晚上说着不要脸的话，但就是会很开心，也不会顾忌什么。<del>删去一些关于过去的话</del></p>]]></content>
     
@@ -101,10 +125,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   
@@ -113,7 +137,7 @@
     <link href="https://jacksonary.github.io/2017/11/03/2017%E5%B9%B411%E6%9C%8803%E6%97%A5/"/>
     <id>https://jacksonary.github.io/2017/11/03/2017年11月03日/</id>
     <published>2017-11-03T14:42:00.000Z</published>
-    <updated>2019-05-18T13:48:44.830Z</updated>
+    <updated>2021-05-22T12:51:52.941Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;今天在去食堂的路上，漫天的灰朦，风还挺大，卷着地上的梧桐叶，不得不承认，这样的场景是让我这个疯子着迷的，是的，我喜欢这样的这样的路，这样的风，这样的叶子，一来一回，也不觉停下。<a id="more"></a>更通常的状态是匆匆走过这块不大的地儿，然后重复着每天同样的事情，这样的生活是让我倒胃口的。对了，最近看个两个作者写的小东西，一者是冯唐写的“如何避免成为一个油腻的中年猥琐男”，下笔锋利，点出了绝大多数中年男人的油腻感：</p><ol><li>人到中年，成为一个十足的胖子；</li><li>停止思考，每日亦步亦趋，混到死；</li><li>停止运动或者锻炼；</li><li>人前毫不避讳张扬的谈论性爱；</li><li>追忆从前，一直活在想当初；</li><li>倚老卖老，将自己的价值观强行灌输给晚辈；</li><li>停止购物，对每一件事情都没有热情；</li><li>满身脏兮兮，从不打理自己。</li></ol><p>说实话，对照着他文中所讲的几个特点，比对着自己，倒是命中一半有余，这样的观点我着实不敢苟同。首先，对于第一点，我从大一就励志成为一个有志向的胖子，每次吃饭都会让阿姨加饭、加饭、加饭……但是这么多年也没见到啥效果，倒是前一段时间，也不知什么原因，自己的体重一下子少了5公斤左右，自己吓了一跳，那段时间每天逼着自己加一顿夜宵，倒也没见到什么效果，后来在去苏州的时候，体重才有上升的趋势，直到现在恢复到之前正常的70公斤，虽说比之前还差了一点，但好歹恢复了，也让我安心，综上所述，第一点我是不同意的，人各有志，胖瘦完全在于自己的努力，如今我没成为一个胖子，只能说明我没有努力到位；其次是第四点，如今的我倒也不是好色，更不会当众谈性，这也是我讨厌的，我只是喜欢看女人，这样的一种爱好是在近几年才发现的，人前我也那种会当众说我喜欢女人，但这不能说是猥琐吧，美好的事物不就是让人欣赏的吗？我是喜欢女人的，尤其是漂亮的女人，这一点我从不否认；然后是追忆从前这回事儿，这点我是觉得作者自己没有表达到位，会让大多数读者产生误解，应该更吹牛X那一块靠拢会好一些，也会更加符合一点；再加上倚老卖老这个特性，我确实是有点倚老卖老的臭毛病，不知道从何时起，我开始穿上了皮鞋、衬衫、商务休闲裤，俨然一副小大人的模样，确切的时间点我时是记不太清了，只是隐约记得是读高中的时候，那时起便是这副打扮，这副打扮从开始一直到现在，这样的穿衣风格多少年来再也没换过，以后也不会换吧，我也确实有些大男人的属性，教育晚辈的时候，也确实会给他们灌输我的思想，因为像我这样自视清高的疯子从来都不会怀疑自己思想正确性，所以教育晚辈也会毫不犹豫的给他们灌输我这些“绝对正确”的思想；关于购物这个特性，我是喜欢购物的，但我是不喜欢逛实体店的，因为实体店里的销售人员尤其让我头疼，正常情况下，我和其他正常男人一样，缺什么买什么，其他时间点也不会去买衣服，但这并不代表我们没有购物的欲望好吗，包括这么多年的春节也很少会刻意买新衣服，需要衣服的时候，定好了需求，就会直奔对应的店里去找，因为自己买衣服正常只会去特定的几家店，所以一般1h之内我就可以搞定然后打道回家，在男人中，我对衣服还是比较挑剔的，只要自己喜欢，不管多贵也会想办法拿下（正常都是死贵死贵的，即使我不是什么有钱人）；这么多年，我倒不脏，也不油腻，但是我这一头长发着实是没法子，几乎每天都会顶着一头乱糟糟鸟巢肆无忌惮的走在路上，这我倒不认为自己邋遢，期间剪过几次短发，倒也是清爽，只是今年8月份时候，决定留最后一次长发，留到明年的6月再一刀剪去，自此，我开始刻意的去留起了长发。一直认为像我这样放荡不羁的男人不是应该自己怎么方便怎么来，怎么喜欢怎么来，这样的日子过的久了也就习惯了这样糟糕的生活状态。即使这样，我也不曾认为自己猥琐，只是生为人，终究是逃脱不了为人的劣性吧，但至少我是一只善良的禽兽，此外，中年男人也是最累的时间段，要养家里老老少少，正常父辈那个年代的父辈都是相亲走到一起的吧，基本没有所谓的共同爱好或者选择的权利，这样的生活会让人压抑的，所以除了痛扁他们劣性的时候，也要体谅他们，毕竟我马上也要到这个年纪了，我是有些惶恐的。另一个是一个网络写手写的关于一个妓女的故事，这样的文章总是能引起我的注意，因为过去的几年，关于在这些文章，总是会有余各种各样的原因不能能发表出来，如今可以看到类似真实文章，我是愿意花时间去读的，而且是话精力和脑力去读去反思的，真心希望这样真实的文章可以一直存在下去，可以被更多的读者读到，我一直认为那是一代人的理性的体现。<br>&emsp;今天是2017年11月5日，下午的阳光特别好，在这样的季节，秋阳或者冬阳吧，照在脸上不会觉得很晒，是那种让人觉得暖洋洋的舒服。一个人就这样拿着一件外套就出发，我是不知道要去哪里的，自行车不想骑、公交也不想乘，就这样凭着我这双满是创伤的脚走了4个小时，没带手机的疯子活脱脱的迷路宝，哈哈~~但是从今年年初那会儿，我突然一点也不怕迷路了，就像前20多年一点鱼都不会沾的我，去年11月份突然发现鱼还挺美味的，一直处于这种不着调的风格中间迷迷漫漫。习惯性的毅行想走得慢些都没法控制自己的步伐，也真有意思。最近这座小城忙着造地铁，马路上尘土飞扬，偷偷跑到奥体二楼人行道上走着，这样我不但可以躲避尘土，而且我还可以站在更高的角度去看这里，看这个一个不怎么感冒的城市，来到这里算一算已经快一年了，从南到北、从西到东，我利用每个有阳关的天气走遍了所有有潜力的地儿，挑来挑去只剩下西太湖这一汪清水还能谈得上喜欢，其他吹嘘出来的地方看了只会让我十分倒胃口，后来也是发现好像我这一生应该是与水结缘了，但凡是那种与水相关的总是能让我静下心去怀想，不论是过去还是将来，尤其是那种一眼望不到边的巨大迷茫，我特别享受那种站在湖边，迎面有风，还有零星的湖水，会带着点一些鱼腥味，但还是爱，对嘛？后来我突发奇想，到底是什么样的一种力量可以催动着这样一壶巨大水壶中的水，扑面而来的是一种浓浓的厚重感，那种感觉是让会让你觉得肃然起敬，从那时起，我开始敬畏自然的力量，开始崇拜自然，也日益感觉到作为一个这种动物是何等的细微，对，我是你狂热的追逐者，那会儿我也是在日渐平庸的日子里逐渐渴望一场巨大的狂风暴雨，后来这种欲望不断的膨胀，膨胀到让我自己害怕，可是我等呀等呀，从今年的3月份到现在的11月份，我等不到了，第一次我是16年的11月份等到17年的3月份，我很煎熬，每晚不能安稳入睡，我开始酗酒，我开始抽烟，也是那会儿，搞得自己的身体崩溃，以至于后来只要感冒都会咳嗽好长时间，那种痛苦真的是让我生无可恋，我拿着眼睛站在南京，忍受着这种痛苦，后来暴雨最终还是没来，倒是来了一场滋润心田的小雨，我愉悦的脱去鞋子，脱去外套，疯狂的全裸着身子在雨中走着，那样真的好开心，等再久我也愿意啊，是的，我是愿意的，但是好景不长，这样的小雨仅仅持续了两个星期左右，为此我郁郁寡欢，差点没有死掉。现在我等了8个月，这场大雨意料之中再也没有来，哪怕是小雨也不曾见过半点，我不想等了，我是真的有些累了，我等不到这场大雨了，走了一路，路过世贸广场，寻一片空地儿，就直接丢掉衣服，深吸一口气躺在了这片草坪上，旁边是一篇败落的荷池，这个季节是不是荷花不该存在？一片枯黄，不论是荷池还是路边，这样的场景总是能让这个伪文青儿诗兴大发，然后肆无忌惮的畅想的一片淫荡的画面，就这样里面游呀、游呀，他是喜欢这样的行为的，点上一根烟，望着这一片被秋气摧残的生物，他是心疼的，可是生活告诉他，只有美好的事物被摧残，才能满足他那病态的审美观，越是摧残，越是让人觉得它美，美得让人着迷，后来躺了大约半个小时，他嫌快落夕阳太过刺眼，他是不太喜欢阳光的，后来终于在夕阳中，慢慢穿上随手带出来的外套的，徒步走了回去……</p>]]></content>
     
@@ -123,10 +147,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   
@@ -135,7 +159,7 @@
     <link href="https://jacksonary.github.io/2017/10/13/2017%E5%B9%B410%E6%9C%8813%E6%97%A5/"/>
     <id>https://jacksonary.github.io/2017/10/13/2017年10月13日/</id>
     <published>2017-10-13T03:49:00.000Z</published>
-    <updated>2019-05-18T13:53:45.764Z</updated>
+    <updated>2021-05-22T12:51:47.808Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;现在不太会起一篇随笔的名字，就这么着吧，心血来潮，权当记录一些不着调的疯言疯语。这段时间会经常抱怨、经常抽烟，自己为是的禽兽总是会有不堪生活重负的时候，对吗？<a id="more"></a>有时候，你想要，可是怎么努力都得不到，但是你不想要的时候，又会莫名其妙的出现甚至是主动飞到你的手里。现在手里拿着七八家的offer（是不是很强！哈哈）考虑去要去哪里，想来还是太年轻，即使坦然不能接受生活的馈赠，那就随意吧，呸！什么随意呀，必须要努力呀！不然你哪来的房子、车子呀，对吧！你看，你看，你又世俗了，这个世界那么大，想我一生浪荡不羁，哪里不能作为我的家，哈哈~~常常自嘲是一个顽固的疯子，没有女人，只有酒和远方，不谙生活之道，时常是认为对的事情或者想得到的东西，总是会蒙头蒙脑得去努力，因为一直认为，凡事不能的，那都是没有努力到位的，可是这种思维都会被认为是个十足的蠢货吧，昨晚9点多的时间，笔试完在天津路上一个人穿着短袖到处闲游，外面还下着雨，只有十二三度的气温，活像个孤魂野鬼，一直走到中华门，没冻死……这段时间是我看南京最透彻的阶段，有悲有喜，每次面试被拒总是会自顾自的走在马路上，哎呀，恰逢秋叶梧桐盘旋而落，欲上而下，我是爱这样略微带些所谓的唯美的场景，我爱洒在落叶上斑驳的秋阳，我爱不知从何而来的一路桂香，我更爱这个早晚冷暖分明的秋季，我也爱这个季节如画般的颜色，还爱喜欢这个季节的漂亮姑娘，还爱这个季节的南京，还有还有好多好多……这个伪文青儿又开始泛滥了，真受不了……</p><p>&emsp;那天在回到朋友宿舍的路上，一群白鸽从我透顶飞过，一直以为这个场景只有歌词里才会出现，没曾想也会让我遇到，不行，赶紧感受下，当时就像白痴一样立在那里闭目瞎想，咳……遐想遐想。最近学会了一个新姿势：走路的时候，塞上耳机听歌（像个小流氓，可能无意间跟一个人学的吧），倒真的是很无意。回来时候是从南京南赶的车，以前都是赶车，从未慢下来看看这个地方，那晚，趁着璀璨的夜灯，吹着微凉的秋风，我就那么站着，从这里我再去眺望江宁，再去看那个我离开后再也没去却最想去的地儿。人们常说，时间是良药，久了就淡了，时至如今来看这几句话，鬼知道将来会变成啥样，也许我还是一如以往般自视清高、不可一世，亦或是变成一个自己痛恨的狗呢，猜不透的除了女人心，也只剩下人生了吧</p>]]></content>
     
@@ -145,10 +169,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   
@@ -157,7 +181,7 @@
     <link href="https://jacksonary.github.io/2017/05/02/%E5%BD%92%E7%A8%8B%E9%9A%8F%E7%AC%94/"/>
     <id>https://jacksonary.github.io/2017/05/02/归程随笔/</id>
     <published>2017-05-01T22:42:00.000Z</published>
-    <updated>2019-05-18T13:56:13.756Z</updated>
+    <updated>2021-05-22T12:53:11.174Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;与好友结伴而游，这些年这样的机会着实不多，各自为着各自的事情东奔西跑，流落到各种各样的地方，来时车上双手无处闲放，寥寥时间打开手机想胡乱记些东西。本望着青山绿水可以疏我郁结、陶我情操，无奈前望后看、左顾右瞥，除了比肩继踵的人流再不可言其他，<a id="more"></a>成人浮夸式的高声叫嚷，小孩儿永远都有无尽的力气去哭、去喊，让人兴致全无，燥热难耐，越是炒得火热的地儿，越是变得让人不敢有丝毫亲近的欲望，青山绿水亦是换了模样，不忍直视。在拥挤的小巷中，无意瞥见一副手绘的地图让人倍感暖心，眼前一亮。庆幸隔日逃离市中心，遇见小黄车，二人疯子般扫码而上，奔着西山而去，期间跨过了两座太湖大桥，吃了灰尘无数，细皮嫩肉倒也晒红许久未退，也就在这过程中，遇见了这些时日最美的风景，也算得上不虚此行最隆重的那个点儿。停车立于大桥之上，那一刻姑苏的天很蓝，蓝得像我从未见过的大海，鸽灰色的云蜷曲在每一片灿烂的流水中，太湖一望无际的水穿梭在艳丽的骄阳里，蓝天、白云、绿水、阳光离我的距离都很近，一双眼睛看到的是一个纤尘不染的世界，我几乎要投地得倾倒，不免大俗一番拿出手机照了一张，证明我曾经来过，内心荡漾出难得的喜悦，是那种好似获得重生的喜悦，使我愉悦得不愿忘记那一刹那人生稀有的、由审美本能所触发的锐感，点点滴滴渗透进那颗年轻易感的心，真实的情感永远没法通过任何媒介完整地表达出来，因为那是自然嵌在人类灵魂内部的东西，表情或者是文字又怎么能企及。一路奔波辗转到达目的地后，阳光在岩壁藤萝上缓慢移动，谈人生、谈理想、谈未来，在这样轻松愉悦的交谈中，时间总是过得特别快。登高望远，看清风徐徐翻卷树叶，听鸟儿声声鸣叫悦耳舒心，愉悦感莫名而来，回望来时的道路见不到边儿，自豪感油然而生，想想到了我这个年纪，尤其是像我这样一个性格怪异的老家伙，新朋友是不容易得到的，心思情感兴趣习惯诸如此类大多被生活或者学习磨的初呈雏形，碰既碰不得，合也合不来，老朋友是那么多年残留下的，一见便可心领意会情致怡然，对于朋友和兄弟这倆儿词我不敢轻易去叫，我不敢、不想、不愿去触碰这些，这是一个不善应对曲折复杂人事的人，一个待人真诚、遇事急躁的人，有时候我也会嘲笑自己的愚诚，懒得花时间和精力去经营一些毫无营养和价值的关系，会把这些关系总是分的清清楚楚，不愿搭理就不去搭理就是，但有时又会纠结一些所谓的关系，毕竟我又是个善良的人，哈哈～～人的情感总会这样毫无道理。这几天走了很多路，脚上又磨出了不少水泡，和友人相互抱怨疲乏不堪，每每这个当儿，我都会说，快看，那姑娘多好看！他倒也腼腆，有些不好意思，我就会接着说，你要抱着欣赏的眼光去欣赏一个姑娘的美丽，不论是浮于外部的身材、举止，还是隐于内部的品行、道德等等，男人对女人的观赏源于最初的兽欲，无可避免，那就大胆的去看便是，又不是什么可耻的事情，就像一个人不可能一生只会爱一个人一样，日后总会遇见一些让你着迷的女人，但是道德的约束大部分时候会扼杀大部分人的这种突如其来的美好，又有多少人可以坦诚地对自己的爱人说自己爱上了别人，如若遇此，倒也是性情中人。回来路上的公交车司机想来也是非常可气，不过这种气愤也在漫无边际的等待中消失殆尽，就像路过大河时夕阳沉入湖底一样自然平静。下车回来冲一把凉，又在胡言乱语。</p>]]></content>
     
@@ -167,10 +191,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   
@@ -179,7 +203,7 @@
     <link href="https://jacksonary.github.io/2016/02/15/2016%E5%B9%B402%E6%9C%8815%E6%97%A5/"/>
     <id>https://jacksonary.github.io/2016/02/15/2016年02月15日/</id>
     <published>2016-02-15T08:06:00.000Z</published>
-    <updated>2019-05-18T13:58:43.491Z</updated>
+    <updated>2021-05-22T12:51:41.978Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;今天成绩出来了，相对于四年前的高考成绩查询时的无奈与绝望，今天除了一丝丝的激动和心酸外，有的尽是坦然，<a id="more"></a>看到Kevin的鸡汤我也由疯狂转为更多的理性。也许岁月真的在悄无声息地改变吧，打开微博一大波晒成绩的，看到自己一年的努力也没有白费，真的想对自己道一声谢谢，谢谢我在最苦难的时候坚持了下来，谢谢我一直耐得住的寂寞，谢谢我的出淤泥而不染，谢谢我守得的一片清明，也谢谢我的坚持让我有梦可循！谢谢！<br>&emsp;得到消息后第一时间告诉了家里和几个兄弟，和他们分享喜悦。刹那间，眼睛竟有些红了，我知道其中的努力和辛酸，我也能理解此时这个固执的男人为何如此坦然也会流泪，劳动人民有劳动人民的辛苦，读书人也有读书人的心酸。我自认为不是一个喜欢读书的人，但我就要去做，有时候外人认为我倔的像头驴，对我就是一头十足的驴，兼具笨和固执两个特性，其实这么些年，心里确实有个结，也是不甘心，确实想证明，其实有时候我也不知道有何意义，不过好歹让我有个奔头，要不然这些年我早疯了，呵呵~~<br>&emsp;一边看着自己的成绩，一边在回忆着自己在自习室的时光，灯光下的身影。我虽是一个男人，心思却也细腻，我多愁善感，但我不叫刘黛玉，我更喜欢把这种特性认为是一种现代人可贵的情感，不泛滥也不冷血。这种回忆式的习惯一路上给了我无数的力量，支撑着我走下去，如何可以的话，我愿意一个人守着这种品质一辈子。之前和现在暂时告一段落，未来还有更多坎坷和未知，好好加油！</p>]]></content>
     
@@ -189,10 +213,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   
@@ -201,7 +225,7 @@
     <link href="https://jacksonary.github.io/2016/01/23/2016%E5%B9%B401%E6%9C%8823%E6%97%A5/"/>
     <id>https://jacksonary.github.io/2016/01/23/2016年01月23日/</id>
     <published>2016-01-23T14:05:00.000Z</published>
-    <updated>2019-05-18T14:00:43.410Z</updated>
+    <updated>2021-05-22T12:51:36.352Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;晚上，吃完晚饭，闲来无事，翻出一部电影来看，不得不说，像我这种念旧的人总是会被诸如此类关于青春回忆式电影感动得一塌糊涂<a id="more"></a>，不为别的，而是我在这些电影中林林总总的片段总是会看到当初自己的影子，勾出被时间带得很远的日子，每每此刻，眼泪就会这么不知觉的流着流着，不论身边有人或者没有人。<br>&emsp;年末，天很寒，寒到连在自己房间我都可以感觉到空气中水汽凝结的声音，看完这部片子我心里冷吗？冷吗？我固执的起来要写些东西记下此时的感觉，不带有任何修饰，只是简单的想写出来，放在无人去看的博客里，我喜欢那个地方，因为那里是没有人的公众场合，哈哈~~真的是一个奇怪的理由。我已不是那个还会为春节的临近而日益欢呼雀跃的孩子，我不知道这是成长了，还是麻木了，对这个节日竟然已毫无期待。回首一看，很多年了，很多年的时间就这样被我抛掷脑后，身边的人说我太早熟、成熟，我不知道现在的自己到底是一种什么样的状态，如今的我看过去那个时候自己真的太理性了，考虑的东西太多了，要知道很多东西过了那个时间段再去做一件事情，也许一切都变得无关紧要，让人无法接受。如果那会儿简单点，放纵点，现在也许又是另一番情形吧，我不是一个会无端后悔的人，但这事总是让给我耿耿于怀。<br>&emsp;回来的这段时间倒也清闲，偶尔会接到几个前段时间投出去的面试电话或是打错的电话，说一直想利用这段时间学点东西，倒也算是荒废了这冰天雪地的光景。昨天还是前天，一个很多年都没有联系的老友打电话邀我过段时间参加婚礼，不禁感慨，现在是一年少一个，不过倒也羡慕他们找到喜欢的人，茫茫人海，想想如果真的可以找到这样的人倒也是挺幸福的，曾经主任和同学问我为什么这么长时间都没有找个女朋友，那谁谁不是挺好的吗？怎么不接受人家呢？我狂妄的告诉他们不喜欢将就，找个自己喜欢的并且喜欢自己的，着实不容易，我愿意用我半生年华去寻一位这样的女人。写到这，我就想到我们培训班的老师一句玩笑话“选择题一共就四个选项你都选不对，还想在我大中华四万万同胞中找个对的女人和你恋爱，你觉得现实吗？”本是一句玩笑话，说的倒也在理，想想未来，有的只有无力，第一次感到自己是如此的渺小，如此的不值一提，谁又知道，未来我会在哪里，过着怎样的日子，是否还这样倔强，是否会和一个不怎样的女人过着不怎样的生活，牵着自己的娃，也会为材、米、油、盐、房子、车子操劳一生。。。。。。。前段时间还在南京的时候，晚上自习完回宿舍的路上，遇到自己班的一学生，打趣儿的问我:“老刘，你一个人寂寞吗？”我知道他想问我什么，我故作深沉答道：“与人为善是待人之道，独来独往是人生态度，路总是要一个人走滴。孩子，你还年轻，等你到我这个年纪就懂了。”这话虽是我有意捉弄他，不过也确实是我真心之言。<br>&emsp;我这一年都不曾怎么放开的出去好好走走，好好睡一觉，好好和朋友们聊聊天，放弃了很多，只是不想留有遗憾。写这么多，电影带出的感动已经逐渐在寒冷的空气中变凉，我也恢复常态了，好了，晚安，不论未来怎样，好好加油！</p>]]></content>
     
@@ -211,10 +235,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   
@@ -223,7 +247,7 @@
     <link href="https://jacksonary.github.io/2015/09/04/%E7%A2%8E%E5%8F%B6%E7%A7%8B%E5%A4%A9%E7%9A%84%E8%B7%AF%E9%80%94/"/>
     <id>https://jacksonary.github.io/2015/09/04/碎叶秋天的路途/</id>
     <published>2015-09-04T10:13:00.000Z</published>
-    <updated>2019-05-18T14:03:47.411Z</updated>
+    <updated>2021-05-22T12:54:00.846Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;去年秋天存了的草稿，没憋出一句话，把之前写的全删，不过还是舍不得，先留着吧，谁曾想会在我会在这个寥寂的周五晚上开始着手写些碎字，发发牢骚。<br>&emsp;在过去的一些年，我不曾去想太多，关于未来亦或者关于我的爱人，但让我一点不去想象，<a id="more"></a>也有违人之欲望，常常自嘲是个疯子，常常没来由的去怀想过去，倒也奇怪。想到了那个一眼见到便爱上的姑娘，那么多年也没能亲口对她说上一句我爱她，本以为我们两个那么要好，那么无话不说，之前的一见钟情在这期间逐渐演变成了一种美好的日常，有时我们会在晚自习课间站在三楼一起眺望并不遥远的远方，周末了我们一起骑车回家，哪怕下雨她都会固执的要骑车回去，我只好骗她说我不爱穿雨衣，然后把雨衣给她，那时候谈不上有什么过多的物质，在一起就很开心，我会去想她肯定也喜欢我呀，可是我知道我们还太小，还要中考、还要高考，我小心翼翼地把这种情绪藏在心底，直到高考结束查完分数才通过短消息告诉她我喜欢她，我一直以为我们会就这样在一起了，结果她很让我惊讶地回绝了我，我没有去问为什么，她拒绝应该有她拒绝的理由吧，高考失利和她的回绝令我深受打击，那段时间种种压抑令年轻的我感到类似窒息的痛苦。再后来同学聚会和马路上见过过几次，大概两次吧，没有太多言语。再后几次，同学聚会时联系她的时候，可以很明显的发觉她对我好像怀有特别厌恶甚至是憎恨的情感，我不知她为何对我有如此情绪，除那天发消息给她说了句我喜欢她别无其他，我想了很久，都没有能想到其中缘由，可能时我太过自恋了，可这么多年了，仔细想来，自傲的资本是什么呀？我不知道。也许说是疯子都是抬举我自己了，以至于在后来人生很长的一段旅途中，我不敢和异性有太过亲密的接触。QQ里因为有不少和她以前一起美好的聊天记录和留言记录，我几欲删掉从新开始生活，后来发现我下不去手、也舍不得，既然舍不得干脆在日后的时间就放弃了QQ的使用，很多人问过我，为什么不用，我都闭口不提这段经历，也是近几年和老友喝酒无意间说出了这些事。后来读大学期间断断续续地从旧友口中得知一些关于她不太完整的叙述，有的说她如今也是一个人，有的说和某个老同学在一起了……关于真假无从区辩，我始终没能鼓起勇气去追求她，那会儿比较年轻吧，想人家姑娘都那样明说了只是朋友，还干嘛舔着脸，男人不是要有点自尊嗎？就这样关于青春那点美好青涩的爱情就那么结束了。就这样我一个人从与遇见她到后来两人各奔东西，辗转度过了初中、高中、大学，想了她大概11年吧，到现在还记得她的QQ却忘了自己以前用的那个账号，所有的卡号登录密码也几乎都是和921228这几个数字相关，可能到现在都变成了一种习惯。大学期间也有被人家追过，可是心里想着她便不愿接受，即便她不在我身边，即便她和我扯不上半点亲密关系，到最后她在我脑海里的记忆渐渐模糊，模糊到最后我记不清她的脸，唯一剩下的只有那年第一眼见到她年轻时的模样，一条那个年代独有的蓝色喇叭裤、一件红色的长袖针织衫，让年幼的我为之着迷，我想那会儿我爱上了那个姑娘，这是这么些年对她剩下的一点点可怜的念想，还有一些那会两人经常交流用的小字条收藏在家里的那个鞋盒里，还有那个廉价的吊坠，至今没有丢掉，保存完整。<br>&emsp;我的人生并不幸运，自己很小的时候，父母经常吵架，砸锅摔碗，只要能操得上手的东西绝不留情，统统摔掉，双方指责殴打，年幼的我是那样无力，耳旁弥漫着无尽的争吵、谩骂，唯一能做只有哭、我故意用尽全身力气很大声的去哭，可是哭到嗓子哑了，这两个我最亲爱的成年人都没有对我有一丝丝的怜悯而停止这些愚蠢的行为，哭得累了就睡，然后又在惶恐中哭着醒来，这一切搞得我精疲力尽并且深受其害，性格孤僻，不愿与旁人有过多的交流，也不善处理复杂的人际关系，在随后的交往中我弄乱了很多关系，以致其中如果有一丝残痕重现都会让我感到深深的恐惧，陷入过去无边的厄运中。现在我很少会主动打电话回去，或许这其中占了很大一部分原因吧，有时又会感觉很对不起他们，毕竟为人父母。本以为遇见她是我最大幸运，后来也不了了之。在2016年的九月读研阶段，遇见了一个姑娘，和她很像，也是一眼看上，这是这么多年来唯一能让我感受到生活美好的姑娘，只是左右还是离不了流水有意落花无情，惹得自己一伤，可是遇上了倒也谈不上值不值得。<br>&emsp;就在昨天吧，我偶然打开博客，看到她在lofter上的两篇随笔，我脑海底部关于这个姑娘记忆开始慢慢浮现了一些出来，我不得不表示我有些诧异，但更多的是心疼，突然间拿起手机想打个电话给她，问一句她尚否安好，找了半天，才恍如大梦初醒，现在的我早已没有关于她的任何一种联系方式，急忙问好友要号码，问了几个，都是同一句回复没有，后来反应过来，对呀，我现在打过去干嘛呀？以一种什么样的身份去联系她，想想便也不在问了，或许不联系便是最好对她最好的祝福吧，现在的我都不知道如何去称呼你，姑且称你一句姑娘吧，好好对自己，生活平淡一些，一切都会好起来的。</p>]]></content>
     
@@ -233,10 +257,10 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   
@@ -245,7 +269,7 @@
     <link href="https://jacksonary.github.io/2015/07/01/%E7%AA%81%E7%84%B6%E4%B9%8B%E9%97%B4%E7%88%B1%E4%B8%8A%E7%BB%8F%E5%85%B8/"/>
     <id>https://jacksonary.github.io/2015/07/01/突然之间爱上经典/</id>
     <published>2015-07-01T04:42:00.000Z</published>
-    <updated>2019-05-18T15:42:00.053Z</updated>
+    <updated>2021-05-22T12:54:10.794Z</updated>
     
     <content type="html"><![CDATA[<p>我问佛：为何不给所有女子羞花闭月的容颜？<br><br>佛曰：那只是昙花的一现，<a id="more"></a>用来蒙蔽世俗的眼<br><br>没有什么美可以抵过一颗纯净仁爱的心 <br><br>我把它赐给每一个女子 <br><br>可有人让它蒙上了灰 <br></p><p>我问佛：世间为何有那么多遗憾？ <br><br>佛曰：这是一个婆娑世界，婆娑即遗憾 <br><br>没有遗憾，给你再多幸福也不会体会快乐 <br></p><p>我问佛：如何让人们的心不再感到孤单？ <br><br>佛曰：每一颗心生来就是孤单而残缺的 <br><br>多数带着这种残缺度过一生 <br><br>只因与能使它圆满的另一半相遇时 <br><br>不是疏忽错过，就是已失去了拥有它的资格 <br></p><p>我问佛：如果遇到了可以爱的人，却又怕不能把握该怎么办？ <br><br>佛曰：留人间多少爱，迎浮世千重变 <br><br>和有情人，做快乐事 <br><br>别问是劫是缘 <br></p><p>我问佛：如何才能如你般睿智？ <br><br>佛曰：佛是过来人，人是未来佛 佛把世间万物分为十界：佛,菩萨,声闻,缘觉,天,阿修罗,人,畜生,饿鬼,地狱； <br><br>天,阿修罗,人,畜生,饿鬼,地狱.为六道众生； <br><br>六道众生要经历因果轮回,从中体验痛苦。 <br><br>在体验痛苦的过程中,只有参透生命的真谛,才能得到永生。 <br><br>凤凰，涅盘 <br></p><p>佛曰，人生有八苦：生，老，病，死，爱别离，怨长久，求不得，放不下。 <br><br>佛曰：命由己造，相由心生，世间万物皆是化相，心不动，万物皆不动，心不变，万物皆不变。 <br><br>佛曰：坐亦禅，行亦禅，一花一世界，一叶一如来，春来花自青，秋至叶飘零，无穷般若心自在，语默动静体自然。 <br></p><p>佛说：万法皆生，皆系缘份，偶然的相遇，暮然的回首，注定彼此的一生，只为眼光交汇的刹那。 <br><br>缘起即灭，缘生已空。 <br></p><p>我也曾如你般天真 <br><br>佛门中说一个人悟道有三阶段：“勘破、放下、自在。” <br><br>的确，一个人必须要放下，才能得到自在。 <br></p><p>我问佛：为什么总是在我悲伤的时候下雪 <br><br>佛说：冬天就要过去，留点记忆 <br></p><p>我问佛:为什么每次下雪都是我不在意的夜晚 <br><br>佛说:不经意的时候人们总会错过很多真正的美丽 <br></p><p>我问佛:那过几天还下不下雪 <br><br>佛说:不要只盯着这个季节，错过了今冬 <br></p><p>仓央嘉措还有一首流传非常广泛的诗： <br><br>第一最好不相见，如此便可不相恋。 <br><br>第二最好不相知，如此便可不相思。 <br><br>第三最好不相伴，如此便可不相欠。 <br><br>第四最好不相惜，如此便可不相忆。 <br><br>第五最好不相爱，如此便可不相弃。 <br><br>第六最好不相对，如此便可不相会。 <br><br>第七最好不相误，如此便可不相负。 <br><br>第八最好不相许，如此便可不相续。 <br><br>第九最好不相依，如此便可不相偎。 <br><br>第十最好不相遇，如此便可不相聚。 <br><br>但曾相见便相知，相见何如不见时。 <br><br>安得与君相诀绝，免教生死作相思。 <br></p><p>那一天—仓央嘉措 <br></p><p>那一天， <br><br>我闭目在经殿的香雾中， <br><br>蓦然听见你颂经中的真言； <br></p><p>那一月， <br><br>我摇动所有的经筒， <br><br>不为超度， <br><br>只为触摸你的指尖； <br></p><p>那一年， <br><br>磕长头匍匐在山路， <br><br>不为觐见， <br><br>只为贴着你的温暖； <br></p><p>那一世， <br><br>转山转水转佛塔， <br><br>不为修来世， <br><br>只为途中与你相见 <br></p><p>那一月， <br><br>我轻转过所有经筒， <br><br>不为超度，只为触摸你的指纹； <br></p><p>那一年，我磕长头拥抱尘埃， <br><br>不为朝佛，只为贴着你的温暖； <br></p><p>那一世，我细翻遍十万大山， <br><br>不为修来世，只为路中能与你相遇； <br></p><p>只是，就在那一夜，我忘却了所有， <br><br>抛却了信仰，舍弃了轮回， <br><br>只为，那曾在佛前哭泣的玫瑰， <br><br>早已失去旧日的光泽 </p><p>见与不见 —仓央嘉措 </p><p>你见，或者不见我 <br><br>我就在那里 <br><br>不悲不喜 <br></p><p>你念，或者不念我 <br><br>情就在那里 <br><br>不来不去 <br></p><p>你爱，或者不爱我 <br><br>爱就在那里 <br><br>不增不减 <br></p><p>你跟，或者不跟我 <br><br>我的手就在你手里 <br><br>不舍不弃 <br><br>来我的怀里 <br><br>或者 <br><br>让我住进你的心里 <br></p><p>默然 相爱 <br><br>寂静 欢喜 <br></p><p><strong>1</strong><br> <br><br>从那东方山顶 <br><br>升起皎洁月亮 <br><br>未嫁少女的面容 <br><br>时时浮现我心上 <br></p><p>2 <br><br>去年种的青苗 <br><br>今年已成秸束 <br><br>少年忽然衰老 <br><br>身比南弓还弯 <br></p><p>3 <br><br>我那心爱的人儿 <br><br>如作我终身伴侣<br><br>就象从大海底下 <br><br>捞上来一件珍宝相似 <br></p><p>4 <br><br>路上遇见的意中人 <br><br>身上飘溢着醉人的芳香 <br><br>担心拾到的白王总<br><br>会再丢失远方 <br></p><p>5 <br><br>花开季节过了 <br><br>玉蜂可别惆怅 <br><br>相恋的缘分尽了 <br><br>我也并不悲伤 <br></p><p>6 <br><br>芨芨草上的白霜 <br><br>还有寒风的使者<br><br>就是它们两个 <br><br>折散了蜂儿和花朵 <br></p><p>7 <br><br>天鹅流连池沼 <br><br>想多停留一会 <br><br>可那湖面结了冰 <br><br>叫我意冷心灰 <br></p><p>8 <br><br>渡船虽没情肠 <br><br>马头*却向后看 <br><br>那负心的人儿去了 <br><br>却不回头看我一眼 <br></p><p>9 <br><br>写出的小小黑字 <br><br>水一冲就没了 <br><br>没绘的内心图画 <br><br>咋擦也不会擦掉 <br></p><p>10 <br><br>盖上的黑色小印 <br><br>它不会倾吐衷肠 <br><br>请把知耻守信的印章 <br><br>盖在你我的心坎上 <br></p><p>11 <br><br>面对大德喇嘛 <br><br>恳求指点明路 <br><br>可心儿不由自主 <br><br>又跑到情人去处 <br></p><p>12 <br><br>默想的喇嘛面孔 <br><br>很难来到心上 <br><br>不想的情人容颜 <br><br>心中却明明亮亮 <br></p><p>13 <br><br>想她想的放不下 <br><br>如果这样去修法 <br><br>在今生此世 <br><br>就会成个佛啦 <br></p><p>14 <br><br>问问倾心爱慕的人儿： <br><br>愿否作亲密的伴侣？ <br><br>答道：除非死别， <br><br>活着永不分离！ <br></p><p>15 <br><br>珍宝在自己手里 <br><br>并不觉得希奇 <br><br>一旦归了人家 <br><br>却又满腔是气 <br></p><p>16 <br><br>姑娘不是妈妈所生 <br><br>莫非桃树上长的？ <br><br>为什么你的爱情 <br><br>比桃花谢得还快？ <br></p><p>17 <br><br>从小相爱的姑娘 <br><br>莫非狼的后裔？ <br><br>尽管同居相爱 <br><br>还想逃会山里 <br></p><p>18 <br><br>野马跑到山上 <br><br>可用套索捉住 <br><br>情人一旦变心 <br><br>神力也难捉住 <br></p><p>19 <br><br>对于无常和死 <br><br>若不常常去想 <br><br>纵有盖世聪明 <br><br>实际和傻子一样 <br></p><p>20 <br><br>无论虎狗豹狗(虎豺豹狗？) <br><br>喂熟它就不咬 <br><br>家里的花斑母虎 <br><br>熟了却更凶暴 <br></p><p>21 <br><br>虽然肌肤相亲 <br><br>情人的真心却不知道 <br><br>不如信手在地上画画 <br><br>能算出天上星星多少 <br></p><p>22 <br><br>守门的老黄狗 <br><br>心比人还灵 <br><br>别说我夜里出去 <br><br>今日清晨才回宫 <br></p><p>23 <br><br>夜里去会情人 <br><br>早晨落了雪了 <br><br>胶印留在雪上了(脚印？) <br><br>保密又有何用 <br></p><p>24 <br><br>把帽子戴在头上 <br><br>将辫子撂在背后 <br><br>一个说”请慢坐” <br><br>一个说”请慢走” <br><br>说：”心里又难过啦” <br><br>说：”很快就能聚首” <br></p><p>25 <br><br>在那阴曹地府 <br><br>阎王有面业镜 <br><br>人间是非不清 <br><br>镜中善恶分明 <br></p><p>26 <br><br>柳树爱上了小鸟 <br><br>小鸟爱上了柳树 <br><br>只要两两用心 <br><br>鹞鹰无隙可入 <br></p><p>27 <br><br>不要说持明仓央嘉措 <br><br>去找情人走掉！ <br><br>如同自己需要一样 <br><br>他人也同样需要 <br></p><p>28 <br><br>喝了一杯没醉 <br><br>又喝一杯还没醉 <br><br>少年的情人劝酒 <br><br>一杯便酩酊大醉 <br></p><p>29 <br><br>你是金铜佛身 <br><br>我是泥塑神象 <br><br>虽在一个佛堂 <br><br>我俩却不一样 <br></p><p>30 <br><br>热恋的时候 <br><br>情话不要说完 <br><br>口渴的时候 <br><br>池水不要喝干 <br><br>一旦事情有变 <br><br>那时后悔已晚 <br><br>　　<br>31 <br><br>第一最好不相见，如此便可不相恋。 <br><br>第二最好不相知，如此便可不相思。 <br><br>第三最好不相伴，如此便可不相欠。 <br><br>第四最好不相惜，如此便可不相忆。 <br><br>第五最好不相爱，如此便可不相弃。 <br><br>第六最好不相对，如此便可不相会。 <br><br>第七最好不相误，如此便可不相负。 <br><br>第八最好不相许，如此便可不相续。 <br><br>第九最好不相依，如此便可不相偎。 <br><br>第十最好不相遇，如此便可不相聚。 <br><br>但曾相见便相知，相见何如不见时。 <br><br>安得与君相诀绝，免教生死作相思。 <br></p><p>32 <br><br>那一天闭目在经殿香雾中蓦然听见你颂经中的真言 　　 <br><br>那一月我摇动所有的转经筒不为超度只为触摸你的指尖　　 <br><br>那一年磕长头匍匐在山路　不为觐见　只为贴着你的温暖 　　 <br><br>那一世转山转水转佛塔啊　不为修来生　只为途中与你相见<br></p>]]></content>
     
@@ -255,10 +279,189 @@
     
     </summary>
     
-      <category term="骚文" scheme="https://jacksonary.github.io/categories/%E9%AA%9A%E6%96%87/"/>
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="随笔" scheme="https://jacksonary.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>只是一首感慨的诗</title>
+    <link href="https://jacksonary.github.io/2015/06/19/%E5%8F%AA%E6%98%AF%E4%B8%80%E9%A6%96%E6%84%9F%E6%85%A8%E7%9A%84%E8%AF%97/"/>
+    <id>https://jacksonary.github.io/2015/06/19/只是一首感慨的诗/</id>
+    <published>2015-06-19T01:03:00.000Z</published>
+    <updated>2021-05-22T12:54:45.945Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>这是圣保罗教堂的诗篇：记住你应该努力去追求幸福<a id="more"></a></p></blockquote><p><center>在喧闹而奔忙的世界中平静地往前走</center></p><p><center>这是多么和平、安宁</center></p><p><center>你要与周围地所有的人友好相处</center></p><p><center>尽可能不要放弃这种努力和追求</center></p><p><center>你要轻轻却要清晰地说出自己地真实思想</center></p><p><center>并且耐心倾听别人含糊甚至烦人的想法</center></p><p><center>因为每个人都有他们自己的故事</center><br><br></p><p><center>你要远远避开那些吵闹、具有侵略性的人</center></p><p><center>他们会使你的精神痛苦</center></p><p><center>如果你将自己与他人作比</center></p><p><center>那么你将变得既自负又痛苦</center></p><p><center>因为这世上永远有着比你强和比你弱的人们</center><br><br></p><p><center>你该享受你自己的成就和计划</center></p><p><center>保持对你自己的事业的兴趣</center></p><p><center>它们不管多么细琐、低下，都是你</center></p><p><center>在变化多端的时代能真正拥有的财产</center></p><p><center>在商业事务中你要小心谨慎</center></p><p><center>这世上到处都有阴谋和欺骗</center><br><br></p><p><center>你也不要让自己对美德视而不见</center></p><p><center>世界上很多人为了崇高的理想在忍饥挨饿</center></p><p><center>生活中到处都有英雄主义存在</center></p><p><center>你对你自己要诚实</center></p><p><center>尤其不要无情装有情</center></p><p><center>对爱情不要玩世不恭</center></p><p><center>在这干旱、没有希望的土地上</center></p><p><center>它是一片四季常青的绿洲</center><br><br></p><p><center>你要认真吸取流水年华的经验</center></p><p><center>从容地向青春时光告别</center></p><p><center>你要培养自己的精神力量</center></p><p><center>以抗击突如其来的不幸的打击</center></p><p><center>但你千万不要用想象使自己苦恼、忧伤</center></p><p><center>有很多恐惧产生于疲劳和孤独</center></p><p><center>除去有益于身心健康的原则之外</center><br><br></p><p><center>你要善待你自己</center></p><p><center>你和树林、星星一样是这茫茫宇宙的一分子</center></p><p><center>你有权力生活在这里</center></p><p><center>毫无疑问这世界已经完全为你打开</center></p><p><center>所以你要与上帝和平相处</center></p><p><center>不论你觉得他身在何方</center></p><p><center>也不论你作出何种努力、有什么渴望</center><br><br></p><p><center>在喧闹、混杂的生活中</center></p><p><center>你应该与你的心灵和平相处</center></p><p><center>尽管这世上有很多假冒和欺骗</center></p><p><center>有很多单调乏味的工作</center></p><p><center>和众多破灭的梦幻</center></p><p><center>它仍然是一个美好的世界</center><br><br></p><p><center>记住：你应该努力去追求幸福</center><br><br><br><br></p><p align="right">——1692年镌刻于 巴尔的摩圣保罗教堂</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这是圣保罗教堂的诗篇：记住你应该努力去追求幸福
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>空楼怀想</title>
+    <link href="https://jacksonary.github.io/2013/07/11/%E7%A9%BA%E6%A5%BC%E6%80%80%E6%83%B3/"/>
+    <id>https://jacksonary.github.io/2013/07/11/空楼怀想/</id>
+    <published>2013-07-11T00:54:00.000Z</published>
+    <updated>2021-05-22T12:53:24.647Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;很多时候，特别像现在这样的独处的环境中，我总会不自禁的去想想人生、理想之类的话题，<a id="more"></a>也许你会觉得好笑，但事实的确如此，在这样一个社会中随波逐流的最大危险就是是丢失了自己心中的那片净土，开不辨是非，开始人云亦云，开始丧失自己的想法，开始庸俗！那种最令我厌恶的品质！庆幸的是我始终在内心深处为我自己保留着一片那样的空间。</p><p>&emsp;在这个赤热的夏天，我果断决定呆在这边，我知道我在干什么，这么热的天气，这么空荡荡的宿舍，我要在这里度过我的暑假，看完专业书，然后我将要信心满满的去参赛。最让我感动的还是主任的关心，在临放假前特地打了个电话给我，说：“孩子，如果宿舍太热呆不下去的话就到我家来住吧。”在这里遇见主任一直是我来到这个学校的一件幸运事，和去年冬天一样，我想我是忘不了她就在看了我几分钟前发的一条状态后就立刻打电话来安慰我的那种心情，即使是在那样一个天寒地冻季节，我的心里也倍感温暖。其实从现在的主任身上我一直都有看到我初中最喜欢的那个老师的影子，是一种很真实的情感。在这一年中我几乎把南京绕了个遍，去过别人去过的地方，也去过别人没有去过的地方，我喜欢这样的生活，无拘无束，就这样跟着自己的内心一直走了一年。我从来来没忘掉自己的当初来这里最基本的想法，所以比起大部分人而言，我活的更像个人！我不是个书呆子，但我成绩总可以排在系里的前几个；我也不是个整天都很活跃的人，但每一个大赛的现场我都会努力使自己出现在舞台之上。我总感觉等到毕业的时候，如果只有那几本小证儿陪着我离开的话，那我的时间就在这里白白浪费了，这得是一件多么奢侈的事，我可负担不起……加油加油！！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;很多时候，特别像现在这样的独处的环境中，我总会不自禁的去想想人生、理想之类的话题，
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>睡梦</title>
+    <link href="https://jacksonary.github.io/2013/06/14/%E7%9D%A1%E6%A2%A6/"/>
+    <id>https://jacksonary.github.io/2013/06/14/睡梦/</id>
+    <published>2013-06-14T08:44:00.000Z</published>
+    <updated>2021-05-22T12:53:51.163Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;后醒，一片虚无……<a id="more"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;后醒，一片虚无……
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>雨中的长江之行</title>
+    <link href="https://jacksonary.github.io/2013/05/18/%E9%9B%A8%E4%B8%AD%E7%9A%84%E9%95%BF%E6%B1%9F%E4%B9%8B%E8%A1%8C%20%20/"/>
+    <id>https://jacksonary.github.io/2013/05/18/雨中的长江之行  /</id>
+    <published>2013-05-18T14:39:00.000Z</published>
+    <updated>2021-05-22T12:54:40.053Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;在这之前，我曾有过几次幻想自己站在长江边狂跑、大喊，我只去畅想我喜欢的那种情怀。时隔不久，现在我此刻<a id="more"></a>便就真的在长江边了，卧坐在江边的的木栏上，伴着一阵接着一阵的浪花和江水冲击堤岸的声音以及轮船的上传来的笛声，再加上雨丝的点缀，一如那年我三月彳亍街头的情怀。</p><p><img src="https://i.postimg.cc/wMpxbr0T/1672242836738069339.jpg" alt="1672242836738069339.jpg"></p><p>&emsp;举目望去，白茫茫的一片，尽是一眼望不到底的江水涌现在我眼前，这样水天相接的壮景真的是可以让我顿时忘记许多生活中正存在的烦恼，我不得不承认当初那些失意的古人为什么会在长江边会有良多感概，或许现在的我也有几许类似的情节吧。最近烦心的事情着实是太多了，不免抑郁之情，所以除了喝酒，也偶尔会沾染些烟草的味道，这似乎是理所当然的，但总是感觉有的说出来的别扭……然到江边的这一走，内心一下子就释放了许多，自然界中越是壮阔的盛景在人悲伤时候是越能给以人足够的慰藉的，我真的沉醉在此刻的江水之中了。</p><p>&emsp;我想如果不是自己亲身过来看一下这样的景观，我永远都不会真正的了解那些畅然的情怀，也不会有如此深刻的感受，即使在如此阴晦的天气，淋着细雨，在狂跑，然后朝着江水肆无忌惮的狂吼，任浪声淹没我这个疯子的喊声，我不介意，这是我的专属特质，我这个年纪也应该喜欢这样的画面吧，我是这样想的……</p><p>&emsp;下雨的江边人并不多，我浅行在江边似乎就更具某种戏剧性了吧，谁会想到我会在这样的日子里，还会登上燕子矶最最高的顶端临空而望呢？看着江面上各种轮船在水里的形式，我的哪种情愫在内心不断地搅动。</p><p><a href="https://postimg.cc/SJ2pKLDv" target="_blank" rel="noopener"><img src="https://i.postimg.cc/dtnQ44dw/3240621406969826244.jpg" alt="3240621406969826244.jpg"></a></p><p>原本恐高的我现在站在这座山的最顶端，俯瞰而下，却丝毫没有了恐惧，恰见一酒樽石，里面盛满了雨水，突然之间我也有了当年李白登上此地的情节了，以石为樽，以水为酒，将长江痛饮而尽，以尽闲愁！（迄今，其实我还是挺感激此刻的我还能有如此的感受）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;在这之前，我曾有过几次幻想自己站在长江边狂跑、大喊，我只去畅想我喜欢的那种情怀。时隔不久，现在我此刻
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+      <category term="撒欢" scheme="https://jacksonary.github.io/tags/%E6%92%92%E6%AC%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阳光正好，可惜我的日子太忙……</title>
+    <link href="https://jacksonary.github.io/2013/05/04/%E9%98%B3%E5%85%89%E6%AD%A3%E5%A5%BD%EF%BC%8C%E5%8F%AF%E6%83%9C%E6%88%91%E7%9A%84%E6%97%A5%E5%AD%90%E5%A4%AA%E5%BF%99%E2%80%A6%E2%80%A6/"/>
+    <id>https://jacksonary.github.io/2013/05/04/阳光正好，可惜我的日子太忙……/</id>
+    <published>2013-05-04T02:16:00.000Z</published>
+    <updated>2021-05-22T12:54:27.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;昨天去参加一个关于五四青年节的升旗仪式，这么久没参加过社么升国旗之类的活动，其实我还真发现，不管什么时候，<a id="more"></a>不管我平时是多嘻嘻哈哈，在升旗的时候我总是会有油而生出一种肃穆之感，是那种从小到大的严肃感贯穿着我整个的人生，台上讲的正欢，台下亦是神情百态，不时感慨良多：这个时代会吃人！！但又能怎样……无可奈何。</p><p>&emsp;奔波的人生从未停止过，在当天中午就又牺牲了吃饭饭的时间到处跑着打印、复印、登记、参加报告会另外还要开会，晚上忙着还要赶班会的材料,所以关于午休时间这回事儿就免了吧，再短的时间我都不敢奢望，似乎这个五月就要忙的焦头烂额嘞，各种各样的承办活动，各种各样的通知，早已把我淹没在这无奈的阳光中了，这些日子酒是喝了不老少，，记得以前是借酒消愁，而现在更多的是熬夜的时候小呡几口，放松一下疲劳的神经。身体里两个姑娘在诱惑着我，一边是是忙碌的生活，一边是我渴望了很久的平静的日子，人就是这样，当一切真正上演的时候，又会是另一个模样，这样的事情在我的身边无时无刻不在上演着，我看的很揪心，也很纠结。不管怎样，我还是重蹈覆辙了，不是吗？以前错把自己当台下的观众，其实自己一直都是台上的戏子，不是看别人的生活，而是给别人看自己赤裸裸的生活……是悲哀还是悲哀还是悲哀，我的青春无从说起……</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;昨天去参加一个关于五四青年节的升旗仪式，这么久没参加过社么升国旗之类的活动，其实我还真发现，不管什么时候，
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>城里城外的困扰</title>
+    <link href="https://jacksonary.github.io/2013/04/10/%E5%9F%8E%E9%87%8C%E5%9F%8E%E5%A4%96%E7%9A%84%E5%9B%B0%E6%89%B0/"/>
+    <id>https://jacksonary.github.io/2013/04/10/城里城外的困扰/</id>
+    <published>2013-04-10T15:14:00.000Z</published>
+    <updated>2021-05-22T12:52:21.060Z</updated>
+    
+    <content type="html"><![CDATA[<p>有些时候，我的脑袋里总是会装些乱七八糟的东西，譬如此刻我突然写下这篇随笔。说来也挺奇怪的，自从读初中那会儿，拿起笔开始写些意识流式的心情，再到读高中时老师在上课时，<a id="more"></a>我依旧读着自己喜欢的书，在一个孤独的角落里，拿着笔开始写一些我自己想象中的那个年代关于那些人的一些怀念、抑或是爱念。在六年的漂洗中，我已经无法再用当时那种心态去怀想仅仅只是存活在我记忆中的那些人、那些事，毕竟每个人都是会多多少少的发生些变化，这是毋庸置疑的事实，我现在可以很坦诚的面对这样的一种变故。这么些年，我去过很多地方、见过很多人、经历很多事，诸如此类的事情将我打磨的不成人形，白天要忙各种各样的学习和工作，晚上得去纠结各种各样揪心的事儿，周末要去老远的地方打工挣钱、睡条件很差的倒班宿舍，记得刚去找工作的那会，几个星期的寻找中着实让我累的焦头烂额，原本由于毅行已经磨得很粗燥的一双脚又平添了不少血泡，不少朋友说我疯了，不过还好，有人还理解我的想法。我一步步的走到现在，虽说还没有所谓的重大的物质上的收获，甚至是我还遍体鳞伤，但正是如此，我的精神上丰腴了不少，，我经常会开玩笑说，我这种无欲无求的状态，才让我到现在还没有交女朋友的想法，我一个人依然可以过得很好。我是一个虚伪的人，但我却在时隔多年后仍然不改固执地本性。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有些时候，我的脑袋里总是会装些乱七八糟的东西，譬如此刻我突然写下这篇随笔。说来也挺奇怪的，自从读初中那会儿，拿起笔开始写些意识流式的心情，再到读高中时老师在上课时，
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搁笔的年代</title>
+    <link href="https://jacksonary.github.io/2012/07/05/%E6%90%81%E7%AC%94%E7%9A%84%E5%B9%B4%E4%BB%A3/"/>
+    <id>https://jacksonary.github.io/2012/07/05/搁笔的年代/</id>
+    <published>2012-07-05T06:01:00.000Z</published>
+    <updated>2021-05-22T12:52:38.338Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;当时间在我们面前日复一日的延伸开去，有些东西就会悄然失去，而太多的人把生命视作当然，却俨然不知数年后的今天貌似也是必然，就像哲人们所说的那样，我们并不感激我们所拥有的，直到我们已无可挽回的丧失了它们。<a id="more"></a><br>这样的黑夜，在这个不眠的的世界里，早已被人为的光明撕裂得丢了灵魂，唯有幽凉的夜月不辨妍蚩，在灰暗的天空中观望。站在走廊上，听一首歌，听一首感动到内心颤动不止的老歌，如潮起，如雪落，如花开，那是源于亘古记忆中感动。此刻，连风，都难以穿透时间凝固的墙壁，坚硬无比。</p><p>&emsp;秋高雁冷的季节，沉默是我那一段时间最多的表达。曾立足大河前感叹人世兴衰，看来往的大船小舟，听流水亲吻岸际的声响，那是齿噬心灵的声音啊！我俯首河畔，请容许我这个落魄的流浪者放肆我的忧伤吧！我知道你可以无限制的收容古往今来的一切顺逆之人的泪水。岁月里藏着浅浅的泪滴，为什么直到如今我才感觉拥有了你？转眼望向那浓的化不开的黄昏，直至黑夜湮没我的身影。</p><p>&emsp;三月飘雪的清晨，只身彳亍街头，任风把我的头发吹的凌乱，然后夹杂着似水似霜的雪花，一头乱发，几句疯语，我曾说过我喜欢这样绝尘的生活，我愿意在这窅然的生命中永远做一个毅行者，拥有最朴素的人生和最遥远选的梦想，即使天寒地冻，路远马亡，我愿意去追求最不着边际，最不靠谱梦想！</p><p>&emsp;我的人生中有许多不完整的旋律，直至经历过将死的滋味，才明白这些只不过是我人生中本该有的部分，不可避免。深谙世俗，痛恨苟颜的欢笑和虚伪的硁硁之颜。不愿久留伤心之地，所以选择没有目的的远行。不去感受人情冷暖，亦不去想人生沉浮，对于岁月，那种刀绞般的疼痛渗透到身体的每一个部位、器官和细胞，我不予回击，我承认在你面前算是彻彻底底的败了，我不想再为漫涣的记忆再做什么挽留，毕竟在这样一个塌陷的时代，我不想留下侘傺时的蹀爕。</p><p>&emsp;偶得闲暇，会去看看久念的北校，会去翻一翻年轻时笔袋里装满回忆的小纸条，会去读一读年轻时写下的一些关于那个纯白的年代的最纯洁的心情，小心翼翼的翻开扉页，我含着泪，一读再读，幻想某年，暗黄的白炽灯下，梳我初白的发，或许那也是一种怀念吧。</p><p>&emsp;当晨曦穿过纱窗，折射出葳蕤璀璨的光芒时，我独坐一隅，反思过往，在脑海中相逢那早已辨不清的人和事，好像一场滂沱大雨淋湿的旧照片，再也回不去最初的模样……</p><p>&emsp;几缕愁丝，在经历过夏雨、秋霜、朔风的重叠后，终于决定在这盛夏的日子里结束文字的蔓延，就让这夐古的风吹落我的笔吧，我愿意在烈日下残酷我的生活。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;当时间在我们面前日复一日的延伸开去，有些东西就会悄然失去，而太多的人把生命视作当然，却俨然不知数年后的今天貌似也是必然，就像哲人们所说的那样，我们并不感激我们所拥有的，直到我们已无可挽回的丧失了它们。
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>失明</title>
+    <link href="https://jacksonary.github.io/2012/07/05/%E5%A4%B1%E6%98%8E/"/>
+    <id>https://jacksonary.github.io/2012/07/05/失明/</id>
+    <published>2012-07-05T05:59:00.000Z</published>
+    <updated>2021-05-22T12:53:45.635Z</updated>
+    
+    <content type="html"><![CDATA[<div class="btag bct hd fc05 fc11 nbw-blog"><p align="center"><font size="4"><strong>&nbsp;&nbsp;&nbsp;&nbsp; 偶然的某一天<a id="more"></a><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;风把她的孩子遗失在我的眼睛里</strong></font></p>  <p align="center"><br><br><font size="4"><strong>&nbsp;&nbsp;&nbsp;&nbsp; 于是，从此<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 我的眼睛开始日夜不停地流泪&nbsp;&nbsp;流泪</strong></font></p>  <p align="center"><br><font size="4"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp; 直至一个醒来的清晨<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp; 才发现<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 原本模糊的双眼<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 满是黑暗……<br></strong></font></p><wbr></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;btag bct hd fc05 fc11 nbw-blog&quot;&gt;&lt;p align=&quot;center&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 偶然的某一天
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
   </entry>
   

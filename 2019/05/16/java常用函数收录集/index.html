@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Jacksonary&#39;s blog">
 <meta property="og:description" content="1. 获取当前月份的所有日期">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-18T14:02:12.592Z">
+<meta property="og:updated_time" content="2021-05-22T07:45:15.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java常用函数收录集">
 <meta name="twitter:description" content="1. 获取当前月份的所有日期">
@@ -71,7 +71,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/categories/学习">学习笔记</a></li>
 	        
-				<li><a href="/categories/骚文">放荡骚文</a></li>
+				<li><a href="/categories/随笔">放荡随笔</a></li>
 	        
 				<li><a href="/archives/index.html">文章归档</a></li>
 	        
@@ -81,6 +81,10 @@ var _hmt = _hmt || [];
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -155,7 +159,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 25%"><a href="/categories/学习">学习笔记</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/骚文">放荡骚文</a></li>
+					<li style="width: 25%"><a href="/categories/随笔">放荡随笔</a></li>
 		        
 					<li style="width: 25%"><a href="/archives/index.html">文章归档</a></li>
 		        
@@ -186,7 +190,7 @@ var _hmt = _hmt || [];
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/2019/05/16/java常用函数收录集/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/2019/05/16/java常用函数收录集/" class="pageViews"></span>次
   </a>
 
         
@@ -200,7 +204,7 @@ var _hmt = _hmt || [];
       
         <h2 id="1-获取当前月份的所有日期"><a href="#1-获取当前月份的所有日期" class="headerlink" title="1. 获取当前月份的所有日期"></a>1. 获取当前月份的所有日期</h2><a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * get all date of specified month(date format)</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> date</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printDays</span><span class="params">(Date date)</span> </span>&#123;</span><br><span class="line">    Calendar calendar = Calendar.getInstance();</span><br><span class="line">    calendar.setTime(date);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get total days of month</span></span><br><span class="line">    <span class="keyword">int</span> daysOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// set 1st day of month,like 2019-03-01</span></span><br><span class="line">    calendar.set(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; daysOfMonth; i++, calendar.add(Calendar.DATE, <span class="number">1</span>)) &#123;</span><br><span class="line">        System.out.println(calendar.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-生成指定日期段的每一天日期："><a href="#2-生成指定日期段的每一天日期：" class="headerlink" title="2. 生成指定日期段的每一天日期："></a>2. 生成指定日期段的每一天日期：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Date&gt; <span class="title">listDays</span><span class="params">(Date startDate, Date endDate)</span> </span>&#123;</span><br><span class="line">    List dateList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    dateList.add(startDate);</span><br><span class="line"></span><br><span class="line">    Calendar startCalendar = Calendar.getInstance();</span><br><span class="line">    startCalendar.setTime(startDate);</span><br><span class="line">    Calendar endCalendar = Calendar.getInstance();</span><br><span class="line">    endCalendar.setTime(endDate);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (endDate.after(startCalendar.getTime())) &#123;</span><br><span class="line">        startCalendar.add(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line">        dateList.add(startCalendar.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dateList;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-生成指定日期段的每一天日期"><a href="#2-生成指定日期段的每一天日期" class="headerlink" title="2. 生成指定日期段的每一天日期"></a>2. 生成指定日期段的每一天日期</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Date&gt; <span class="title">listDays</span><span class="params">(Date startDate, Date endDate)</span> </span>&#123;</span><br><span class="line">    List dateList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    dateList.add(startDate);</span><br><span class="line"></span><br><span class="line">    Calendar startCalendar = Calendar.getInstance();</span><br><span class="line">    startCalendar.setTime(startDate);</span><br><span class="line">    Calendar endCalendar = Calendar.getInstance();</span><br><span class="line">    endCalendar.setTime(endDate);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (endDate.after(startCalendar.getTime())) &#123;</span><br><span class="line">        startCalendar.add(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line">        dateList.add(startCalendar.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dateList;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注：如果是指定时段的每个月，只需要将步进值的单位改为月份即可（<code>Calendar.DAY_OF_MONTH</code> -&gt; <code>Calendar.MONTH</code>），根据需要进行格式化即可。</p>
 <h2 id="3-合并多个Map对象"><a href="#3-合并多个Map对象" class="headerlink" title="3. 合并多个Map对象"></a>3. 合并多个<code>Map</code>对象</h2><p><code>merge()</code>函数可以很方便的进行<code>Map</code>对象的合并。下面是将<code>map1</code>和<code>map2</code>合并到一个新的<code>Map</code>对象<code>midMap</code>中：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从map1复制出一个新对象，用于存放合并结果</span></span><br><span class="line">Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(map1);</span><br><span class="line"><span class="comment">// 合并，key不变，value直接相加</span></span><br><span class="line">map2.forEach((key, value) -&gt; map.merge(key, value, (otherKey, otherValue) -&gt; value + otherValue));</span><br></pre></td></tr></table></figure>
@@ -233,7 +237,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
@@ -359,8 +363,8 @@ var _hmt = _hmt || [];
             el: '.comment',
             notify: notify,
             verify: verify,
-            app_id: "JEriszm6sFPewt3EThd5L6u9-gzGzoHsz",
-            app_key: "gMfBdVclpInoSNbxcfTl8pVl",
+            app_id: "64DvmDlqAIRXCnfaa3sOqnKq-gzGzoHsz",
+            app_key: "YUldvkv0v8QE3pezuQFUPpDr",
             placeholder: "来吐槽我呀，赶紧的",
             avatar:"mm"
         });
@@ -370,35 +374,9 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="java常用函数收录集"></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyueQTa6R",
-        conf: "prod_b1a52aaa44b33b4d3f2b9b99134f6939"
-    });
-</script>
 
   
 
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//ihtcboy.com/script/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "https://jacksonary.github.io/2019/05/16/java常用函数收录集/",
-  owner: 'Jacksonary',
-  repo: 'jacksonary.github.io',
-  oauth: {
-    client_id: 'efa61be52e92ec080bd2',
-    client_secret: '77c0709154cb79198bbdcf9a7b568be293b94065',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
   
 
           </div>
@@ -408,7 +386,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-right">
-    		&copy; 2019 Weiguo Liu
+    		&copy; 2021 Weiguo Liu
     	</div>
 		<!--
       	<div class="footer-right">
@@ -428,7 +406,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -443,7 +421,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script><script type="text/javascript"> if(true){    var leancloud_app_id  = 'JEriszm6sFPewt3EThd5L6u9-gzGzoHsz';    var leancloud_app_key = 'gMfBdVclpInoSNbxcfTl8pVl';    AV.init({        appId: leancloud_app_id,        appKey: leancloud_app_key    });    var pageViewsLength = $(".pageViews").length;    var isIndex = $(".pageViews").length > 1 ?true:false;    function showTime() {        var Counter = AV.Object.extend("Counter");        if(isIndex){            $(".pageViews").each(function(){                showPageViewsNum($(this),Counter);                addPageViewsNum($(this));            });        }else{            showPageViewsNum($(".pageViews"),Counter);            addPageViewsNum($(".pageViews"));        }    }    //显示阅读量    function showPageViewsNum(ele,Counter){        var query = new AV.Query("Counter");        var url = ele.attr('id').trim();            query.equalTo("words", url);            query.count().then(function (number) {                $(document.getElementById(url)).text(number?  number : '0');            }, function (error) {                 $(document.getElementById(url)).text('0');            });    }    //追加阅读量    function addPageViewsNum(ele){        var url = ele.attr('id').trim();        var Counter = AV.Object.extend("Counter");        var query = new Counter;        query.save({            words: url        }).then(function (object) {});    }    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环        showTime();    }}</script> 
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script><script type="text/javascript"> if(true){    var leancloud_app_id  = '64DvmDlqAIRXCnfaa3sOqnKq-gzGzoHsz';    var leancloud_app_key = 'YUldvkv0v8QE3pezuQFUPpDr';    AV.init({        appId: leancloud_app_id,        appKey: leancloud_app_key    });    var pageViewsLength = $(".pageViews").length;    var isIndex = $(".pageViews").length > 1 ?true:false;    function showTime() {        var Counter = AV.Object.extend("Counter");        if(isIndex){            $(".pageViews").each(function(){                showPageViewsNum($(this),Counter);                addPageViewsNum($(this));            });        }else{            showPageViewsNum($(".pageViews"),Counter);            addPageViewsNum($(".pageViews"));        }    }    //显示阅读量    function showPageViewsNum(ele,Counter){        var query = new AV.Query("Counter");        var url = ele.attr('id').trim();            query.equalTo("words", url);            query.count().then(function (number) {                $(document.getElementById(url)).text(number?  number : '0');            }, function (error) {                 $(document.getElementById(url)).text('0');            });    }    //追加阅读量    function addPageViewsNum(ele){        var url = ele.attr('id').trim();        var Counter = AV.Object.extend("Counter");        var query = new Counter;        query.save({            words: url        }).then(function (object) {});    }    if(pageViewsLength){ //此处判断等于 1 在执行 可去除循环        showTime();    }}</script> 
 
 
 
@@ -460,17 +438,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -491,7 +477,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">自说自话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,11 +489,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">UML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">GraphEasy</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ASCII Flow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">撒欢</a>
               </li>
             
             <div class="clearfix"></div>
@@ -553,6 +551,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://github.com/Jacksonary" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Github</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
