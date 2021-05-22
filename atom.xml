@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jacksonary.github.io/"/>
-  <updated>2021-05-22T12:55:03.323Z</updated>
+  <updated>2021-05-22T14:26:29.096Z</updated>
   <id>https://jacksonary.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker 部署 MySQL 主备架构</title>
+    <link href="https://jacksonary.github.io/2021/04/20/docker-%E9%83%A8%E7%BD%B2-MySQL-%E4%B8%BB%E5%A4%87%E6%9E%B6%E6%9E%84/"/>
+    <id>https://jacksonary.github.io/2021/04/20/docker-部署-MySQL-主备架构/</id>
+    <published>2021-04-20T11:27:00.000Z</published>
+    <updated>2021-05-22T14:26:29.096Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>docker 镜像为 <code>8.0.24</code>，MySQL 版本为 8.0.24，若无法拉取可以用我这个 <code>docker pull registry.cn-shanghai.aliyuncs.com/hhu/mysql:wgl_8.0.24</code></p></blockquote><p>&emsp;部署 master 和 slave，可以顺次扩展 slave，流程如下：<a id="more"></a></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 部署 master</span></span><br><span class="line">docker run --name mysql-master --privileged=<span class="literal">true</span> -v D:\tmp\docker\mysql\master\data:/var/lib/mysql -v D:\tmp\docker\mysql\master\conf\my.cnf:/etc/mysql/my.cnf -v D:\tmp\docker\mysql\master\mysql-files:/var/lib/mysql-files -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署 slave</span></span><br><span class="line">docker run --name mysql-slave1 --privileged=<span class="literal">true</span> -v D:\tmp\docker\mysql\slave1\data:/var/lib/mysql -v D:\tmp\docker\mysql\slave1\conf\my.cnf:/etc/mysql/my.cnf -v D:\tmp\docker\mysql\master\mysql-files:/var/lib/mysql-files -p 3308:3306 --link mysql-master:master -e MYSQL_ROOT_PASSWORD=root -d mysql</span><br></pre></td></tr></table></figure><p>上述参数做如下说明：</p><ul><li><code>--name</code>：指定运行之后的容器的名称为mysql-master；</li><li><code>--privileged</code>：指定了当前容器是否真正的具有root权限，所谓的root权限是指具有宿主机的root权限，而不仅仅只是在容器内部有root权限；</li><li><code>-v</code>：指定了容器中指定目录挂载到宿主机上的某个目录，这样做的目的在于防止容器中配置的数据丢失，因为docker容器在重启之后是不会保留前一次在其内部运行的相关数据的；<ul><li><code>-v D:\tmp\docker\mysql\master\data:/var/lib/mysql</code>：挂载mysql的data目录，作外部持久化；</li><li><code>-v D:\tmp\docker\mysql\master\conf\my.cnf:/etc/mysql/my.cnf</code>：挂载mysql的配置文件，当然如果是我们自己打的包就不用了，因为像这种配置文件完全调好后直接打包到镜像中；</li><li><code>-v D:\tmp\docker\mysql\master\mysql-files:/var/lib/mysql-files</code>：正常不需要挂载，在启动出现异常<code>Failed to access directory for --secure-file-priv. Please make sure that directory exists and is accessible by MySQL Server. Supplied value : /var/lib/mysql-files</code>，此时需要额外挂载<code>mysql-files</code>目录；</li></ul></li><li><code>-p</code>：表示宿主机上的某个端口映射到docker容器内的某个端口，这里也就是将宿主机的3307、3308端口映射到容器内部的3306端口；</li><li><code>-e</code>：表示指定当前容器运行的环境变量，该变量一般在容器内部程序的配置文件中使用，而在外部运行容器指定该参数。这里的MYSQL_ROOT_PASSWORD表示容器内部的MySQL的启动密码；</li><li><code>-d</code>：参数指定了当前容器是在后台运行；</li><li><code>--link</code>：用来链接2个容器，使得源容器（被链接的容器）和接收容器（主动去链接的容器）之间可以互相通信，并且接收容器可以获取源容器的一些数据，如源容器的环境变量；</li></ul><p>&emsp;正常启动后，进入 master 和 slave 各个容器，登录 MySQL，发现提示异常：<code>[Warning] World-writable config file &#39;/etc/mysql/my.cnf&#39; is ignored</code>，这是因为我们挂载的配置文件是全局可写的，MySQL Server 不认可，此时我们改一下挂载的配置文件读写权限即可，我这里是win10，直接右击文件<code>D:\tmp\docker\mysql\master\conf\my.cnf</code>修改 属性 -&gt; 属性 -&gt; 只读 即可，重启上述容器<code>docker restart mysql-master</code>、<code>docker restart mysql-slave</code>即可。</p><p>&emsp;配置主备同步：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录 mysql</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line"><span class="comment"># 查询master的binlog日志信息</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">master</span> <span class="keyword">status</span>;</span><br><span class="line"><span class="comment"># 在各个slave上配置master的连接信息，master_file和master_Position就是上面插叙的结果</span></span><br><span class="line"><span class="keyword">change</span> <span class="keyword">master</span> <span class="keyword">to</span> master_host=<span class="string">'master'</span>, master_user=<span class="string">'root'</span>, master_password=<span class="string">'root'</span>, master_port=<span class="number">3306</span>, master_log_file=<span class="string">'[master_file]'</span>, master_log_pos=[master_Position], master_connect_retry=<span class="number">30</span>;</span><br><span class="line"><span class="comment"># 在各个备库上开启主备复制</span></span><br><span class="line"><span class="keyword">start</span> <span class="keyword">slave</span>;</span><br><span class="line"><span class="comment"># 查看开启状态，只要看到两个参数Slave_IO_Running和Slave_SQL_Running都为YES，则表示复制是正常进行的</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">slave</span> <span class="keyword">status</span>;</span><br></pre></td></tr></table></figure><p>若<code>start slave</code>执行失败出现<code>ERROR 1872 (HY000): Slave failed to initialize relay log info structure from the repository</code>，重置一下该slave即可<code>reset slave</code>，然后再执行<code>start slave</code>。</p><p><strong>附</strong>：</p><p>主备的配置文件如下（备库自己修改server-id）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">#设置3306端口</span><br><span class="line">port = 3306</span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">#basedir=D:\Program Files\MySQL\mysql-8.0.20</span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">#datadir=D:\Program Files\MySQL\mysql-8.0.20\data</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"># 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line"># binlog配置</span><br><span class="line"># 开启binlog，指定basefileName</span><br><span class="line"># mysql会在baseName后面追加数值来生成新的binlog日志，在服务启动或重启、flush日志、当前日志文件达到max_binlog_size的值都会生成新的日志文件</span><br><span class="line">log-bin=mysql-binlog</span><br><span class="line"># 和log-bin类似，但可以指定路径，实测未生效</span><br><span class="line">#log_bin_basename=D:\Program Files\MySQL\mysql-8.0.20\data\logs\binlog\</span><br><span class="line"># 默认为 log-bin 后面追加 .index，可以不设</span><br><span class="line">log-bin-index=mysql-binlog.index</span><br><span class="line"># binlog模式设置为row</span><br><span class="line">binlog-format=ROW</span><br><span class="line"># 单个binlog文件的大小，单位字节，默认1073741824（即1G），但不是绝对的，binlog在记录事务时，是不会将一个事务进行分割的，总是以一个整体的形式来记录</span><br><span class="line">max_binlog_size=1073741824</span><br><span class="line"># 8.0以下版本必须在开启binlog时必设，8.0及以上默认为1，但不显式设置，虽可以启动但会出现提示信息</span><br><span class="line">server_id=1</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;docker 镜像为 &lt;code&gt;8.0.24&lt;/code&gt;，MySQL 版本为 8.0.24，若无法拉取可以用我这个 &lt;code&gt;docker pull registry.cn-shanghai.aliyuncs.com/hhu/mysql:wgl_8.0.24&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;emsp;部署 master 和 slave，可以顺次扩展 slave，流程如下：
+    
+    </summary>
+    
+      <category term="学习" scheme="https://jacksonary.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="docker" scheme="https://jacksonary.github.io/tags/docker/"/>
+    
+      <category term="mysql" scheme="https://jacksonary.github.io/tags/mysql/"/>
+    
+      <category term="主备" scheme="https://jacksonary.github.io/tags/%E4%B8%BB%E5%A4%87/"/>
+    
+  </entry>
   
   <entry>
     <title>UML学习记录</title>
@@ -107,6 +136,29 @@
       <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
     
       <category term="旅行" scheme="https://jacksonary.github.io/tags/%E6%97%85%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker学习笔记</title>
+    <link href="https://jacksonary.github.io/2018/01/30/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://jacksonary.github.io/2018/01/30/docker学习笔记/</id>
+    <published>2018-01-30T14:27:00.000Z</published>
+    <updated>2021-05-22T14:32:42.941Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Docker的首个Demo"><a href="#Docker的首个Demo" class="headerlink" title="Docker的首个Demo"></a>Docker的首个Demo</h2><p>运行命令<code>docker run [容器] [执行命令]</code>，比如：</p><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> ubuntu:15.10 /bin/<span class="built_in">echo</span> <span class="string">"Hello world"</span></span></span><br></pre></td></tr></table></figure><a id="more"></a><p><code>ubuntu:15.10</code>是指定了docker运行的容器镜像，后面的<code>/bin/echo &quot;Hello world&quot;</code>则是指在容器中运行的命令(在运行的镜像中执行可能更好理解一些)。</p><h2 id="容器的交互和运行状态控制"><a href="#容器的交互和运行状态控制" class="headerlink" title="容器的交互和运行状态控制"></a>容器的交互和运行状态控制</h2><p>&emsp;通过参数<code>-i</code>和<code>-t</code>可以让docker运行的容器具备交互能力(这里的交互可能就理解为终端工具更合适一点，比如windows中的cmd和powershell或Linux中的字符界面)，如：</p><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -i -t ubuntu:15.10 /bin/bash</span></span><br></pre></td></tr></table></figure><p>意为在<code>ubuntu:15.10</code>容器中运行命令<code>ubuntu:15.10</code>，但是前面提供了两个参数<code>-i</code>和<code>-t</code>，其中：</p><ul><li><code>-i</code>：在新的容器中指定一个伪终端或终端；</li><li><code>-t</code>：允许对容器的标准(STDIN)进行交互。</li></ul><p>最直观的感受就是“哎呀，我好像进入到了ubuntu的Linux系统中了”，可以通过<code>exit</code>或者<code>CTRL+D</code>退出容器。</p><p>&emsp;上面可以显式的运行镜像容器，同样也可以让容器以一种后台进程的方式运行：</p><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d ubuntu:15.10 /bin/sh -c <span class="string">"while true; do echo hello world; sleep 1; done"</span></span></span><br></pre></td></tr></table></figure><p>启动后，容器直接在后台运行，并不会再像之前那样输出<code>HelloWorld</code>，而是反馈我们一个刚刚运行容器的ID串(每个启动的容器都具备唯一的标识串)，然后具体的任务在后台容器中执行我们不能显式的看到输出，通过<code>docker ps</code>可以查看到启动的容器详细信息(容器的ID，镜像的名字，在容器中执行的命令，容器创建的时间，启用的端口号和自动分配的容器名字信息)，如果想显式的查看容器内部的输出结果可以使用<code>docker logs [容器ID串缩写或完整的容器名]</code>命令查看，这里的ID串缩写就是容器ID从前往后写，直到可以用缩写可以<font color="red">唯一匹配</font>到运行容器即可，如果写容器名字names就必须写全名。</p><p>&emsp;在容器运行后，可以根据自己需求来停止容器，方式：<code>docker stop [容器ID串缩写或完整的容器名]</code></p><h2 id="在容器中运行WEB应用"><a href="#在容器中运行WEB应用" class="headerlink" title="在容器中运行WEB应用"></a>在容器中运行WEB应用</h2><p>&emsp;先从官网上拉取一个WEB应用<code>training/webapp</code>镜像(阿里云上没有，只能从官网拉)，拉取到本地后直接运行即可:</p><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">docker pull training/webapp</span><br><span class="line"><span class="comment"># 运行容器</span></span><br><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -P training/webapp python app.py</span></span><br></pre></td></tr></table></figure><ul><li><code>-d</code>：在前面已经说过，让容器在后台运行；</li><li><code>-P</code>：让容器内部使用的端口映射到当前主机上。</li></ul><p>查看容器运行状态<code>docker ps</code>，可以查看到端口的映射情况：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PORTS</span><br><span class="line">0.0.0.0:32769-&gt;5000/tcp</span><br></pre></td></tr></table></figure><p>上述PORTS的情况就是将容器内部使用的5000端口映射到本机的32679端口，在容器启动后可以直接在本机的浏览器中查看该端口即可访问web应用。</p><p>【注意】如果在启动docker时使用<code>-P</code>参数，但却没有手动指定本机的端口号，那么容器内部使用的端口号往外映射时将会是本机中随机的端口号，但是我们可以用<code>-p</code>参数(小写，前面的<code>-P</code>是大写)手动指定映射本机的端口号，比如还是上面的应用，将其使用的5000端口映射到本机的8080端口：<code>docker run -d -p 8080:5000 training/webapp python app.py</code>，注意写法<code>-p [映射的本机端口]:[容器内部使用的端口]</code></p><h2 id="网络端口的映射"><a href="#网络端口的映射" class="headerlink" title="网络端口的映射"></a>网络端口的映射</h2><p>&emsp;在应用利用<code>-d</code>参数启动后，查看应用的端口映射可以通过原始的<code>docker ps</code>完整的查询所有应用的详细情况(包括端口映射)，也可以通过<code>docker port [id串缩写或镜像名字的全称]</code>来查看指定镜像应用的端口号。</p><h2 id="web应用日志的查看"><a href="#web应用日志的查看" class="headerlink" title="web应用日志的查看"></a>web应用日志的查看</h2><p>&emsp;前面用来查看后台容器进程的输出结果，实际就是查web应用的程序日志：<code>docker logs [容器ID串缩写或容器完整名字]</code></p><h2 id="查看web应用容器的进程"><a href="#查看web应用容器的进程" class="headerlink" title="查看web应用容器的进程"></a>查看web应用容器的进程</h2><ul><li>查看容器内部运行的进程：<code>docker top [容器ID串缩写或容器完整名字]</code>；</li><li>查看容器底层信息：<code>docker inspect [容器ID串缩写或容器完整名字]</code>，返JSON记录Docker容器的配置和状态信息。</li><li>查看最后一次创建的容器：<code>docker ps -l</code>；</li><li>重启当前运行的docker容器：<code>docker restart [容器ID串缩写或容器完整名字]</code>，注意当前是活动的；</li></ul><h2 id="移除不需要的容器"><a href="#移除不需要的容器" class="headerlink" title="移除不需要的容器"></a>移除不需要的容器</h2><p>&emsp;移除不需要的容器：<code>docker rm [容器ID串缩写或容器完整名字]</code>。这里记录一下容器和镜像的概念，前面有所混淆，包括现在还是有点迷糊，比如<code>docker run</code>和<code>docker start</code>有啥区别，前者是<code>docker create</code>(即先利用镜像创建Docker容器)再<code>docker start</code>(运行容器)，所以<code>docker run</code>包含了两个步骤，而且它是针对镜像而言的；<code>docker start</code>是直接运行docker容器，所以它是必须只能对容器操作，而不能直接对镜像操作，有点扰人，想一下子还是可以明白的。</p><p>&emsp;运行态容器（running container）被定义为一个可读写的统一文件系统加上隔离的进程空间和包含其中的进程；镜像（Image）就是一堆只读（read-only layer）的统一视角。容器的最上面那一层是可读可写的，而镜像都是只读的。通过<code>docker ps -a</code>可以查看到所有的容器(包含停止的)，通过<code>docker images</code>可查看到所有镜像，镜像可以只有一个，但是通过这一个镜像可以创建多个docker容器。</p><h2 id="镜像的运行和拉取"><a href="#镜像的运行和拉取" class="headerlink" title="镜像的运行和拉取"></a>镜像的运行和拉取</h2><p>&emsp;其实<code>docker run</code>本身会使用指定的镜像创建docker容器，如果本地没有指定的镜像会自动从远程仓库中拉取然后再创建，但也可以使用命令<code>docker pull [镜像名]</code>提前手动拉取镜像，如果不指定tag，自动拉取latest版本；其中镜像名可以通过镜像搜索获取，镜像搜索命令<code>docker search [搜索关键字]</code>。</p><h2 id="镜像的更新"><a href="#镜像的更新" class="headerlink" title="镜像的更新"></a>镜像的更新</h2><p>&emsp;docker可对已经拉取的镜像进行更新操作，首先进入一个镜像创建的容器内部(即开启一个虚终端，允许接受输入流进行交互，<code>-t</code>和<code>-i</code>)，详细如下：</p><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行需更新镜像的容器，打开伪终端</span></span><br><span class="line">docker <span class="keyword">run</span><span class="bash"> -t -i ubuntu</span></span><br><span class="line"><span class="comment"># 更新镜像</span></span><br><span class="line">apt-get update</span><br><span class="line"><span class="comment"># 更新完后退出伪终端</span></span><br><span class="line">exit</span><br><span class="line"><span class="comment"># 提交更新后的镜像</span></span><br><span class="line">docker commit -m=<span class="string">"has update"</span> -a=<span class="string">"weiguoliu"</span> <span class="number">797</span>a5aa8432d weiguoliu/ubuntu:v2</span><br></pre></td></tr></table></figure><p>最后一条提交镜像的命令中，<code>-m</code>表示提交的镜像的说明信息，<code>-a</code>表示指定镜像的作者，再后面的<code>797a5aa8432d</code>表示是容器的ID（就是进入伪终端后<code>root@</code>后面跟的那一串东西），再后面的<code>weiguoliu/ubuntu:v2</code>则表示创建目标镜像的名字。使用<code>docker images</code>可以查看到虚拟机中刚创建的镜像。</p><p>镜像文件：C:\Program Files\Docker\Docker\Resources\docker-for-win.iso</p><p>虚拟硬盘文件的默认文件夹：C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks</p><p>虚拟机：C:\ProgramData\Microsoft\Windows\Hyper-V</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Docker的首个Demo&quot;&gt;&lt;a href=&quot;#Docker的首个Demo&quot; class=&quot;headerlink&quot; title=&quot;Docker的首个Demo&quot;&gt;&lt;/a&gt;Docker的首个Demo&lt;/h2&gt;&lt;p&gt;运行命令&lt;code&gt;docker run [容器] [执行命令]&lt;/code&gt;，比如：&lt;/p&gt;
+&lt;figure class=&quot;highlight docker&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker &lt;span class=&quot;keyword&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; ubuntu:15.10 /bin/&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Hello world&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://jacksonary.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="docker" scheme="https://jacksonary.github.io/tags/docker/"/>
     
   </entry>
   
@@ -411,50 +463,6 @@
     <summary type="html">
     
       &lt;p&gt;有些时候，我的脑袋里总是会装些乱七八糟的东西，譬如此刻我突然写下这篇随笔。说来也挺奇怪的，自从读初中那会儿，拿起笔开始写些意识流式的心情，再到读高中时老师在上课时，
-    
-    </summary>
-    
-      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搁笔的年代</title>
-    <link href="https://jacksonary.github.io/2012/07/05/%E6%90%81%E7%AC%94%E7%9A%84%E5%B9%B4%E4%BB%A3/"/>
-    <id>https://jacksonary.github.io/2012/07/05/搁笔的年代/</id>
-    <published>2012-07-05T06:01:00.000Z</published>
-    <updated>2021-05-22T12:52:38.338Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;当时间在我们面前日复一日的延伸开去，有些东西就会悄然失去，而太多的人把生命视作当然，却俨然不知数年后的今天貌似也是必然，就像哲人们所说的那样，我们并不感激我们所拥有的，直到我们已无可挽回的丧失了它们。<a id="more"></a><br>这样的黑夜，在这个不眠的的世界里，早已被人为的光明撕裂得丢了灵魂，唯有幽凉的夜月不辨妍蚩，在灰暗的天空中观望。站在走廊上，听一首歌，听一首感动到内心颤动不止的老歌，如潮起，如雪落，如花开，那是源于亘古记忆中感动。此刻，连风，都难以穿透时间凝固的墙壁，坚硬无比。</p><p>&emsp;秋高雁冷的季节，沉默是我那一段时间最多的表达。曾立足大河前感叹人世兴衰，看来往的大船小舟，听流水亲吻岸际的声响，那是齿噬心灵的声音啊！我俯首河畔，请容许我这个落魄的流浪者放肆我的忧伤吧！我知道你可以无限制的收容古往今来的一切顺逆之人的泪水。岁月里藏着浅浅的泪滴，为什么直到如今我才感觉拥有了你？转眼望向那浓的化不开的黄昏，直至黑夜湮没我的身影。</p><p>&emsp;三月飘雪的清晨，只身彳亍街头，任风把我的头发吹的凌乱，然后夹杂着似水似霜的雪花，一头乱发，几句疯语，我曾说过我喜欢这样绝尘的生活，我愿意在这窅然的生命中永远做一个毅行者，拥有最朴素的人生和最遥远选的梦想，即使天寒地冻，路远马亡，我愿意去追求最不着边际，最不靠谱梦想！</p><p>&emsp;我的人生中有许多不完整的旋律，直至经历过将死的滋味，才明白这些只不过是我人生中本该有的部分，不可避免。深谙世俗，痛恨苟颜的欢笑和虚伪的硁硁之颜。不愿久留伤心之地，所以选择没有目的的远行。不去感受人情冷暖，亦不去想人生沉浮，对于岁月，那种刀绞般的疼痛渗透到身体的每一个部位、器官和细胞，我不予回击，我承认在你面前算是彻彻底底的败了，我不想再为漫涣的记忆再做什么挽留，毕竟在这样一个塌陷的时代，我不想留下侘傺时的蹀爕。</p><p>&emsp;偶得闲暇，会去看看久念的北校，会去翻一翻年轻时笔袋里装满回忆的小纸条，会去读一读年轻时写下的一些关于那个纯白的年代的最纯洁的心情，小心翼翼的翻开扉页，我含着泪，一读再读，幻想某年，暗黄的白炽灯下，梳我初白的发，或许那也是一种怀念吧。</p><p>&emsp;当晨曦穿过纱窗，折射出葳蕤璀璨的光芒时，我独坐一隅，反思过往，在脑海中相逢那早已辨不清的人和事，好像一场滂沱大雨淋湿的旧照片，再也回不去最初的模样……</p><p>&emsp;几缕愁丝，在经历过夏雨、秋霜、朔风的重叠后，终于决定在这盛夏的日子里结束文字的蔓延，就让这夐古的风吹落我的笔吧，我愿意在烈日下残酷我的生活。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;当时间在我们面前日复一日的延伸开去，有些东西就会悄然失去，而太多的人把生命视作当然，却俨然不知数年后的今天貌似也是必然，就像哲人们所说的那样，我们并不感激我们所拥有的，直到我们已无可挽回的丧失了它们。
-    
-    </summary>
-    
-      <category term="随笔" scheme="https://jacksonary.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="自说自话" scheme="https://jacksonary.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>失明</title>
-    <link href="https://jacksonary.github.io/2012/07/05/%E5%A4%B1%E6%98%8E/"/>
-    <id>https://jacksonary.github.io/2012/07/05/失明/</id>
-    <published>2012-07-05T05:59:00.000Z</published>
-    <updated>2021-05-22T12:53:45.635Z</updated>
-    
-    <content type="html"><![CDATA[<div class="btag bct hd fc05 fc11 nbw-blog"><p align="center"><font size="4"><strong>&nbsp;&nbsp;&nbsp;&nbsp; 偶然的某一天<a id="more"></a><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;风把她的孩子遗失在我的眼睛里</strong></font></p>  <p align="center"><br><br><font size="4"><strong>&nbsp;&nbsp;&nbsp;&nbsp; 于是，从此<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 我的眼睛开始日夜不停地流泪&nbsp;&nbsp;流泪</strong></font></p>  <p align="center"><br><font size="4"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp; 直至一个醒来的清晨<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp; 才发现<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 原本模糊的双眼<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 满是黑暗……<br></strong></font></p><wbr></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div class=&quot;btag bct hd fc05 fc11 nbw-blog&quot;&gt;&lt;p align=&quot;center&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 偶然的某一天
     
     </summary>
     
