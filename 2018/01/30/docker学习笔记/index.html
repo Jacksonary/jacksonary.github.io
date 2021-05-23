@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -60,7 +60,7 @@ var _hmt = _hmt || [];
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Weiguo Liu</a></h1>
-		  <img border="0" src="http://cc.amazingcounters.com/counter.php?i=3228492&c=9685789" alt="这货的访问量">
+		  <img border="0" src="http://cc.amazingcounters.com/counter.php?i=3228492&c=9685789" alt="这货的访问量"></a>
 		</hgroup>
 		
 
@@ -203,11 +203,11 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Docker的首个Demo"><a href="#Docker的首个Demo" class="headerlink" title="Docker的首个Demo"></a>Docker的首个Demo</h2><p>运行命令<code>docker run [容器] [执行命令]</code>，比如：</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> ubuntu:15.10 /bin/echo "Hello world"</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> ubuntu:15.10 /bin/<span class="built_in">echo</span> <span class="string">"Hello world"</span></span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p><code>ubuntu:15.10</code>是指定了docker运行的容器镜像，后面的<code>/bin/echo &quot;Hello world&quot;</code>则是指在容器中运行的命令(在运行的镜像中执行可能更好理解一些)。</p>
 <h2 id="容器的交互和运行状态控制"><a href="#容器的交互和运行状态控制" class="headerlink" title="容器的交互和运行状态控制"></a>容器的交互和运行状态控制</h2><p>&emsp;通过参数<code>-i</code>和<code>-t</code>可以让docker运行的容器具备交互能力(这里的交互可能就理解为终端工具更合适一点，比如windows中的cmd和powershell或Linux中的字符界面)，如：</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -i -t ubuntu:15.10 /bin/bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -i -t ubuntu:15.10 /bin/bash</span></span><br></pre></td></tr></table></figure>
 <p>意为在<code>ubuntu:15.10</code>容器中运行命令<code>ubuntu:15.10</code>，但是前面提供了两个参数<code>-i</code>和<code>-t</code>，其中：</p>
 <ul>
 <li><code>-i</code>：在新的容器中指定一个伪终端或终端；</li>
@@ -215,11 +215,11 @@ var _hmt = _hmt || [];
 </ul>
 <p>最直观的感受就是“哎呀，我好像进入到了ubuntu的Linux系统中了”，可以通过<code>exit</code>或者<code>CTRL+D</code>退出容器。</p>
 <p>&emsp;上面可以显式的运行镜像容器，同样也可以让容器以一种后台进程的方式运行：</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d ubuntu:15.10 /bin/sh -c <span class="string">"while true; do echo hello world; sleep 1; done"</span></span></span><br></pre></td></tr></table></figure>
 <p>启动后，容器直接在后台运行，并不会再像之前那样输出<code>HelloWorld</code>，而是反馈我们一个刚刚运行容器的ID串(每个启动的容器都具备唯一的标识串)，然后具体的任务在后台容器中执行我们不能显式的看到输出，通过<code>docker ps</code>可以查看到启动的容器详细信息(容器的ID，镜像的名字，在容器中执行的命令，容器创建的时间，启用的端口号和自动分配的容器名字信息)，如果想显式的查看容器内部的输出结果可以使用<code>docker logs [容器ID串缩写或完整的容器名]</code>命令查看，这里的ID串缩写就是容器ID从前往后写，直到可以用缩写可以<font color="red">唯一匹配</font>到运行容器即可，如果写容器名字names就必须写全名。</p>
 <p>&emsp;在容器运行后，可以根据自己需求来停止容器，方式：<code>docker stop [容器ID串缩写或完整的容器名]</code></p>
 <h2 id="在容器中运行WEB应用"><a href="#在容器中运行WEB应用" class="headerlink" title="在容器中运行WEB应用"></a>在容器中运行WEB应用</h2><p>&emsp;先从官网上拉取一个WEB应用<code>training/webapp</code>镜像(阿里云上没有，只能从官网拉)，拉取到本地后直接运行即可:</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">docker pull training/webapp</span><br><span class="line"><span class="comment"># 运行容器</span></span><br><span class="line">docker <span class="keyword">run</span> -d -P training/webapp python app.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">docker pull training/webapp</span><br><span class="line"><span class="comment"># 运行容器</span></span><br><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -P training/webapp python app.py</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>-d</code>：在前面已经说过，让容器在后台运行；</li>
 <li><code>-P</code>：让容器内部使用的端口映射到当前主机上。</li>
@@ -240,7 +240,7 @@ var _hmt = _hmt || [];
 <p>&emsp;运行态容器（running container）被定义为一个可读写的统一文件系统加上隔离的进程空间和包含其中的进程；镜像（Image）就是一堆只读（read-only layer）的统一视角。容器的最上面那一层是可读可写的，而镜像都是只读的。通过<code>docker ps -a</code>可以查看到所有的容器(包含停止的)，通过<code>docker images</code>可查看到所有镜像，镜像可以只有一个，但是通过这一个镜像可以创建多个docker容器。</p>
 <h2 id="镜像的运行和拉取"><a href="#镜像的运行和拉取" class="headerlink" title="镜像的运行和拉取"></a>镜像的运行和拉取</h2><p>&emsp;其实<code>docker run</code>本身会使用指定的镜像创建docker容器，如果本地没有指定的镜像会自动从远程仓库中拉取然后再创建，但也可以使用命令<code>docker pull [镜像名]</code>提前手动拉取镜像，如果不指定tag，自动拉取latest版本；其中镜像名可以通过镜像搜索获取，镜像搜索命令<code>docker search [搜索关键字]</code>。</p>
 <h2 id="镜像的更新"><a href="#镜像的更新" class="headerlink" title="镜像的更新"></a>镜像的更新</h2><p>&emsp;docker可对已经拉取的镜像进行更新操作，首先进入一个镜像创建的容器内部(即开启一个虚终端，允许接受输入流进行交互，<code>-t</code>和<code>-i</code>)，详细如下：</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行需更新镜像的容器，打开伪终端</span></span><br><span class="line">docker <span class="keyword">run</span> -t -i ubuntu</span><br><span class="line"><span class="comment"># 更新镜像</span></span><br><span class="line">apt-get update</span><br><span class="line"><span class="comment"># 更新完后退出伪终端</span></span><br><span class="line">exit</span><br><span class="line"><span class="comment"># 提交更新后的镜像</span></span><br><span class="line">docker commit -m=<span class="string">"has update"</span> -a=<span class="string">"weiguoliu"</span> <span class="number">797</span>a5aa8432d weiguoliu/ubuntu:v2</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行需更新镜像的容器，打开伪终端</span></span><br><span class="line">docker <span class="keyword">run</span><span class="bash"> -t -i ubuntu</span></span><br><span class="line"><span class="comment"># 更新镜像</span></span><br><span class="line">apt-get update</span><br><span class="line"><span class="comment"># 更新完后退出伪终端</span></span><br><span class="line">exit</span><br><span class="line"><span class="comment"># 提交更新后的镜像</span></span><br><span class="line">docker commit -m=<span class="string">"has update"</span> -a=<span class="string">"weiguoliu"</span> <span class="number">797</span>a5aa8432d weiguoliu/ubuntu:v2</span><br></pre></td></tr></table></figure>
 <p>最后一条提交镜像的命令中，<code>-m</code>表示提交的镜像的说明信息，<code>-a</code>表示指定镜像的作者，再后面的<code>797a5aa8432d</code>表示是容器的ID（就是进入伪终端后<code>root@</code>后面跟的那一串东西），再后面的<code>weiguoliu/ubuntu:v2</code>则表示创建目标镜像的名字。使用<code>docker images</code>可以查看到虚拟机中刚创建的镜像。</p>
 <p>镜像文件：C:\Program Files\Docker\Docker\Resources\docker-for-win.iso</p>
 <p>虚拟硬盘文件的默认文件夹：C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks</p>
@@ -500,10 +500,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">GraphEasy</a>
               </li>
              
@@ -512,11 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">撒欢</a>
+                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
+                <a href="javascript:void(0)" class="js-tag color3">撒欢</a>
               </li>
             
             <div class="clearfix"></div>
@@ -524,7 +520,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
