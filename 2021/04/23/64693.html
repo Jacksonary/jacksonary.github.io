@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/cf7d017565dee783807f5d7447b0fc9e.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0e6028fb9f09b261555198f159e4f6e3.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/3bf0c7c861f168eeccba673e96f5802f.png">
-<meta property="og:updated_time" content="2021-05-23T06:45:24.660Z">
+<meta property="og:updated_time" content="2021-05-23T12:04:03.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InnoDB存储引擎">
 <meta name="twitter:description" content="1. MySQL 逻辑架构&amp;emsp;整体的逻辑架构分为 Server 层和引擎层两部分。其中 Server 层又细分为连接器和核心层，其中连接器那一层并非MySQL独有，大部分的C/S工具都有类似的架构（比如连接处理、授权认证、安全等），Server 层的第二层是 MySQL 独有的，MySQL 很多核心功能都在这一层，包括查询解析、分析、优化、缓存以及内置函数，还有所有跨存储引擎的功能也在这一">
@@ -210,7 +210,9 @@ var _hmt = _hmt || [];
         <h2 id="1-MySQL-逻辑架构"><a href="#1-MySQL-逻辑架构" class="headerlink" title="1. MySQL 逻辑架构"></a>1. MySQL 逻辑架构</h2><p>&emsp;整体的逻辑架构分为 Server 层和引擎层两部分。其中 Server 层又细分为连接器和核心层，其中连接器那一层并非MySQL独有，大部分的C/S工具都有类似的架构（比如连接处理、授权认证、安全等），Server 层的第二层是 MySQL 独有的，MySQL 很多核心功能都在这一层，包括查询解析、分析、优化、缓存以及内置函数，还有所有跨存储引擎的功能也在这一层实现（包含存储过程、视图等等）。<a id="more"></a>服务器和存储引擎通过 API 进行通信，存储引擎不会去解析 SQL，它只负责数据的存储和读取。具体逻辑架构如下：</p>
 <p><img src="https://img-blog.csdnimg.cn/20210423205944554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phY2tzb25hcnk=,size_16,color_FFFFFF,t_70#pic_center" alt="MySQL的逻辑架构"></p>
 <h2 id="2-物理存储"><a href="#2-物理存储" class="headerlink" title="2. 物理存储"></a>2. 物理存储</h2><p>&emsp;在 MySQL 的文件系统中，MySQL 的每个数据库（也称为schema）都会以<code>data</code>目录下的一个子目录的形式存在（库名即文件夹名），然后各个数据库里面的表定义会以<code>[table_name].frm</code>的文件形式存储在所属的数据库目录中（但现在的8.0+版本中已经取消了<code>*.frm</code>文件，只有表空间文件<code>.ibd</code>）。另外 schema 的定义和数据库的定义差不多，在 MySQL 中，对 <code>DATABASE</code> 的操作完全可以使用 <code>SCHEMA</code> 来替换操作（如<code>create database test</code>和<code>create schema test</code>效果一样，都是创建一个test库）。</p>
-<h2 id="3-InnoDB-的结构"><a href="#3-InnoDB-的结构" class="headerlink" title="3. InnoDB 的结构"></a>3. InnoDB 的结构</h2><p>&emsp;Innodb是目前MySQL最常用也是最推荐的一种存储引擎，它的架构（8.0版本）如下：<br><img src="https://img-blog.csdnimg.cn/img_convert/cf7d017565dee783807f5d7447b0fc9e.png" alt="Innodb的架构图"><br>&emsp;InnoDB 目前主要优势有：</p>
+<h2 id="3-InnoDB-的结构"><a href="#3-InnoDB-的结构" class="headerlink" title="3. InnoDB 的结构"></a>3. InnoDB 的结构</h2><p>&emsp;Innodb是目前MySQL最常用也是最推荐的一种存储引擎，它的架构（8.0版本）如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/cf7d017565dee783807f5d7447b0fc9e.png" alt="Innodb的架构图"></p>
+<p>&emsp;InnoDB 目前主要优势有：</p>
 <ul>
 <li>它的DML（data manipulation language，即数据操作，主要是增删改查，注意和DDL的区别；DDL-data definition language，即数据定义语言，主要是创库、建表）操作遵ACID模式，且支持事务提交、回滚以及crash恢复；</li>
 <li>行级锁和一致性读的特性提高了其并发能力；</li>
@@ -728,6 +730,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
             
             <div class="clearfix"></div>
