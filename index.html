@@ -277,6 +277,104 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-docker利用阿里云拉取墙外镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/19/docker利用阿里云拉取墙外镜像/">docker利用阿里云拉取墙外镜像</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/2019/07/19/docker利用阿里云拉取墙外镜像/" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/2019/07/19/docker利用阿里云拉取墙外镜像/" class="archive-article-date">
+  	<time datetime="2019-07-19T01:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;K8S很多镜像都是国内无法拉取的，利用阿里的镜像仓库可以很容易拉取这些镜像，我的方式如下：</p>
+<h3 id="1-创建存放Dockerfile的仓库"><a href="#1-创建存放Dockerfile的仓库" class="headerlink" title="1.创建存放Dockerfile的仓库"></a>1.创建存放<code>Dockerfile</code>的仓库</h3><p>&emsp;很简单，直接创建一个仓库用于存放<code>Dockerfile</code>的仓库，比如我的<a href="https://github.com/Jacksonary/docker-ali-autobuild" target="_blank" rel="noopener">docker-ali-autobuild</a>，经过不断摸索，建议文件结构采用如下方式（即 image-name -&gt; version -&gt; Dockerfile）比较合理</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pLnBvc3RpbWcuY2MvcndXd3RSUDUvaW1hZ2UucG5n" alt="目录结构"></p>
+<p><code>Dockerfile</code>中直接使用<code>FROM</code>指令引入我们所需要的镜像即可，比如我这里的<code>quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.25.0</code>。</p>
+<h3 id="2-创建阿里云镜像仓库并绑定代码源"><a href="#2-创建阿里云镜像仓库并绑定代码源" class="headerlink" title="2.创建阿里云镜像仓库并绑定代码源"></a>2.创建阿里云镜像仓库并绑定代码源</h3><p>&emsp;命名空间随便搞，比如我这里就是<code>hhu</code>，然后创建对应镜像的仓库，代码源选择第一步创建的docker-ali-autobuild 即可，过程如下：</p>
+<p>[外链图片转存失败(img-w5BULPmh-1563537714051)(<a href="https://i.postimg.cc/Hnwfg5W9/image.gif)]" target="_blank" rel="noopener">https://i.postimg.cc/Hnwfg5W9/image.gif)]</a></p>
+<p>注：务必选中“使用海外机器构建”。</p>
+<h3 id="3-创建镜像构建任务"><a href="#3-创建镜像构建任务" class="headerlink" title="3.创建镜像构建任务"></a>3.创建镜像构建任务</h3><p>&emsp;由于结构原因我们不能使用阿里云的自动构建的功能，但可以tag的方式来构建，创建tag并推送：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">liuwg-a@liuwg-a-p01 MINGW64 /f/个人相关/docker-ali-autobuild (master)</span><br><span class="line">$ git tag -a release-v0.25.0 -m &quot;nginx-ingress-controller:0.25.0&quot;</span><br><span class="line"></span><br><span class="line">liuwg-a@liuwg-a-p01 MINGW64 /f/个人相关/docker-ali-autobuild (master)</span><br><span class="line">$ git tag</span><br><span class="line">release-v0.25.0</span><br><span class="line"></span><br><span class="line">liuwg-a@liuwg-a-p01 MINGW64 /f/个人相关/docker-ali-autobuild (master)</span><br><span class="line">$ git push origin release-v0.25.0</span><br><span class="line">Enumerating objects: 1, done.</span><br><span class="line">Counting objects: 100% (1/1), done.</span><br><span class="line">Writing objects: 100% (1/1), 179 bytes | 89.00 KiB/s, done.</span><br><span class="line">Total 1 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:Jacksonary/docker-ali-autobuild.git</span><br><span class="line"> * [new tag]         release-v0.25.0 -&gt; release-v0.25.0</span><br></pre></td></tr></table></figure>
+<p>创建构建规则并开始构建</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pLnBvc3RpbWcuY2MvS2o4WWtaS0wvaW1hZ2UucG5n" alt="创建规则并构建"></p>
+<p>构建完成后，引用该镜像即可从阿里云拉取。</p>
+<p>【附】：<code>git tag</code>的简单语法</p>
+<ul>
+<li>创建tag：<code>git tag -a &lt;tag-name&gt; -m &quot;some describe&quot;</code></li>
+<li>查看本地tag：<code>git tag</code></li>
+<li>推送tag：<code>git push origin &lt;tag-name&gt;</code></li>
+<li>本地删除tag：<code>git tag -d &lt;tag-name&gt;</code></li>
+<li>删除远程tag：<code>git push origin :refs/tags/&lt;tag-name&gt;</code></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/19/docker利用阿里云拉取墙外镜像/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-UML学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1016,96 +1114,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-2017年10月13日" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/13/2017年10月13日/">2017年10月13日</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/2017/10/13/2017年10月13日/" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/2017/10/13/2017年10月13日/" class="archive-article-date">
-  	<time datetime="2017-10-13T03:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;现在不太会起一篇随笔的名字，就这么着吧，心血来潮，权当记录一些不着调的疯言疯语。这段时间会经常抱怨、经常抽烟，自己为是的禽兽总是会有不堪生活重负的时候，对吗？
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/13/2017年10月13日/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1239,15 +1247,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">GraphEasy</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ASCII Flow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
               </li>
              
               <li class="article-tag-list-item">
