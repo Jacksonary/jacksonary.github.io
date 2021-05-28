@@ -475,33 +475,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-MySQL问题记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-K8S笔记5-Service" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/e0d35d4d.html">MySQL问题记录</a>
+      <a class="article-title" href="/posts/ef41e089.html">K8S笔记5-Service</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/e0d35d4d.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/ef41e089.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/e0d35d4d.html" class="archive-article-date">
-  	<time datetime="2018-10-23T07:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
+        <a href="/posts/ef41e089.html" class="archive-article-date">
+  	<time datetime="2019-04-27T00:17:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-You-can’t-specify-target-table-‘rfa-parametric’-for-update-in-FROM-clause"><a href="#1-You-can’t-specify-target-table-‘rfa-parametric’-for-update-in-FROM-clause" class="headerlink" title="1. You can’t specify target table ‘rfa_parametric’ for update in FROM clause"></a>1. You can’t specify target table ‘rfa_parametric’ for update in FROM clause</h2><p>问题：在批量更新时，id的集合来自于同一张表，出现<code>[Err] 1093 - You can&#39;t specify target table &#39;rfa_parametric&#39; for update in FROM clause</code>报错信息，写的SQL如下：
+        <h2 id="4-Service"><a href="#4-Service" class="headerlink" title="4. Service"></a>4. Service</h2><p>&emsp;k8s 中的Pod是朝生夕死的，并且是不会重生的，尤其是在ReplicaSets中动态创建或销毁Pod。然而每个Pod可以获取自己的IP地址，即使这些IP地址是不稳定的（重启等行为可能会导致IP变动），那在集群中，一些Pods怎么向其他的Pods提供可依赖的稳定服务？就像之前所说栗子，前端Pod怎么如何找到、追踪后端Pod。k8s定义了一种抽象，即<code>Service</code>，在集群中定义了一组逻辑Pod和访问Pod的策略（有时称为微服务），Service中的目标Pod通常是由标签选择器（Label Selector）决定的。
         
       
 
@@ -515,7 +515,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kubernetes</a>
         		</li>
       		
 		</ul>
@@ -536,7 +540,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/e0d35d4d.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/ef41e089.html">展开全文 >></a>
         </p>
       
 
@@ -565,33 +569,34 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-MySQL笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-K8S笔记4-控制器Controller" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/45387.html">MySQL笔记</a>
+      <a class="article-title" href="/posts/77b087b4.html">K8S笔记4-控制器Controller</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/45387.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/77b087b4.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/45387.html" class="archive-article-date">
-  	<time datetime="2018-08-21T06:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-21</time>
+        <a href="/posts/77b087b4.html" class="archive-article-date">
+  	<time datetime="2019-04-25T11:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-权限"><a href="#1-权限" class="headerlink" title="1. 权限"></a>1. 权限</h2><p>&emsp;MySQL权限管理的两个阶段：连接检查和权限检查，前者就是指定哪些用户可以进行连接(具体可以理解为哪些IP可以连接)，后者是用户对哪些库或者表有具体的操作权限。
+        <h2 id="3-控制器（Controller）"><a href="#3-控制器（Controller）" class="headerlink" title="3. 控制器（Controller）"></a>3. 控制器（Controller）</h2><h3 id="3-1-副本集（ReplicaSet）"><a href="#3-1-副本集（ReplicaSet）" class="headerlink" title="3.1 副本集（ReplicaSet）"></a>3.1 副本集（ReplicaSet）</h3><p>定义：副本集（ReplicaSet）的目的是为了保证一组稳定的Pod副本在任意给定时刻都在运行。因此，它通常用于保证特定数量的相同Pod的可用性。</p>
+<p>&emsp;副本集使用一些字段进行定义，这些字段包含了一个选择器（指定如何识别可以获取的pods）、一个数字（表示应该维持多少个副本）、一个Pod模板（pod template，指定了新的Pod的创建标准）。然后，复副本集将根据需要进行创建或删除pods以达到所需的数量，从而实现其目的。当副本集需要创建新的Pod时，就会使用Pod模板。
         
       
 
@@ -605,7 +610,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kubernetes</a>
         		</li>
       		
 		</ul>
@@ -626,7 +635,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/45387.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/77b087b4.html">展开全文 >></a>
         </p>
       
 
@@ -655,33 +664,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-JVM学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-K8S笔记3-Pod" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/ae4b10a1.html">JVM学习记录</a>
+      <a class="article-title" href="/posts/ce028092.html">K8S笔记3-Pod</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/ae4b10a1.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/ce028092.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/ae4b10a1.html" class="archive-article-date">
-  	<time datetime="2018-07-13T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+        <a href="/posts/ce028092.html" class="archive-article-date">
+  	<time datetime="2019-04-24T01:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、JVM的自动内存管理机制"><a href="#一、JVM的自动内存管理机制" class="headerlink" title="一、JVM的自动内存管理机制"></a>一、JVM的自动内存管理机制</h2><p>&emsp;JVM在运行java程序时，将把他所管理的内存划分为若干个不同的数据区，每个数据区都有各自的用途和生命周期，JVM管理的内存主要包括下图的几个区域：<br>
+        <h2 id="2-Pod"><a href="#2-Pod" class="headerlink" title="2. Pod"></a>2. Pod</h2><h3 id="2-1-Pod中的基本概念"><a href="#2-1-Pod中的基本概念" class="headerlink" title="2.1 Pod中的基本概念"></a>2.1 Pod中的基本概念</h3><p>&emsp;Pod 是K8S中的重要组成部分，也是K8S对象模型中最小、最简单的可部署对象，Pod代表集群中运行的进程，一个Pod中包含了一个或多个容器、存储资源、唯一的网络IP以及容器运行运行方式的选项（Pod中的内容总是共同定位和安排的）。一个 Pod 是一个部署单元：K8S中一个一应用程序的单个实例（这可能由单个容器或少量紧密耦合并共享资源的容器组成）。Docker 是在Pod中最常见的运行时容器（但K8S不只支持docker），集群中的Pod可以有2中使用方式：
         
       
 
@@ -695,7 +704,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kubernetes</a>
         		</li>
       		
 		</ul>
@@ -716,7 +729,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/ae4b10a1.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/ce028092.html">展开全文 >></a>
         </p>
       
 
@@ -745,35 +758,37 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-MySQL常用函数记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-K8S笔记2-对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/e9ba9b5d.html">MySQL常用函数记录</a>
+      <a class="article-title" href="/posts/9423ca7d.html">K8S笔记2-对象</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/e9ba9b5d.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/9423ca7d.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/e9ba9b5d.html" class="archive-article-date">
-  	<time datetime="2018-05-23T07:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-23</time>
+        <a href="/posts/9423ca7d.html" class="archive-article-date">
+  	<time datetime="2019-04-22T10:30:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-IF-Condition-A-B"><a href="#1-IF-Condition-A-B" class="headerlink" title="1. IF(Condition,A,B)"></a>1. <code>IF(Condition,A,B)</code></h2><p>&emsp;类似于Java中的三目运算函数，<code>Condition</code>是一个条件(可以是一个表达式)，如果条件成立返回A，否则返回B，如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">IF</span>(<span class="number">1</span>&gt;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>) <span class="keyword">as</span> <span class="keyword">result</span></span><br></pre></td></tr></table></figure>
-<p>返回结果为4。<br>
+        <h2 id="1-K8S-中的对象"><a href="#1-K8S-中的对象" class="headerlink" title="1. K8S 中的对象"></a>1. K8S 中的对象</h2><p>&emsp;Kubernetes 对象是持久化的实体，表示整个集群的状态，通常使用<code>yaml</code>文件来描述这些对象，主要用于描述下面的一些信息：</p>
+<ul>
+<li>哪些容器化应用在运行（以及在哪个 Node 上）；</li>
+<li>可以被应用使用的资源；</li>
+<li>关于应用运行时表现的策略，比如重启策略、升级策略，以及容错策略；
         
       
 
@@ -787,7 +802,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kubernetes</a>
         		</li>
       		
 		</ul>
@@ -808,7 +827,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/e9ba9b5d.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/9423ca7d.html">展开全文 >></a>
         </p>
       
 
@@ -837,33 +856,37 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-NIO学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Apollo的普通和K8S中部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/f2b89749.html">NIO学习笔记</a>
+      <a class="article-title" href="/posts/8a61d9ba.html">Apollo的普通和K8S中部署</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/f2b89749.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/8a61d9ba.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/f2b89749.html" class="archive-article-date">
-  	<time datetime="2018-04-28T09:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
+        <a href="/posts/8a61d9ba.html" class="archive-article-date">
+  	<time datetime="2019-04-12T09:23:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="NIO的概念"><a href="#NIO的概念" class="headerlink" title="NIO的概念"></a>NIO的概念</h2><p>&emsp;Java NIO是JDK1.4以后引入的新型IO，即New IO或者Non Blocking IO(非阻塞式IO)，它主要是为了高并发场景而诞生的，功能强大，NIO具备传统IO的所有功能，但是使用方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作，NIO将以更加高效的方式进行文件的读写操作。下面是IO和NIO的主要区别：<br>
+        <h2 id="1-基本环境"><a href="#1-基本环境" class="headerlink" title="1. 基本环境"></a>1. 基本环境</h2><ol>
+<li>OS：CentOS7；</li>
+<li>JDK版本1.8+（<code>java -version</code>）；</li>
+<li>MySQL5.6.5+（<code>SHOW VARIABLES WHERE Variable_name = &#39;version&#39;;</code>）；</li>
+<li>Apollo：服务端1.8+，客户端1.7+；
         
       
 
@@ -877,7 +900,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NIO</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8S</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kubernetes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Apollo</a>
         		</li>
       		
 		</ul>
@@ -898,7 +929,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/f2b89749.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/8a61d9ba.html">展开全文 >></a>
         </p>
       
 
@@ -929,7 +960,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1036,15 +1067,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1060,103 +1115,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Lua</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">UML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主备</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">模块装配</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">工具类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GraphEasy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ASCII Flow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">撒欢</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1181,6 +1140,86 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Lua</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">模块装配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主备</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">UML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">工具类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">GraphEasy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ASCII Flow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">kubeadm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">撒欢</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
             
             <div class="clearfix"></div>
