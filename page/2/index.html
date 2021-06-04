@@ -204,9 +204,16 @@ var _hmt = _hmt || [];
       
         <p>&emsp;存储驱动允许用户在容器的可写层创建数据，但这些数据并不会持久化，随着容器的消亡而消亡，而且存储驱动的赋予这些文件读、写速度都比本地文件系统的性能要慢。</p>
 <h2 id="1-关于-image-和-layer"><a href="#1-关于-image-和-layer" class="headerlink" title="1. 关于 image 和 layer"></a>1. 关于 image 和 layer</h2><p>&emsp;Docker镜像是以一系列的layers为基础构建出来的，镜像中的每个layer都代表着一条指令，除最后一层其他每层都是只读的，所以镜像可以理解为是一个个的只读层堆积起来的。像下面的 Dokcerfile :</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">18.04</span></span><br><span class="line"><span class="keyword">COPY</span> . /app</span><br><span class="line"><span class="keyword">RUN</span> make /app</span><br><span class="line"><span class="keyword">CMD</span> python /app/app.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">18.04</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> make /app</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> python /app/app.py</span></span><br></pre></td></tr></table></figure>
         
       
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
 
       
     </div>
@@ -306,6 +313,13 @@ var _hmt = _hmt || [];
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
         
       
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
 
       
     </div>
@@ -407,6 +421,13 @@ var _hmt = _hmt || [];
         
       
 
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
       
     </div>
     <div class="article-info article-info-index">
@@ -502,6 +523,13 @@ var _hmt = _hmt || [];
         
       
 
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
       
     </div>
     <div class="article-info article-info-index">
@@ -594,6 +622,13 @@ var _hmt = _hmt || [];
 <p>&emsp;Redis支持Lua，代码直接发送完整脚本即可。基本语法（redis客户端可以直接执行）：
         
       
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
 
       
     </div>
@@ -691,6 +726,13 @@ var _hmt = _hmt || [];
 <h2 id="1-自旋锁"><a href="#1-自旋锁" class="headerlink" title="1. 自旋锁"></a>1. 自旋锁</h2><p>&emsp;自旋锁就是它的名字一样，让当前线程不停的在一个循环体内执行，当循环的条件被其他线程改变时才能进入临界区。自旋锁的示例代码（仅以非公平锁为例）如下：<br>
         
       
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
 
       
     </div>
@@ -795,6 +837,13 @@ var _hmt = _hmt || [];
         
       
 
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
       
     </div>
     <div class="article-info article-info-index">
@@ -894,6 +943,13 @@ var _hmt = _hmt || [];
         
       
 
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
       
     </div>
     <div class="article-info article-info-index">
@@ -988,7 +1044,7 @@ var _hmt = _hmt || [];
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: true,
+		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
