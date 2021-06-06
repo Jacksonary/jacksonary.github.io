@@ -225,9 +225,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>官网下载社区版，下载对应的win10专业版，点击 <a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" rel="external nofollow noopener noreferrer" target="_blank">get Docker</a> 即可。</p>
+        <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>官网下载社区版，下载对应的win10专业版，点击 <a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" target="_blank" rel="external nofollow noopener noreferrer">get Docker</a> 即可。</p>
 <h3 id="1-1-虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）"><a href="#1-1-虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）" class="headerlink" title="1.1 虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）"></a>1.1 虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）</h3><p>&emsp;安装完会发现默认安装到C盘，所以需要进行一定的基本配置，Docker for windows点击后就会启动Docker，默认的HV虚拟机安装在了<a id="more"></a>C:\Users\Public\Documents\Hyper-V\Virtual hard disks，通过小娜打卡Hyper-V管理器，下面点击Hyper-V管理器下面的菜单，即自己笔记本的名字，右侧会出现虚拟机，对，这货默认叫MobyLinuxVM，右击移动，按照移动向导选择其他盘的位置即可(当然这里网上大部分的教程都是通过将上述虚拟机复制到自己想要移动到的磁盘文件夹中)。但是在后来过程中，发现上述的方法并不能真正更改，查看Docker的客户端，Settings中Advanced的位置还是一样C盘，网上教程基本不能真正引用，后来终于找到解决办法，在做完上述更改之后，还需要配置一下默认的Hyper-V中的默认文件夹（就是上述移动的目标文件夹），右击电脑名（我这里是MR-LIUS-COMPUTE）–&gt;Hyper-V设置–&gt;更改虚拟硬盘如下：<br><img src="https://img-blog.csdnimg.cn/img_convert/0fd88c62bfb3c464b3d8ceb179c7a8b9.png" alt="这里写图片描述"></p>
-<h3 id="1-2-资源镜像仓库的配置"><a href="#1-2-资源镜像仓库的配置" class="headerlink" title="1.2 资源镜像仓库的配置"></a>1.2 资源镜像仓库的配置</h3><p>&emsp;docker默认是从dockerhub上下载镜像，由于在中国，所以速度上不去，需要进行远程仓库位置的更改，这里使用<a href="https://dev.aliyun.com/" rel="external nofollow noopener noreferrer" target="_blank">阿里云的docker仓库</a>，进入后使用淘宝账号登录，点击右上角的管理中心进入docker镜像服务–&gt;镜像加速器，右侧的内容框中就会出现类似于下图的加速器的地址：<br><img src="https://img-blog.csdnimg.cn/img_convert/35c4206d42f0682ee9c2805abb348940.png" alt="这里写图片描述"><br>复制这个地址，然后打开docker中的Settings，配置Daemon中的Registry mirrors，对，就是它，粘贴到这里，Apply后Docker自动重启，这里在使用的时候不要忘了进行阿里云的登录，在PowerShell中进行如下的登录操作：</p>
+<h3 id="1-2-资源镜像仓库的配置"><a href="#1-2-资源镜像仓库的配置" class="headerlink" title="1.2 资源镜像仓库的配置"></a>1.2 资源镜像仓库的配置</h3><p>&emsp;docker默认是从dockerhub上下载镜像，由于在中国，所以速度上不去，需要进行远程仓库位置的更改，这里使用<a href="https://dev.aliyun.com/" target="_blank" rel="external nofollow noopener noreferrer">阿里云的docker仓库</a>，进入后使用淘宝账号登录，点击右上角的管理中心进入docker镜像服务–&gt;镜像加速器，右侧的内容框中就会出现类似于下图的加速器的地址：<br><img src="https://img-blog.csdnimg.cn/img_convert/35c4206d42f0682ee9c2805abb348940.png" alt="这里写图片描述"><br>复制这个地址，然后打开docker中的Settings，配置Daemon中的Registry mirrors，对，就是它，粘贴到这里，Apply后Docker自动重启，这里在使用的时候不要忘了进行阿里云的登录，在PowerShell中进行如下的登录操作：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 后面的地址就是刚刚加速器的地址</span><br><span class="line">docker login https://xxxx.mirror.aliyuncs.com</span><br></pre></td></tr></table></figure>
 <p>按照它提示输入用户名密码进行登录即可，这个时候就可以使用镜像了，比如这里我需要下载redis镜像，在dev.aliyun.com上搜索，就可以看到类似于这样的镜像地址，如下：<br><img src="https://img-blog.csdnimg.cn/img_convert/ff1c866444747779281e883ca7d66b0a.png" alt="这里写图片描述"><br>直接复制它的镜像地址获取的指令，这里是docker pull redis，执行这个指令即可：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 直接下载最新版的redis版本</span><br><span class="line">docker pull redis</span><br><span class="line"></span><br><span class="line"># 也可以指定下载的redis的版本号，追加:version</span><br><span class="line">docker pull redis:4.0.5-apline</span><br></pre></td></tr></table></figure>
@@ -267,7 +267,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 务必静默方式查找，否则查找出大堆信息无用，只用容器ID即可</span><br><span class="line">docker rm $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
 <p>9.<code>docker start/stop xxx</code>启动指定容器xxx（容器ID或者名字，ID可以只是ID的前面部分的字符，名字必须是全称），通常在使用docker run指令跑过镜像的都会自动创建一个容器，下次再想跑这个实例的时候就可以通过这个指令来进行跑，通常情况会首先查看一个对应镜像文件的容器ID（<code>docker ps -a</code>这里必须查看所有的容器，因为很可能之前的容器已经停止了），然后在运行上述的容器，可以通过这样的方式来启动或者终止一个容器，而不是重复创建同一个镜像文件的容器实例（除非真的是需要），因为上面的run指令是直接创建一个新容器来跑的。</p>
 <p>【注意】Docker命令是可以嵌套的，用$符号来取每个命令执行的结果，比如移除所有的容器，首先要获取所有的容器ID（<code>docker ps -a -q</code>），然后删除<code>docker rm $(docker ps -a -q)</code></p>
-<p>以上是简单的基本配置和一些常用指令，具体指令参见：<a href="https://docs.docker.com/engine/reference/commandline/docker/" rel="external nofollow noopener noreferrer" target="_blank">https://docs.docker.com/engine/reference/commandline/docker/</a></p>
+<p>以上是简单的基本配置和一些常用指令，具体指令参见：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="external nofollow noopener noreferrer">https://docs.docker.com/engine/reference/commandline/docker/</a></p>
 <h2 id="三、Docker开启远程访问"><a href="#三、Docker开启远程访问" class="headerlink" title="三、Docker开启远程访问"></a>三、Docker开启远程访问</h2><p>&emsp;win系统直接启动会开启2375端口，但CentOS7是需要手动配置开启：</p>
 <p>修改<code>/lib/systemd/system/docker.service</code>文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/docker.service</span><br><span class="line"><span class="meta">#</span> ExecStart处修改为</span><br><span class="line">ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix://var/run/docker.sock</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重启docker</span><br><span class="line">systemctl daemon-reload &amp;&amp; systemctl restart docker</span><br></pre></td></tr></table></figure>
@@ -605,15 +605,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,15 +629,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,14 +681,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -701,14 +693,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">锁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">并发编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -717,11 +701,27 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">并发编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,15 +753,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外网映射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,14 +789,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -813,23 +805,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,10 +822,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对接文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,6 +834,14 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主备</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,6 +889,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
@@ -914,6 +906,22 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">工具`</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
             
             <div class="clearfix"></div>
