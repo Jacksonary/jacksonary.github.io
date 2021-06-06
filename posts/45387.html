@@ -67,6 +67,24 @@ var _hmt = _hmt || [];
 </script>
 
 
+  <!-- 自动头条推送 -->
+
+    <script>
+        (function(){
+        var el = document.createElement("script");
+        el.src = "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?cc9a613ac8e15b16d89f93cc33fe9da73f8b521a6f013d3a31e6a5eeab9c005301ac285abb66bb1df4a47cd150e9486fdcccee2d6b7b1b70093048a5693511d1d80eedf6a17ac3e94c39d68751d80af3";
+        el.id = "ttzz";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(el, s);
+        })(window)
+    </script>
+
+  <!-- 360自动推送 -->
+
+    <script>
+        (function(e){function t(e){var t=location.href,n=t.split("").reverse(),r=e.split(""),i=[];for(var s=0,o=16;s<o;s++)i.push(r[s]+(n[s]||""));return i.join("")}var n=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.so\.com)/gi,r=e.location.href;if(r&&!n.test(r)&&window.navigator.appName){var i="//s.360.cn/so/zz.gif",s=document.getElementById("sozz"),o=s.src.split("?")[1],u=t(o),a=new Image;r&&(i+="?url="+encodeURIComponent(r)),o&&(i+="&sid="+o),u&&(i+="&token="+u),o&&(a.src=i)}})(window);
+    </script>
+
 </head>
 </html>
 <body>
@@ -385,7 +403,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
-<p>【注意】<code>HAVING</code>子句将过滤条件应用于每组分行，而<code>WHERE</code>子句将过滤条件应用于每个单独的行。具体用法可参见<a href="https://www.yiibai.com/mysql/having.html" target="_blank" rel="external nofollow noopener noreferrer">HAVING具体用法</a>。最后就是<code>DATE_FORMAT</code>函数中的第二个参数format写法有很多，下面一些写法的说明和一些常用写法：</p>
+<p>【注意】<code>HAVING</code>子句将过滤条件应用于每组分行，而<code>WHERE</code>子句将过滤条件应用于每个单独的行。具体用法可参见<a href="https://www.yiibai.com/mysql/having.html" rel="external nofollow noopener noreferrer" target="_blank">HAVING具体用法</a>。最后就是<code>DATE_FORMAT</code>函数中的第二个参数format写法有很多，下面一些写法的说明和一些常用写法：</p>
 <table><br><thead><br><tr><br><th><strong>限定符</strong></th><br><th><strong>含义</strong></th><br></tr><br></thead><br><tbody><br><tr><br><td><code>%a</code></td><br><td>三个字符缩写的工作日名称，例如:<em>Mon</em>, <em>Tue</em>, <em>Wed</em>,等</td><br></tr><br><tr><br><td><code>%b</code></td><br><td>三个字符缩写的月份名称，例如：<em>Jan</em>，<em>Feb</em>，<em>Mar</em>等</td><br></tr><br><tr><br><td><code>%c</code></td><br><td>以数字表示的月份值，例如：1, 2, 3…12</td><br></tr><br><tr><br><td><code>%D</code></td><br><td>英文后缀如：<em>0th</em>, <em>1st</em>, <em>2nd</em>等的一个月之中的第几天</td><br></tr><br><tr><br><td><code>%d</code></td><br><td>如果是<code>1</code>个数字(小于<code>10</code>)，那么一个月之中的第几天表示为加前导加<code>0</code>， 如：00, 01,02, …31</td><br></tr><br><tr><br><td><code>%e</code></td><br><td>没有前导零的月份的日子，例如：1,2，… 31</td><br></tr><br><tr><br><td><code>%f</code></td><br><td>微秒，范围在<code>000000..999999</code></td><br></tr><br><tr><br><td><code>%H</code></td><br><td>24小时格式的小时，前导加<code>0</code>，例如：00,01..23</td><br></tr><br><tr><br><td><code>%h</code></td><br><td>小时，12小时格式，带前导零，例如：01，02 … 12</td><br></tr><br><tr><br><td><code>%I</code></td><br><td>与<code>%h</code>相同</td><br></tr><br><tr><br><td><code>%i</code></td><br><td>分数为零，例如：00,01，… 59</td><br></tr><br><tr><br><td><code>%j</code></td><br><td>一年中的的第几天，前导为<code>0</code>，例如，001,002，… 366</td><br></tr><br><tr><br><td><code>%k</code></td><br><td>24小时格式的小时，无前导零，例如：0,1,2 … 23</td><br></tr><br><tr><br><td><code>%l</code></td><br><td>12小时格式的小时，无前导零，例如：0,1,2 … 12</td><br></tr><br><tr><br><td><code>%M</code></td><br><td>月份全名称，例如：January, February,…December</td><br></tr><br><tr><br><td><code>%m</code></td><br><td>具有前导零的月份名称，例如：00,01,02，… 12</td><br></tr><br><tr><br><td><code>%p</code></td><br><td><code>AM</code>或<code>PM</code>，取决于其他时间说明符</td><br></tr><br><tr><br><td><code>%r</code></td><br><td>表示时间，<code>12</code>小时格式<code>hh:mm:ss AM</code>或<code>PM</code></td><br></tr><br><tr><br><td><code>%S</code></td><br><td>表示秒，前导零，如：00,01，… 59</td><br></tr><br><tr><br><td><code>%s</code></td><br><td>与<code>%S</code>相同</td><br></tr><br><tr><br><td><code>%T</code></td><br><td>表示时间，24小时格式<code>hh:mm:ss</code></td><br></tr><br><tr><br><td><code>%U</code></td><br><td>周的第一天是星期日，例如：00,01,02 … 53时，前导零的周数</td><br></tr><br><tr><br><td><code>%u</code></td><br><td>周的第一天是星期一，例如：00,01,02 … 53时，前导零的周数</td><br></tr><br><tr><br><td><code>%V</code></td><br><td>与<code>%U</code>相同，它与<code>%X</code>一起使用</td><br></tr><br><tr><br><td><code>%v</code></td><br><td>与<code>%u</code>相同，它与<code>%x</code>一起使用</td><br></tr><br><tr><br><td><code>%W</code></td><br><td>工作日的全称，例如：Sunday, Monday,…, Saturday</td><br></tr><br><tr><br><td><code>%w</code></td><br><td>工作日，以数字来表示(0 = 星期日，1 = 星期一等)</td><br></tr><br><tr><br><td><code>%X</code></td><br><td>周的四位数表示年份,第一天是星期日; 经常与<code>%V</code>一起使用</td><br></tr><br><tr><br><td><code>%x</code></td><br><td>周的四位数表示年份,第一天是星期日; 经常与<code>%v</code>一起使用</td><br></tr><br><tr><br><td><code>%Y</code></td><br><td>表示年份，四位数，例如2000，2001，…等。</td><br></tr><br><tr><br><td><code>%y</code></td><br><td>表示年份，两位数，例如00，01，…等。</td><br></tr><br><tr><br><td><code>%%</code></td><br><td>将百分比(<code>%</code>)字符添加到输出</td><br></tr><br></tbody><br></table>
 
 <p>常用写法有：</p>
@@ -761,19 +779,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,15 +807,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,23 +859,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HotSpot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -869,6 +879,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HotSpot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
@@ -877,11 +895,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,11 +923,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,23 +995,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Swagger</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对接文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">UML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主备</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1005,11 +1019,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">工具类</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主备</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">UML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1026,6 +1048,14 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">工具类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1049,14 +1079,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
@@ -1065,23 +1087,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">工具`</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
             
             <div class="clearfix"></div>

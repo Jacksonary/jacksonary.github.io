@@ -68,6 +68,24 @@ var _hmt = _hmt || [];
 </script>
 
 
+  <!-- 自动头条推送 -->
+
+    <script>
+        (function(){
+        var el = document.createElement("script");
+        el.src = "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?cc9a613ac8e15b16d89f93cc33fe9da73f8b521a6f013d3a31e6a5eeab9c005301ac285abb66bb1df4a47cd150e9486fdcccee2d6b7b1b70093048a5693511d1d80eedf6a17ac3e94c39d68751d80af3";
+        el.id = "ttzz";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(el, s);
+        })(window)
+    </script>
+
+  <!-- 360自动推送 -->
+
+    <script>
+        (function(e){function t(e){var t=location.href,n=t.split("").reverse(),r=e.split(""),i=[];for(var s=0,o=16;s<o;s++)i.push(r[s]+(n[s]||""));return i.join("")}var n=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.so\.com)/gi,r=e.location.href;if(r&&!n.test(r)&&window.navigator.appName){var i="//s.360.cn/so/zz.gif",s=document.getElementById("sozz"),o=s.src.split("?")[1],u=t(o),a=new Image;r&&(i+="?url="+encodeURIComponent(r)),o&&(i+="&sid="+o),u&&(i+="&token="+u),o&&(a.src=i)}})(window);
+    </script>
+
 </head>
 </html>
 <body>
@@ -303,7 +321,7 @@ var _hmt = _hmt || [];
 <p>结果:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">builds/2010/11/07/build-99/hello-world.jar</span><br></pre></td></tr></table></figure>
 <p>注意：The whole of Remote directory is quoted appart from the date tokens and the separators (which are not letters)</p>
-<p>看完上述的内容，琢磨着<code>Source files</code>应该是填项目的相对路径（支持字符串匹配），<font color="red">不能填绝对路径</font>，有点奇葩，我这里项目有点乱，具体目录结构见<a href="https://github.com/Jacksonary/CodeRepository" target="_blank" rel="external nofollow noopener noreferrer">CodeRepository</a>(其实这个项目我是把他作为一个代码分享仓库，并不是正规的项目结构形式)，然后我要构建的是里面<code>SpringData</code>项目，maven构建后的jar的位置为<code>SpringData/target/springdata-1.0-SNAPSHOT.jar</code>，所以<code>Source files</code>应该填写<code>SpringData/target/springdata-1.0-SNAPSHOT.jar</code>，这里有一点需要说明的是如果只是这样，那么传输到远程部署机器上的将会保持源文件的目录结构，即在目标目录中依次创建<code>SpringData</code>、<code>target</code>文件夹，然后再将<code>springdata-1.0-SNAPSHOT.jar</code>放进去，但正常我是不需要这样的目录结构的，我只需要把jar包传输过去就行了，所以这时就可以利用<code>Remove prefix</code>将上述外面包裹的两层文件夹去除，直接传输jar包，如下：</p>
+<p>看完上述的内容，琢磨着<code>Source files</code>应该是填项目的相对路径（支持字符串匹配），<font color="red">不能填绝对路径</font>，有点奇葩，我这里项目有点乱，具体目录结构见<a href="https://github.com/Jacksonary/CodeRepository" rel="external nofollow noopener noreferrer" target="_blank">CodeRepository</a>(其实这个项目我是把他作为一个代码分享仓库，并不是正规的项目结构形式)，然后我要构建的是里面<code>SpringData</code>项目，maven构建后的jar的位置为<code>SpringData/target/springdata-1.0-SNAPSHOT.jar</code>，所以<code>Source files</code>应该填写<code>SpringData/target/springdata-1.0-SNAPSHOT.jar</code>，这里有一点需要说明的是如果只是这样，那么传输到远程部署机器上的将会保持源文件的目录结构，即在目标目录中依次创建<code>SpringData</code>、<code>target</code>文件夹，然后再将<code>springdata-1.0-SNAPSHOT.jar</code>放进去，但正常我是不需要这样的目录结构的，我只需要把jar包传输过去就行了，所以这时就可以利用<code>Remove prefix</code>将上述外面包裹的两层文件夹去除，直接传输jar包，如下：</p>
 <p><img src="https://gitee.com/weiguoliu/image_bed/raw/master/image/Jar%E8%B7%AF%E5%BE%84%E9%85%8D%E7%BD%AE.png" alt="Jar路径配置"></p>
 <p>最终构建后，可以发现在远程机器中的<code>/usr/local/test</code>目录中只用一个jar包，很舒服！</p>
 <p>注：这里除了这种做法外，还可以使用下面一种很搓的方式。在配置好了SSH Server后，写远程复制命令，如下：</p>
@@ -645,19 +663,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,15 +691,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,23 +743,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HotSpot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,6 +763,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HotSpot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
@@ -761,11 +779,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,11 +807,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -861,23 +879,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Swagger</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对接文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">UML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主备</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,11 +903,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">工具类</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主备</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">UML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -910,6 +932,14 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">工具类</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -933,14 +963,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
@@ -949,23 +971,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">工具`</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
             
             <div class="clearfix"></div>
