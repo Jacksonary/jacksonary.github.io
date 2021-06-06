@@ -10,6 +10,7 @@
   <title>Jacksonary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="java,编程,笔记,随笔">
+<meta name="keywords" content="Java,Docker,多线程,并发,K8S,Ingress,JVM,分布式,Nginx,Spring,面经">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jacksonary&#39;s blog">
 <meta property="og:url" content="https://jacksonary.github.io/page/8/index.html">
@@ -110,11 +111,11 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 		        
-					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 		        
-					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -155,11 +156,11 @@ var _hmt = _hmt || [];
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 			        
-						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 			        
-						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -188,39 +189,41 @@ var _hmt = _hmt || [];
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+            <canvas data-colors="#eaeaea" data-sectionheight="100" data-contentid="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-docker学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Nginx笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/177bfdaa.html">docker学习笔记</a>
+      <a class="article-title" href="/posts/e6040b9b.html">Nginx笔记</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/177bfdaa.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/e6040b9b.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/177bfdaa.html" class="archive-article-date">
-  	<time datetime="2018-01-30T14:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
+        <a href="/posts/e6040b9b.html" class="archive-article-date">
+  	<time datetime="2018-10-16T12:17:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Docker的首个Demo"><a href="#Docker的首个Demo" class="headerlink" title="Docker的首个Demo"></a>Docker的首个Demo</h2><p>运行命令<code>docker run [容器] [执行命令]</code>，比如：</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> ubuntu:15.10 /bin/<span class="built_in">echo</span> <span class="string">"Hello world"</span></span></span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>注：本文内容来源于网络</p>
+</blockquote>
+<h2 id="1-nginx-基本介绍"><a href="#1-nginx-基本介绍" class="headerlink" title="1. nginx 基本介绍"></a>1. nginx 基本介绍</h2><p>&emsp;nginx使用可扩展事件驱动架构，相对传统的过程驱动框架，需要的内存更少，并且在并发连接增多时，使内存使用更加可预测。传统WEB体系中，每个客户端连接都作为一个单独的进程或线程处理，随着网站的流行度增加，并发连接数量增加，Web服务器将减慢，对客户端的响应也会大大变慢，在线程/进程切换时运行新的上下文时，将会消耗额外的内存和时间，影响性能。nginx为了实现10倍以上的性能，优化服务器资源使用，同时也能扩展和支持网站的动态增长，nginx是最知名的模块化、事件驱动、异步、单线程WEB服务器和WEB代理之一。
         
       
 
@@ -232,7 +235,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -241,7 +244,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
         		</li>
       		
 		</ul>
@@ -262,7 +265,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/177bfdaa.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/e6040b9b.html">展开全文 >></a>
         </p>
       
 
@@ -291,34 +294,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Docker安装及基本指令的学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Head插件使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/f4c0d192.html">docker安装及基本指令的学习记录</a>
+      <a class="article-title" href="/posts/77e5310a.html">Head插件使用</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/f4c0d192.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/77e5310a.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/f4c0d192.html" class="archive-article-date">
-  	<time datetime="2018-01-01T02:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+        <a href="/posts/77e5310a.html" class="archive-article-date">
+  	<time datetime="2018-10-08T00:09:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>官网下载社区版，下载对应的win10专业版，点击 <a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" target="_blank" rel="noopener">get Docker</a> 即可。</p>
-<h3 id="1-1-虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）"><a href="#1-1-虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）" class="headerlink" title="1.1 虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）"></a>1.1 虚拟机和镜像文件位置的更改（重要，C盘吃不消玩儿的）</h3><p>&emsp;安装完会发现默认安装到C盘，所以需要进行一定的基本配置，Docker for windows点击后就会启动Docker，默认的HV虚拟机安装在了
+        <p>相应的Head插件，chrome和fire fox都支持，<a href="https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm?utm_source=chrome-ntp-icon" target="_blank" rel="external nofollow noopener noreferrer">head for chrome</a>，安装完即可查看集群信息，比如下面的：
         
       
 
@@ -330,7 +332,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -339,7 +341,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Head</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ES</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ElasticSearch</a>
         		</li>
       		
 		</ul>
@@ -360,7 +370,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/f4c0d192.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/77e5310a.html">展开全文 >></a>
         </p>
       
 
@@ -389,33 +399,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Java调用Matlab函数以及同时配置多版本JDK方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-HTTP笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/c3b07771.html">Java调用Matlab函数以及同时配置多版本JDK方法</a>
+      <a class="article-title" href="/posts/6340a77e.html">HTTP笔记</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/c3b07771.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/6340a77e.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/c3b07771.html" class="archive-article-date">
-  	<time datetime="2017-12-27T08:27:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
+        <a href="/posts/6340a77e.html" class="archive-article-date">
+  	<time datetime="2018-09-03T12:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、环境配置"><a href="#一、环境配置" class="headerlink" title="一、环境配置"></a>一、环境配置</h2><h3 id="1-查看matlab中jdk版本"><a href="#1-查看matlab中jdk版本" class="headerlink" title="1.查看matlab中jdk版本"></a>1.查看matlab中jdk版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span>&gt; version -java</span><br><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">Java 1.7.0_11-b21 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode</span><br></pre></td></tr></table></figure>
+        <h2 id="1-HTTP工作原理"><a href="#1-HTTP工作原理" class="headerlink" title="1. HTTP工作原理"></a>1. HTTP工作原理</h2><p>&emsp;HTTP协议(HyperText Transfer Protocol，超文本传输协议)，基于TCP/IP通信协议传递数据，属于应用层协议，所有<code>wwww</code>文件都必须遵守这个标准。HTTP协议经历<code>HTTP/0.9</code>(只接受<code>get</code>请求方法)到<code>HTTP/1.0</code>(第一个在通讯中指定版本号的HTTP协议版本，在代理服务器中广泛应用)再到现在的<code>HTTP/1.1</code>(默认采用持久连接，能很好地配合代理服务器工作，还支持以管道方式同时发送多个请求，以便降低线路负载，提高传输速度)，以及下一代的<code>HTTP/2.0</code>，Google也提出了基于UDP实现的QUIC协议，能提供更可靠更高效的传输协议，这些都在说明更好的传输协议一直都在路上。<br>
         
       
 
@@ -427,7 +437,201 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/6340a77e.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
     </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-Maven笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/58e525df.html">Maven笔记</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/58e525df.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/58e525df.html" class="archive-article-date">
+  	<time datetime="2018-08-23T09:39:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;Maven是目前比较主流的项目管理工具之一，当然Gradle也是其中之一。它包含了一个项目对象模型 (Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。<br>
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Maven</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/58e525df.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-SpringBoot问题和使用经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/fe5f7d73.html">SpringBoot问题和使用经验</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/fe5f7d73.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/fe5f7d73.html" class="archive-article-date">
+  	<time datetime="2018-08-23T07:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-搭建流程"><a href="#1-搭建流程" class="headerlink" title="1. 搭建流程"></a>1. 搭建流程</h2><p>1.引入Spring-Boot依赖、Spring-Boot整合MyBatis的插件依赖、MyBatis由数据库表逆向生成JavaBean和Mapper文件的mybatis-generator插件等：
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -440,15 +644,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">混合编程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
         		</li>
       		
 		</ul>
@@ -469,7 +665,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/c3b07771.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/fe5f7d73.html">展开全文 >></a>
         </p>
       
 
@@ -498,33 +694,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-2017年11月12日" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MySQL笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/922e445.html">2017年11月12日</a>
+      <a class="article-title" href="/posts/45387.html">MySQL笔记</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/922e445.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/45387.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/922e445.html" class="archive-article-date">
-  	<time datetime="2017-11-12T10:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+        <a href="/posts/45387.html" class="archive-article-date">
+  	<time datetime="2018-08-21T06:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;经历了那么多，也没有说去渴望什么，或者可以说根本就不曾想过会发生这样的事情，就在前一段时间，不知道怎么的，
+        <h2 id="1-权限"><a href="#1-权限" class="headerlink" title="1. 权限"></a>1. 权限</h2><p>&emsp;MySQL权限管理的两个阶段：连接检查和权限检查，前者就是指定哪些用户可以进行连接(具体可以理解为哪些IP可以连接)，后者是用户对哪些库或者表有具体的操作权限。
         
       
 
@@ -536,7 +732,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -545,7 +741,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -557,7 +753,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
@@ -566,395 +762,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/922e445.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-2017年11月03日" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/8cfeaa90.html">2017年11月03日</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/8cfeaa90.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/8cfeaa90.html" class="archive-article-date">
-  	<time datetime="2017-11-03T14:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;今天在去食堂的路上，漫天的灰朦，风还挺大，卷着地上的梧桐叶，不得不承认，这样的场景是让我这个疯子着迷的，是的，我喜欢这样的这样的路，这样的风，这样的叶子，一来一回，也不觉停下。
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/8cfeaa90.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-2017年10月13日" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/a6e59763.html">2017年10月13日</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/a6e59763.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/a6e59763.html" class="archive-article-date">
-  	<time datetime="2017-10-13T03:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;现在不太会起一篇随笔的名字，就这么着吧，心血来潮，权当记录一些不着调的疯言疯语。这段时间会经常抱怨、经常抽烟，自己为是的禽兽总是会有不堪生活重负的时候，对吗？
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/a6e59763.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-归程随笔" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/11f6c6df.html">归程随笔</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/11f6c6df.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/11f6c6df.html" class="archive-article-date">
-  	<time datetime="2017-05-01T22:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;与好友结伴而游，这些年这样的机会着实不多，各自为着各自的事情东奔西跑，流落到各种各样的地方，来时车上双手无处闲放，寥寥时间打开手机想胡乱记些东西。本望着青山绿水可以疏我郁结、陶我情操，无奈前望后看、左顾右瞥，除了比肩继踵的人流再不可言其他，
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/11f6c6df.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-2016年02月15日" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/dfb56a71.html">2016年02月15日</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/dfb56a71.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/dfb56a71.html" class="archive-article-date">
-  	<time datetime="2016-02-15T08:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;今天成绩出来了，相对于四年前的高考成绩查询时的无奈与绝望，今天除了一丝丝的激动和心酸外，有的尽是坦然，
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/dfb56a71.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/45387.html">展开全文 >></a>
         </p>
       
 
@@ -985,7 +793,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
@@ -1405,7 +1213,7 @@ var _hmt = _hmt || [];
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -1449,11 +1257,11 @@ var _hmt = _hmt || [];
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
+              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>CSDN</a>
             </li>
           
             <li class="search-li">
-              <a href="https://github.com/Jacksonary" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Github</a>
+              <a href="https://github.com/Jacksonary" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>Github</a>
             </li>
           
         </ul>
@@ -1539,4 +1347,3 @@ var _hmt = _hmt || [];
 </div>
   </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-</html>

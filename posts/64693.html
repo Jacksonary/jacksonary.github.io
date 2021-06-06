@@ -117,11 +117,11 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 		        
-					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 		        
-					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -162,11 +162,11 @@ var _hmt = _hmt || [];
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 			        
-						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 			        
-						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+            <canvas data-colors="#eaeaea" data-sectionheight="100" data-contentid="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
             <article id="post-InnoDB存储引擎" class="article article-type-post " itemscope itemprop="blogPost">
@@ -359,8 +359,8 @@ var _hmt = _hmt || [];
 <li><p>2：交叉锁模式（interleaved lock mode），这种锁模式下，插入语句不会使用AUTO-INC锁，且多条语句可以同时执行，交叉锁模式时最快、可扩展性最高的锁模式，但在基于语句主从复制的情况下，从节点从binlog重放SQL语句时它并不安全。交叉锁模式下，在所有插入语句并发执行时，自增值可以保证唯一且单调增，但由于是多个语句同时生成数值（数字分配在语句之间交错），所以任何给定的插入语句生成的自增值并不是连续的（和它的名字一样，是交错的）。若执行的语句仅仅是简单插入，且他们插入的行数是可预知的，那对于单个语句中生成的数值则是没间隙的，除非是混合模式的插入场景，当执行批量插入时，分配出来的自增值可能会出现间隙。</p>
 </li>
 </ul>
-<p>我们需要更改<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html" target="_blank" rel="noopener"><code>innodb_autoinc_lock_mode</code>的配置</a>（0-标识传统锁模式，1-标识，2-标识），这是一种特殊的锁机制，他不是在一个事务完成后才释放，而是在完成对自增键的增长后就立刻释放，从而提升并发效率。</p>
-<p>&emsp;InnoDB推荐主键顺序插入（即定义为<code>AUTO_INCREMENT</code>），这样可以减少频繁的页分裂和碎片的产生，特别是I/O密集型应用，最好避免随机（不连续且值分布范围很大）的聚簇索引（比如使用UUID来作主键性能会很差且索引占用空间大）。自增主键的情况下，每条记录都存储在上一条记录的后面，在一个页被插满（达到页的最大填充因子，默认15/16，留出部分空间以便后面修改）后继续插入会插入到下一个新页，数据加载是顺序加载，主键页就会近似于被顺序的记录填满，而若主键是随机的，InnoDB无法简单的总是把新行记录插入到索引的最后（因为B-Tree叶子节点是顺序的），这样就需要为新行寻找合适的位置并分配空间，通常是已有数据的中间，这种为新行分配空间的行为会导致频繁的页分裂，页分裂会导致数据的大量移动，页会变得稀疏且填充不规则，最终产生碎片，关于页分裂和页合并可以参考<a href="https://zhuanlan.zhihu.com/p/98818611" target="_blank" rel="noopener">这篇文章</a>。当然，顺序主键也并非是绝对的友好，对于高并发应用，InnoDB按主键顺序插入可能会造成明显的竞争，所有的插入都发生在主键的上界，并发插入可能导致间隙锁的竞争；另一个是<code>AUTO_INCREMENT</code>锁机制，它是一种描述用于生成自增值的锁机制。</p>
+<p>我们需要更改<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html" target="_blank" rel="external nofollow noopener noreferrer"><code>innodb_autoinc_lock_mode</code>的配置</a>（0-标识传统锁模式，1-标识，2-标识），这是一种特殊的锁机制，他不是在一个事务完成后才释放，而是在完成对自增键的增长后就立刻释放，从而提升并发效率。</p>
+<p>&emsp;InnoDB推荐主键顺序插入（即定义为<code>AUTO_INCREMENT</code>），这样可以减少频繁的页分裂和碎片的产生，特别是I/O密集型应用，最好避免随机（不连续且值分布范围很大）的聚簇索引（比如使用UUID来作主键性能会很差且索引占用空间大）。自增主键的情况下，每条记录都存储在上一条记录的后面，在一个页被插满（达到页的最大填充因子，默认15/16，留出部分空间以便后面修改）后继续插入会插入到下一个新页，数据加载是顺序加载，主键页就会近似于被顺序的记录填满，而若主键是随机的，InnoDB无法简单的总是把新行记录插入到索引的最后（因为B-Tree叶子节点是顺序的），这样就需要为新行寻找合适的位置并分配空间，通常是已有数据的中间，这种为新行分配空间的行为会导致频繁的页分裂，页分裂会导致数据的大量移动，页会变得稀疏且填充不规则，最终产生碎片，关于页分裂和页合并可以参考<a href="https://zhuanlan.zhihu.com/p/98818611" target="_blank" rel="external nofollow noopener noreferrer">这篇文章</a>。当然，顺序主键也并非是绝对的友好，对于高并发应用，InnoDB按主键顺序插入可能会造成明显的竞争，所有的插入都发生在主键的上界，并发插入可能导致间隙锁的竞争；另一个是<code>AUTO_INCREMENT</code>锁机制，它是一种描述用于生成自增值的锁机制。</p>
 <p>【注】在描述AUTO-INC LOCK时的一些概念：</p>
 <ul>
 <li>insert-like 语句：插入型语句，指所有可以在表中生成新行的语句，包含<code>insert</code>、<code>insert...select</code>、<code>replace</code>、<code>replace ... select</code>以及<code>load data</code>，也包含下面的简单插入（simple inserts）、批量插入(bulk inserts)和混合模式插入(mixed-mode inserts)。</li>
@@ -394,7 +394,7 @@ var _hmt = _hmt || [];
 <li>覆盖索引：当一个索引包含（覆盖）所有所需字段，那此时就不需要二次回表（我们知道，通常除了主键索引外，其他索引的查询一般都是先找到主键，然后在根据主键定位叶节点的数据，需要二次回表），这样的索引就是覆盖索引。Innodb的二级索引在叶节点保存了主键值，若二级索引可以覆盖查询，可以避免对主键索引的二次查询。但并不是所有类型索引都可以成为覆盖索引，覆盖索引必须存储索引列的值，而 hash 索引、空间索引以及全文索引都不会存储索引列的值，所以只能使用 B-Tree 做覆盖索引。索引覆盖查询时，SQL执行计划Extra可以看“Using index”信息（不要和type搞混，type是标识查询访问数据的方式或者是MySQL查找行的方式，即连接方式join type）。其实个人理解下来覆盖索引会出现在2个场景中：一种是主键查询，另一种就是联合索引查询联合列。覆盖索引的优化场景需要合理利用二级索引叶子节点都包含了主键。</li>
 </ol>
 <p>【注】索引的选择性=不重复的索引值（基数）/总记录数=<code>COUNT(DISTINCT(索引字段))/COUNT(*)</code>，选择性越高查询效率就越高，它可以在查找时过滤更多无用行。唯一索引的选择性是1，它也是最好的索引选择，因为每条记录的唯一索引都不一样=N/N，再如<code>gender</code>只会有男、女2个值，那么gender索引的选择性=2/N，随着记录的增加，这个索引的选择性多越来越低，所以通常这种字段就也没有建立索引的必要。</p>
-<p>【注】InnoDB推荐主键顺序插入（即定义为<code>AUTO_INCREMENT</code>），这样可以减少频繁的页分裂和碎片的产生，特别是I/O密集型应用，最好避免随机（不连续且值分布范围很大）的聚簇索引（比如使用UUID来作主键性能会很差且索引占用空间大）。自增主键的情况下，每条记录都存储在上一条记录的后面，在一个页被插满（达到页的最大填充因子，默认15/16，留出部分空间以便后面修改）后继续插入会插入到下一个新页，数据加载是顺序加载，主键页就会近似于被顺序的记录填满，而若主键是随机的，InnoDB无法简单的总是把新行记录插入到索引的最后（因为B-Tree叶子节点是顺序的），这样就需要为新行寻找合适的位置并分配空间，通常是已有数据的中间，这种为新行分配空间的行为会导致频繁的页分裂，页分裂会导致数据的大量移动，页会变得稀疏且填充不规则，最终产生碎片，关于页分裂和页合并可以参考<a href="https://zhuanlan.zhihu.com/p/98818611" target="_blank" rel="noopener">这篇文章</a>。当然，顺序主键也并非是绝对的友好，对于高并发应用，InnoDB按主键顺序插入可能会造成明显的竞争，所有的插入都发生在主键的上界，并发插入可能导致间隙锁的竞争；另一个是<code>AUTO_INCREMENT</code>锁机制，它是一种描述用于生成自增值的锁机制，可用值有：</p>
+<p>【注】InnoDB推荐主键顺序插入（即定义为<code>AUTO_INCREMENT</code>），这样可以减少频繁的页分裂和碎片的产生，特别是I/O密集型应用，最好避免随机（不连续且值分布范围很大）的聚簇索引（比如使用UUID来作主键性能会很差且索引占用空间大）。自增主键的情况下，每条记录都存储在上一条记录的后面，在一个页被插满（达到页的最大填充因子，默认15/16，留出部分空间以便后面修改）后继续插入会插入到下一个新页，数据加载是顺序加载，主键页就会近似于被顺序的记录填满，而若主键是随机的，InnoDB无法简单的总是把新行记录插入到索引的最后（因为B-Tree叶子节点是顺序的），这样就需要为新行寻找合适的位置并分配空间，通常是已有数据的中间，这种为新行分配空间的行为会导致频繁的页分裂，页分裂会导致数据的大量移动，页会变得稀疏且填充不规则，最终产生碎片，关于页分裂和页合并可以参考<a href="https://zhuanlan.zhihu.com/p/98818611" target="_blank" rel="external nofollow noopener noreferrer">这篇文章</a>。当然，顺序主键也并非是绝对的友好，对于高并发应用，InnoDB按主键顺序插入可能会造成明显的竞争，所有的插入都发生在主键的上界，并发插入可能导致间隙锁的竞争；另一个是<code>AUTO_INCREMENT</code>锁机制，它是一种描述用于生成自增值的锁机制，可用值有：</p>
 <ul>
 <li><p>0：传统锁模式（traditional lock mode），传统的锁模式选项用于向后兼容性、性能测试以及解决“混合模式插入”问题，因为语义上可能存在差异。在传统锁模式下，所有的 <code>insert</code> like 语句将获取一个特殊级别的表级别的 AUTO-INC 锁，这个锁将持有到语句的最后（而不是事务的最后），为的是确保自增值可以以可预知的、可重复的顺序按照<code>insert</code>语句的顺序分配出去，并确保自增值是按<code>insert</code>循序连续不断的；在主从架构上的 statement-base 复制（是否就是binlog的格式），当SQL语句被复制到从节点上时，从节点上的自增列将会使用和主节点上一样的值。但若多条<code>insert</code>语句插入的结果是未知的，在 statement-based 级别的传播出去的自增值是不可靠。上面描述的场景可以用下面2个事务的示例来描述：Tx1（插入1000条） - <code>INSERT INTO t1 (c2) SELECT 1000 rows from another table ...</code>，Tx2（插入1条） - <code>INSERT INTO t1 (c2) VALUES (&#39;xxx&#39;)</code>，对于事务1在执行时，Innodb是不能提前获知<code>insert into t1 select ...</code>这个语句会取出多少行记录，当它执行时一次分配一个自增值。它会持有表级锁直到在该语句的末尾，一次只能执行一个引用表t1的<code>INSERT</code>语句，并且不会交错使用不同的语句生成自动递增编号。但是事务1生成的自增值是连续的，事务2中生成的自增值要么比事务1中所有自增值大，要么比它所有自增值要小，这取决哪个语句先执行。若从节点通statement-base格式的binlog重放SQL，只要他们的执行顺序和主节点上一致就没有问题，因此，在语句结束之前保持的表级锁使使用自动增量的<code>INSERT</code>语句可以保证安全地用于基于语句的主从复制，但也因此限制Innodb多事务的并发。若上述行为没有表级锁，事务2中的自增键的值去取决于该语句的执行时机，比如事务2中的行为在事务1插入行为正在进行时执行（既不是在事务1执行之前，也不是在事务1执行之后），分配给2个插入语句的特定自增值是不确定的，因运行时机而定；</p>
 </li>
@@ -403,7 +403,7 @@ var _hmt = _hmt || [];
 <li><p>2：交叉锁模式（interleaved lock mode），这种锁模式下，插入语句不会使用AUTO-INC锁，且多条语句可以同时执行，交叉锁模式时最快、可扩展性最高的锁模式，但在基于语句主从复制的情况下，从节点从binlog重放SQL语句时它并不安全。交叉锁模式下，在所有插入语句并发执行时，自增值可以保证唯一且单调增，但由于是多个语句同时生成数值（数字分配在语句之间交错），所以任何给定的插入语句生成的自增值并不是连续的（和它的名字一样，是交错的）。若执行的语句仅仅是简单插入，且他们插入的行数是可预知的，那对于单个语句中生成的数值则是没间隙的，除非是混合模式的插入场景，当执行批量插入时，分配出来的自增值可能会出现间隙。</p>
 </li>
 </ul>
-<p>我们需要更改<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html" target="_blank" rel="noopener"><code>innodb_autoinc_lock_mode</code>的配置</a>（0-标识传统锁模式，1-标识，2-标识），这是一种特殊的锁机制，他不是在一个事务完成后才释放，而是在完成对自增键的增长后就立刻释放，从而提升并发效率。</p>
+<p>我们需要更改<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html" target="_blank" rel="external nofollow noopener noreferrer"><code>innodb_autoinc_lock_mode</code>的配置</a>（0-标识传统锁模式，1-标识，2-标识），这是一种特殊的锁机制，他不是在一个事务完成后才释放，而是在完成对自增键的增长后就立刻释放，从而提升并发效率。</p>
 <p>【注】一些专有概念：</p>
 <ul>
 <li><code>insert</code>-like statements：插入型语句，所有可以在表中生成一个新行的语句，包含<code>insert</code>、<code>insert...select</code>、<code>replace</code>、<code>replace ... select</code>以及<code>load data</code>，也包含简单插入、批量插入和混合模式插入。</li>
@@ -460,11 +460,11 @@ var _hmt = _hmt || [];
         <br>
         <strong>版权声明：</strong>
         本作品采用
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
         进行许可。转载请注明出处！
         
           <br>
-          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
         
       </div>
     
@@ -1092,7 +1092,7 @@ var _hmt = _hmt || [];
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -1136,11 +1136,11 @@ var _hmt = _hmt || [];
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
+              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>CSDN</a>
             </li>
           
             <li class="search-li">
-              <a href="https://github.com/Jacksonary" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Github</a>
+              <a href="https://github.com/Jacksonary" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>Github</a>
             </li>
           
         </ul>
@@ -1226,4 +1226,3 @@ var _hmt = _hmt || [];
 </div>
   </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-</html>

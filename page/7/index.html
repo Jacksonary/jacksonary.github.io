@@ -10,6 +10,7 @@
   <title>Jacksonary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="java,编程,笔记,随笔">
+<meta name="keywords" content="Java,Docker,多线程,并发,K8S,Ingress,JVM,分布式,Nginx,Spring,面经">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jacksonary&#39;s blog">
 <meta property="og:url" content="https://jacksonary.github.io/page/7/index.html">
@@ -110,11 +111,11 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 		        
-					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 		        
-					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -155,11 +156,11 @@ var _hmt = _hmt || [];
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 			        
-						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 			        
-						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -188,38 +189,38 @@ var _hmt = _hmt || [];
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+            <canvas data-colors="#eaeaea" data-sectionheight="100" data-contentid="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-JVM学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-思维导图法学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/ae4b10a1.html">JVM学习记录</a>
+      <a class="article-title" href="/posts/b9219ffd.html">思维导图法学习笔记</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/ae4b10a1.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/b9219ffd.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/ae4b10a1.html" class="archive-article-date">
-  	<time datetime="2018-07-13T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+        <a href="/posts/b9219ffd.html" class="archive-article-date">
+  	<time datetime="2018-11-30T12:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、JVM的自动内存管理机制"><a href="#一、JVM的自动内存管理机制" class="headerlink" title="一、JVM的自动内存管理机制"></a>一、JVM的自动内存管理机制</h2><p>&emsp;JVM在运行java程序时，将把他所管理的内存划分为若干个不同的数据区，每个数据区都有各自的用途和生命周期，JVM管理的内存主要包括下图的几个区域：<br>
+        <h2 id="1-基本认知（思维导图和思维导图法）"><a href="#1-基本认知（思维导图和思维导图法）" class="headerlink" title="1. 基本认知（思维导图和思维导图法）"></a>1. 基本认知（思维导图和思维导图法）</h2><p>&emsp;思维导图需要一个中心主体，然后围绕中心展开主干，再在每个枝干上展开各个细节，核心思想：由一个中心点开始往四周扩展，无限延展我们的思维模式。思维导图（结构化、层次化，思考、语言的构建）的形式有：
         
       
 
@@ -231,7 +232,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -240,7 +241,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">思维导图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">效率工具</a>
         		</li>
       		
 		</ul>
@@ -261,7 +266,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/ae4b10a1.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/b9219ffd.html">展开全文 >></a>
         </p>
       
 
@@ -290,35 +295,352 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-MySQL常用函数记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spring中的拦截器和过滤器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/e9ba9b5d.html">MySQL常用函数记录</a>
+      <a class="article-title" href="/posts/db15e8b8.html">Spring中的拦截器和过滤器</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/e9ba9b5d.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/db15e8b8.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/e9ba9b5d.html" class="archive-article-date">
-  	<time datetime="2018-05-23T07:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-23</time>
+        <a href="/posts/db15e8b8.html" class="archive-article-date">
+  	<time datetime="2018-11-27T12:13:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-IF-Condition-A-B"><a href="#1-IF-Condition-A-B" class="headerlink" title="1. IF(Condition,A,B)"></a>1. <code>IF(Condition,A,B)</code></h2><p>&emsp;类似于Java中的三目运算函数，<code>Condition</code>是一个条件(可以是一个表达式)，如果条件成立返回A，否则返回B，如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">IF</span>(<span class="number">1</span>&gt;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>) <span class="keyword">as</span> <span class="keyword">result</span></span><br></pre></td></tr></table></figure>
-<p>返回结果为4。<br>
+        <p>&emsp;主要了解SpringBoot中使用拦截器和过滤器的使用，关于两者，资料所提及的有：</p>
+<ul>
+<li>作用域差异：Filter是Servlet规范中规定的，<font color="red">只能用于WEB中</font>，拦截器既可以用于WEB，也可以用于Application、Swing中（即过滤器是依赖于Servlet容器的，和它类似的还有Servlet中的监听器同样依赖该容器，而拦截器则不依赖它）；</li>
+<li>规范差异：Filter是Servlet规范中定义的，是Servlet容器支持的，而拦截器是Spring容器内的，是Spring框架支持的；</li>
+<li>资源差异：拦截器是Spring的一个组件，归Spring管理配置在Spring的文件中，可以使用Spring内的任何资源、对象（可以粗浅的认为是IOC容器中的Bean对象），<font color="red">而Filter则不能使用访问这些资源</font>；</li>
+<li>深度差异：Filter只在Servlet前后起作用，而拦截器可以深入到方法的前后、异常抛出前后等更深层次的程度作处理（这里也在一定程度上论证了拦截器是利用java的反射机制实现的），所以在Spring框架中，优先使用拦截器；
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </li></ul></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">拦截器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">过滤器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/db15e8b8.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-Postman自动化测试脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/af26716a.html">Postman自动化测试脚本</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/af26716a.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/af26716a.html" class="archive-article-date">
+  	<time datetime="2018-10-29T13:02:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-关于tests-断言"><a href="#1-关于tests-断言" class="headerlink" title="1. 关于tests[]断言"></a>1. 关于<code>tests[]</code>断言</h2><p>&emsp;对于系统整套接口的测试最好是建立系统相关的Collection，便于以后测试，测试脚本采用的是JavaScript语法编写，脚本主要写的位置在<code>Pre-request Script</code>和<code>Tests</code>两个栏目中，<code>Pre-request Script</code>主要用于在请求发送之前执行，<code>Tests</code>用于请求发送之后执行，在Postman中也提供了一些简单的断言，比如：
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Postman</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自动化测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/af26716a.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-OAuth2学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/f1b3c99a.html">OAuth2学习记录</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/f1b3c99a.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/f1b3c99a.html" class="archive-article-date">
+  	<time datetime="2018-10-24T11:01:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><p>&emsp;OAuth 2.0 授权框架可以让第三方应用程序获取Http服务有限的访问权限，传统客户端模型中，客户端在请求访问受限资源服务器时，需要使用资源所有者（用户）通过认证服务器进行授权，但是这样的方式是有一些缺陷的：</p>
+<ul>
+<li>需要使用第三方应用程序来存储资源，所有者的凭据以提供将来使用，通常是密码明文；</li>
+<li>服务器支持用户名、密码的验证方式，但很不推荐，除非在其他方式不可用的情况下；</li>
+<li>第三方应用程序获得对资源的过度访问，使得资源所有者没有任何能限制第三方应用访问资源的持续时间或有限的子集资源；</li>
+<li>资源所有者无法撤销对单个第三方应用的访问权限，如果想这么干，唯一的办法就是修改密码才能限制；</li>
+<li>任何第三方应用程序的妥协都会导致泄密，同时所有受该密码保护的所有数据也将泄露；
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </li></ul></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OAuth2</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">权限认证</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/f1b3c99a.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-MyBatis问题合集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/99e2aadc.html">MyBatis问题合集</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/99e2aadc.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/99e2aadc.html" class="archive-article-date">
+  	<time datetime="2018-10-23T12:40:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-模糊查询"><a href="#1-模糊查询" class="headerlink" title="1. 模糊查询"></a>1. 模糊查询</h3><p>&emsp;在查询时使用动态SQL，其中有一个需求是可以根据名字进行模糊匹配，我在映射文件<code>mapper</code>是这么写的：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"list"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></span><br><span class="line">    select 'false' as QUERYID,</span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"Base_Column_List"</span>/&gt;</span></span><br><span class="line">    from activity_award where 1=1</span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"name!=null"</span>&gt;</span></span><br><span class="line">        and name like %#&#123;name&#125;%</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"status!=null"</span>&gt;</span></span><br><span class="line">        and status = #&#123;status,jdbcType=TINYINT&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    order by create_time desc</span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"offset!=null and pageSize != null"</span>&gt;</span></span><br><span class="line">        limit #&#123;offset,jdbcType=INTEGER&#125;,</span><br><span class="line">        #&#123;pageSize,jdbcType=INTEGER&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
         
       
 
@@ -331,6 +653,103 @@ var _hmt = _hmt || [];
 
       
     </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/99e2aadc.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-MySQL问题记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/e0d35d4d.html">MySQL问题记录</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/e0d35d4d.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/e0d35d4d.html" class="archive-article-date">
+  	<time datetime="2018-10-23T07:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-You-can’t-specify-target-table-‘rfa-parametric’-for-update-in-FROM-clause"><a href="#1-You-can’t-specify-target-table-‘rfa-parametric’-for-update-in-FROM-clause" class="headerlink" title="1. You can’t specify target table ‘rfa_parametric’ for update in FROM clause"></a>1. You can’t specify target table ‘rfa_parametric’ for update in FROM clause</h2><p>问题：在批量更新时，id的集合来自于同一张表，出现<code>[Err] 1093 - You can&#39;t specify target table &#39;rfa_parametric&#39; for update in FROM clause</code>报错信息，写的SQL如下：
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -360,617 +779,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/e9ba9b5d.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-JDK的Server和Client模式切换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/53e0649c.html">JDK的Server和Client模式切换</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/53e0649c.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/53e0649c.html" class="archive-article-date">
-  	<time datetime="2018-05-16T03:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;折腾JVM时遇到的点，这里记录一下，首先查看下自己的JVM是以什么模式启动的，启动DOS窗口，通过<code>java -version</code>命令查看(没有错，就是我们初识Java的第一个命令(´ｰ∀ｰ`))，结果如下：
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JDK</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HotSpot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/53e0649c.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-System-gc-和finalize" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/9802f79d.html">System.gc()和finalize()</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/9802f79d.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/9802f79d.html" class="archive-article-date">
-  	<time datetime="2018-05-15T02:29:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;在垃圾回收过程中，关于对象何时被回收一直是一个不能确切回答的问题，虚拟机在处理待回收对象时，首要问题是判定对象的生死，主流的java虚拟机都是采用的可达性分析算法来判定对象的生死，当然更广为人知的是一种叫做引用计数算法的方式(但是由于它在无法处理循环引用的问题，所以极少在虚拟机中被运用，但也有成功案例，比如微软的COM、FlashPlayer)。
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/9802f79d.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-NIO学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/f2b89749.html">NIO学习笔记</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/f2b89749.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/f2b89749.html" class="archive-article-date">
-  	<time datetime="2018-04-28T09:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="NIO的概念"><a href="#NIO的概念" class="headerlink" title="NIO的概念"></a>NIO的概念</h2><p>&emsp;Java NIO是JDK1.4以后引入的新型IO，即New IO或者Non Blocking IO(非阻塞式IO)，它主要是为了高并发场景而诞生的，功能强大，NIO具备传统IO的所有功能，但是使用方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作，NIO将以更加高效的方式进行文件的读写操作。下面是IO和NIO的主要区别：<br>
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NIO</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/f2b89749.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-面试记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/8e14516.html">面试记录</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/8e14516.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/8e14516.html" class="archive-article-date">
-  	<time datetime="2018-04-27T07:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-处女面，来自阿里的电话面试（2017-07-30-时长90分钟）"><a href="#1-处女面，来自阿里的电话面试（2017-07-30-时长90分钟）" class="headerlink" title="1. 处女面，来自阿里的电话面试（2017/07/30,时长90分钟）"></a>1. 处女面，来自阿里的电话面试（2017/07/30,时长90分钟）</h2><h3 id="1-1-java中的反射Reflection"><a href="#1-1-java中的反射Reflection" class="headerlink" title="1.1 java中的反射Reflection"></a>1.1 java中的反射Reflection</h3><p>&emsp;反射能动态地加载一个类、调用方法、访问属性，出发点在于JVM为每个类创建了一个java.lang.Class类的实例，通过这份对象可以获取这个类的信息，通过反射包下的API达到各种动态需求。<br>
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/8e14516.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-关于一次疯狂的旅行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/b46fb795.html">关于一次疯狂的旅行</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/b46fb795.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/b46fb795.html" class="archive-article-date">
-  	<time datetime="2018-04-24T14:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;在多年前，一直有一个疯狂的想法，我要去西藏、我要去西藏、我要去西藏，这个想法一遍一遍的出现在我的脑海中，也许和很多人一样，受了部分影视作品和人的毒害，是的，最后我没有去西藏，只是沿着滇藏线走了走。在2018年的4月份，也就是临近我毕业的前两个月，我花了一个星期去准备一些装备，
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">旅行</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/b46fb795.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-IDEA使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/419d96b2.html">IDEA使用技巧</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/419d96b2.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/419d96b2.html" class="archive-article-date">
-  	<time datetime="2018-02-23T07:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Live-Template-实时模板的使用"><a href="#1-Live-Template-实时模板的使用" class="headerlink" title="1. Live Template(实时模板的使用)"></a>1. Live Template(实时模板的使用)</h2><p>&emsp;在IDEA中有，可以创建实时模板，并且可以实时生效的，这里可以在设置中进行模板的设置，比如在IDEA中并没有关于<code>main</code>的提示，这里我们通常希望在输入<code>main</code>关键字的时候，系统可以自动给出提示，按回车后，自动帮我补全，并且光标停留在大括号内：<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjI1MjIyMzUwMTc0?x-oss-process=image/format,png" alt="这里写图片描述"><br>
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IDEA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/419d96b2.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/e0d35d4d.html">展开全文 >></a>
         </p>
       
 
@@ -1001,7 +810,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -1421,7 +1230,7 @@ var _hmt = _hmt || [];
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -1465,11 +1274,11 @@ var _hmt = _hmt || [];
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
+              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>CSDN</a>
             </li>
           
             <li class="search-li">
-              <a href="https://github.com/Jacksonary" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Github</a>
+              <a href="https://github.com/Jacksonary" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>Github</a>
             </li>
           
         </ul>
@@ -1555,4 +1364,3 @@ var _hmt = _hmt || [];
 </div>
   </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-</html>

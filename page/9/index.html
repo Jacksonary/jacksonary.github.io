@@ -10,6 +10,7 @@
   <title>Jacksonary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="java,编程,笔记,随笔">
+<meta name="keywords" content="Java,Docker,多线程,并发,K8S,Ingress,JVM,分布式,Nginx,Spring,面经">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jacksonary&#39;s blog">
 <meta property="og:url" content="https://jacksonary.github.io/page/9/index.html">
@@ -110,11 +111,11 @@ var _hmt = _hmt || [];
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 		        
-					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 		        
-					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
@@ -155,11 +156,11 @@ var _hmt = _hmt || [];
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2694969134&site=qq&menu=yes" title="qq" rel="external nofollow noopener noreferrer"><i class="icon-qq"></i></a>
 			        
-						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="Mailto:jacksonary@163.com" title="mail" rel="external nofollow noopener noreferrer"><i class="icon-mail"></i></a>
 			        
-						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/Jacksonary" title="github" rel="external nofollow noopener noreferrer"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -188,38 +189,38 @@ var _hmt = _hmt || [];
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+            <canvas data-colors="#eaeaea" data-sectionheight="100" data-contentid="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2016年01月23日" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JVM学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/84f373b8.html">2016年01月23日</a>
+      <a class="article-title" href="/posts/ae4b10a1.html">JVM学习记录</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/84f373b8.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/ae4b10a1.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/84f373b8.html" class="archive-article-date">
-  	<time datetime="2016-01-23T14:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-23</time>
+        <a href="/posts/ae4b10a1.html" class="archive-article-date">
+  	<time datetime="2018-07-13T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;晚上，吃完晚饭，闲来无事，翻出一部电影来看，不得不说，像我这种念旧的人总是会被诸如此类关于青春回忆式电影感动得一塌糊涂
+        <h2 id="一、JVM的自动内存管理机制"><a href="#一、JVM的自动内存管理机制" class="headerlink" title="一、JVM的自动内存管理机制"></a>一、JVM的自动内存管理机制</h2><p>&emsp;JVM在运行java程序时，将把他所管理的内存划分为若干个不同的数据区，每个数据区都有各自的用途和生命周期，JVM管理的内存主要包括下图的几个区域：<br>
         
       
 
@@ -231,7 +232,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -240,7 +241,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
         		</li>
       		
 		</ul>
@@ -252,7 +253,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
@@ -261,7 +262,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/84f373b8.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/ae4b10a1.html">展开全文 >></a>
         </p>
       
 
@@ -290,33 +291,35 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-碎叶秋天的路途" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MySQL常用函数记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/678c0392.html">碎叶秋天的路途</a>
+      <a class="article-title" href="/posts/e9ba9b5d.html">MySQL常用函数记录</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/678c0392.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/e9ba9b5d.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/678c0392.html" class="archive-article-date">
-  	<time datetime="2015-09-04T10:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-04</time>
+        <a href="/posts/e9ba9b5d.html" class="archive-article-date">
+  	<time datetime="2018-05-23T07:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;去年秋天存了的草稿，没憋出一句话，把之前写的全删，不过还是舍不得，先留着吧，谁曾想会在我会在这个寥寂的周五晚上开始着手写些碎字，发发牢骚。<br>&emsp;在过去的一些年，我不曾去想太多，关于未来亦或者关于我的爱人，但让我一点不去想象，
+        <h2 id="1-IF-Condition-A-B"><a href="#1-IF-Condition-A-B" class="headerlink" title="1. IF(Condition,A,B)"></a>1. <code>IF(Condition,A,B)</code></h2><p>&emsp;类似于Java中的三目运算函数，<code>Condition</code>是一个条件(可以是一个表达式)，如果条件成立返回A，否则返回B，如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">IF</span>(<span class="number">1</span>&gt;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>) <span class="keyword">as</span> <span class="keyword">result</span></span><br></pre></td></tr></table></figure>
+<p>返回结果为4。<br>
         
       
 
@@ -328,7 +331,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -337,7 +340,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -349,7 +352,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
@@ -358,7 +361,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/678c0392.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/e9ba9b5d.html">展开全文 >></a>
         </p>
       
 
@@ -387,33 +390,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-突然之间爱上经典" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JDK的Server和Client模式切换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/84afe491.html">突然之间爱上经典</a>
+      <a class="article-title" href="/posts/53e0649c.html">JDK的Server和Client模式切换</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/84afe491.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/53e0649c.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/84afe491.html" class="archive-article-date">
-  	<time datetime="2015-07-01T04:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-01</time>
+        <a href="/posts/53e0649c.html" class="archive-article-date">
+  	<time datetime="2018-05-16T03:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我问佛：为何不给所有女子羞花闭月的容颜？<br><br>佛曰：那只是昙花的一现，
+        <p>&emsp;折腾JVM时遇到的点，这里记录一下，首先查看下自己的JVM是以什么模式启动的，启动DOS窗口，通过<code>java -version</code>命令查看(没有错，就是我们初识Java的第一个命令(´ｰ∀ｰ`))，结果如下：
         
       
 
@@ -425,7 +428,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -434,400 +437,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/84afe491.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-只是一首感慨的诗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/daa23604.html">只是一首感慨的诗</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/daa23604.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/daa23604.html" class="archive-article-date">
-  	<time datetime="2015-06-19T01:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-06-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>这是圣保罗教堂的诗篇：记住你应该努力去追求幸福
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/daa23604.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-空楼怀想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/6b63fcf2.html">空楼怀想</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/6b63fcf2.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/6b63fcf2.html" class="archive-article-date">
-  	<time datetime="2013-07-11T00:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;很多时候，特别像现在这样的独处的环境中，我总会不自禁的去想想人生、理想之类的话题，
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/6b63fcf2.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-睡梦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/682963fc.html">睡梦</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/682963fc.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/682963fc.html" class="archive-article-date">
-  	<time datetime="2013-06-14T08:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;后醒，一片虚无……
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/682963fc.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-雨中的长江之行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/157cda5f.html">雨中的长江之行</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/157cda5f.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/157cda5f.html" class="archive-article-date">
-  	<time datetime="2013-05-18T14:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-05-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;在这之前，我曾有过几次幻想自己站在长江边狂跑、大喊，我只去畅想我喜欢的那种情怀。时隔不久，现在我此刻
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">撒欢</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JDK</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HotSpot</a>
         		</li>
       		
 		</ul>
@@ -839,7 +457,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
@@ -848,7 +466,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/157cda5f.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/53e0649c.html">展开全文 >></a>
         </p>
       
 
@@ -877,33 +495,33 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-阳光正好，可惜我的日子太忙……" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-System-gc-和finalize" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/aad96e32.html">阳光正好，可惜我的日子太忙……</a>
+      <a class="article-title" href="/posts/9802f79d.html">System.gc()和finalize()</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/aad96e32.html" class="pageViews"></span>次
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/9802f79d.html" class="pageViews"></span>次
   </a>
 
         
-        <a href="/posts/aad96e32.html" class="archive-article-date">
-  	<time datetime="2013-05-04T02:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-05-04</time>
+        <a href="/posts/9802f79d.html" class="archive-article-date">
+  	<time datetime="2018-05-15T02:29:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;昨天去参加一个关于五四青年节的升旗仪式，这么久没参加过社么升国旗之类的活动，其实我还真发现，不管什么时候，
+        <p>&emsp;在垃圾回收过程中，关于对象何时被回收一直是一个不能确切回答的问题，虚拟机在处理待回收对象时，首要问题是判定对象的生死，主流的java虚拟机都是采用的可达性分析算法来判定对象的生死，当然更广为人知的是一种叫做引用计数算法的方式(但是由于它在无法处理循环引用的问题，所以极少在虚拟机中被运用，但也有成功案例，比如微软的COM、FlashPlayer)。
         
       
 
@@ -915,7 +533,7 @@ var _hmt = _hmt || [];
       <!--版权 end-->
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -924,7 +542,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自说自话</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GC</a>
         		</li>
       		
 		</ul>
@@ -936,7 +558,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
@@ -945,7 +567,209 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/posts/aad96e32.html">展开全文 >></a>
+          <a class="article-more-a" href="/posts/9802f79d.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-NIO学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/f2b89749.html">NIO学习笔记</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/f2b89749.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/f2b89749.html" class="archive-article-date">
+  	<time datetime="2018-04-28T09:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="NIO的概念"><a href="#NIO的概念" class="headerlink" title="NIO的概念"></a>NIO的概念</h2><p>&emsp;Java NIO是JDK1.4以后引入的新型IO，即New IO或者Non Blocking IO(非阻塞式IO)，它主要是为了高并发场景而诞生的，功能强大，NIO具备传统IO的所有功能，但是使用方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作，NIO将以更加高效的方式进行文件的读写操作。下面是IO和NIO的主要区别：<br>
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NIO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/f2b89749.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-面试记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/8e14516.html">面试记录</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/8e14516.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/8e14516.html" class="archive-article-date">
+  	<time datetime="2018-04-27T07:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-处女面，来自阿里的电话面试（2017-07-30-时长90分钟）"><a href="#1-处女面，来自阿里的电话面试（2017-07-30-时长90分钟）" class="headerlink" title="1. 处女面，来自阿里的电话面试（2017/07/30,时长90分钟）"></a>1. 处女面，来自阿里的电话面试（2017/07/30,时长90分钟）</h2><h3 id="1-1-java中的反射Reflection"><a href="#1-1-java中的反射Reflection" class="headerlink" title="1.1 java中的反射Reflection"></a>1.1 java中的反射Reflection</h3><p>&emsp;反射能动态地加载一个类、调用方法、访问属性，出发点在于JVM为每个类创建了一个java.lang.Class类的实例，通过这份对象可以获取这个类的信息，通过反射包下的API达到各种动态需求。<br>
+        
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/8e14516.html">展开全文 >></a>
         </p>
       
 
@@ -976,7 +800,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 
@@ -1396,7 +1220,7 @@ var _hmt = _hmt || [];
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -1440,11 +1264,11 @@ var _hmt = _hmt || [];
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
+              <a href="https://blog.csdn.net/jacksonary?t=1" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>CSDN</a>
             </li>
           
             <li class="search-li">
-              <a href="https://github.com/Jacksonary" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Github</a>
+              <a href="https://github.com/Jacksonary" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>Github</a>
             </li>
           
         </ul>
@@ -1530,4 +1354,3 @@ var _hmt = _hmt || [];
 </div>
   </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-</html>
