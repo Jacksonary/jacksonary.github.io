@@ -590,7 +590,7 @@ var _hmt = _hmt || [];
 </ul>
 <p>进程拥有3中状态：就绪状态、执行状态、阻塞状态，之间的状态切换可以是：就绪–&gt;执行–&gt;阻塞/就绪；阻塞–&gt;运行</p>
 <h3 id="12-2-多线程的效率是否一定比单线程要高？为什么，举例说明。（可以完美回答的同学可以留言）"><a href="#12-2-多线程的效率是否一定比单线程要高？为什么，举例说明。（可以完美回答的同学可以留言）" class="headerlink" title="12.2 多线程的效率是否一定比单线程要高？为什么，举例说明。（可以完美回答的同学可以留言）"></a>12.2 多线程的效率是否一定比单线程要高？为什么，举例说明。（可以完美回答的同学可以留言）</h3><p>&emsp;这个问题的答案是否定的，多线程未必就比单线程运行高效。一般那情况下，处理时间短的服务或者启动频率高的用单线程，否则用多线程（只有在需要响应时间要求比较高的情况下，或者某种操作允许并发而且可能发生阻塞时，用多线程，比如socket和磁盘操作等）；在单个CPU的情况下，多线程的出现是为了提高cpu的效率，在一个线程执行等待结果的时候，此时cpu是处于等待的状态，那么这个时候其他线程可以利用cpu这段空闲时间去做其他的事情。但是多线程的场景下，线程之间的切换是有代价的，但对于用户来说，可以减少响应时间。</p>
-<h3 id="12-3-在浏览器中输入网址访问，这一过程用到哪些协议"><a href="#12-3-在浏览器中输入网址访问，这一过程用到哪些协议" class="headerlink" title="12.3 在浏览器中输入网址访问，这一过程用到哪些协议"></a>12.3 在浏览器中输入网址访问，这一过程用到哪些协议</h3><p>比如访问：<a href="http://www.cfca.com.cn/chanpin/chanpin.htm，它的各部分含义如下：" target="_blank" rel="external nofollow noopener noreferrer">http://www.cfca.com.cn/chanpin/chanpin.htm，它的各部分含义如下：</a></p>
+<h3 id="12-3-在浏览器中输入网址访问，这一过程用到哪些协议"><a href="#12-3-在浏览器中输入网址访问，这一过程用到哪些协议" class="headerlink" title="12.3 在浏览器中输入网址访问，这一过程用到哪些协议"></a>12.3 在浏览器中输入网址访问，这一过程用到哪些协议</h3><p>比如访问：<a href="http://www.cfca.com.cn/chanpin/chanpin.htm，它的各部分含义如下：" rel="external nofollow noopener noreferrer" target="_blank">http://www.cfca.com.cn/chanpin/chanpin.htm，它的各部分含义如下：</a></p>
 <ul>
 <li>http：代表访问该资源所使用的应用层传输协议，通知cfca.com.cn服务器显示web网页； </li>
 <li>www 代表一个Web（万维网）服务器 cfca.com.cn这时装有网页服务器的域名，或站点服务器的名称；</li>
@@ -1050,15 +1050,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,15 +1074,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,6 +1126,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -1138,14 +1146,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">锁</a>
               </li>
              
@@ -1154,19 +1154,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,15 +1198,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外网映射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,6 +1234,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -1250,15 +1258,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1267,6 +1283,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对接文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,14 +1299,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主备</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1334,10 +1346,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
@@ -1351,10 +1359,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
             
             <div class="clearfix"></div>

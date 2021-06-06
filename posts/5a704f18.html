@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Jacksonary&#39;s blog">
 <meta property="og:description" content="这篇文章是我养成写博客的关键因素，没有之一，希望它也能给予后来者一些帮助。  1.顶级标题，通常指文章标题，在下面一行加上====（至少2个） 2.二级标题，通常指文章的子标题，在下面一行加上---【注】以上两种标题格式，也可以用#号来标注，但是#必须在行首才能生效，并且#越多，标题级别月底，至多6个#号，# 标题 3.分割线，3个以上的*或者-或者即可____">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-06-04T12:39:21.851Z">
+<meta property="og:updated_time" content="2021-06-06T07:13:56.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MarkDown基本用法">
 <meta name="twitter:description" content="这篇文章是我养成写博客的关键因素，没有之一，希望它也能给予后来者一些帮助。  1.顶级标题，通常指文章标题，在下面一行加上====（至少2个） 2.二级标题，通常指文章的子标题，在下面一行加上---【注】以上两种标题格式，也可以用#号来标注，但是#必须在行首才能生效，并且#越多，标题级别月底，至多6个#号，# 标题 3.分割线，3个以上的*或者-或者即可____">
@@ -267,8 +267,32 @@ var _hmt = _hmt || [];
 <p>当然除了上面的方式，也可以利用html中的写法，不过有些麻烦，比如：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">th</span>&gt;</span>TableHeader1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">th</span>&gt;</span>TableHeader2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">th</span>&gt;</span>TableHeader3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content11<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content12<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content13<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content21<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content22<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content23<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content31<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content32<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>Content33<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>渲染效果如下</p>
-<table><br>    <th>TableHeader1</th><br>    <th>TableHeader2</th><br>    <th>TableHeader3</th><br>    <tr><br>        <td>Content11</td><br>        <td>Content12</td><br>        <td>Content13</td><br>    </tr><br>        <tr><br>        <td>Content21</td><br>        <td>Content22</td><br>        <td>Content23</td><br>    </tr><br>        <tr><br>        <td>Content31</td><br>        <td>Content32</td><br>        <td>Content33</td><br>    </tr><br></table>
-
+<table>
+<thead>
+<tr>
+<th>TableHeadr1</th>
+<th>TableHeader2</th>
+<th>TableHeader3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content11</td>
+<td>Content12</td>
+<td>Content13</td>
+</tr>
+<tr>
+<td>Content21</td>
+<td>Content22</td>
+<td>Content23</td>
+</tr>
+<tr>
+<td>Content31</td>
+<td>Content32</td>
+<td>Content33</td>
+</tr>
+</tbody>
+</table>
 <p>16.插入上、下标，这里是利用html标签来实现的，上标用<code>&lt;sup&gt;上标&lt;/sup&gt;</code>包裹即可，下标用<code>&lt;sub&gt;下标&lt;/sub&gt;</code>包裹即可</p>
 <p>17.删除线，用<code>~~</code>包裹内容即可，比如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~删除的内容~~</span><br></pre></td></tr></table></figure>
@@ -312,7 +336,8 @@ var _hmt = _hmt || [];
 <li>撇号&apos;：<code>&amp;apos;</code>；</li>
 </ol>
 <p>23.上标，使用<code>^</code>包裹上标即可，比如写2的平方为<code>2^2^</code>，显示效果：2^2^，当然还可以使用<code>&lt;sup&gt;&lt;/sup&gt;</code>标签包裹，如：<code>2&lt;sup&gt;2&lt;/sup&gt;</code>，效果为2<sup>2</sup>，对应的下标就很好猜到了：<code>&lt;sub&gt;&lt;/sub&gt;</code>，如：<code>2&lt;sub&gt;2&lt;/sub&gt;</code>，效果为2<sub>2</sub>。</p>
-<p>24.对齐方式，常用的有：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span>右对齐<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span>左对齐<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span>居中<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>24.对齐方式，常用的有：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span>右对齐<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span>左对齐<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span>居中<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -659,15 +684,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,15 +708,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,6 +760,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -747,14 +780,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">锁</a>
               </li>
              
@@ -763,19 +788,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,15 +832,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外网映射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -843,6 +868,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -859,15 +892,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,6 +917,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对接文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -888,14 +933,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主备</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -943,10 +980,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
@@ -960,10 +993,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
             
             <div class="clearfix"></div>

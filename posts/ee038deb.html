@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10.4.37.24 k8smaster</span><br><span class="line">10.4.37.69 k8snode1</span><br><span class="line">10.4.37.72 k8snode2</span><br></pre></td></tr></table></figure>
 <p>或者在克隆机器后，直接更改每个机器的主机命名（其他节点类似）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更改主机名</span></span><br><span class="line">hostname k8smaster</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑hosts,追加</span></span><br><span class="line">vim /etc/hosts</span><br><span class="line">127.0.0.1 k8smaster</span><br></pre></td></tr></table></figure>
-<h2 id="2-安装docker"><a href="#2-安装docker" class="headerlink" title="2. 安装docker"></a>2. 安装docker</h2><p>详细版本搭配见<a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#external-dependencies" target="_blank" rel="external nofollow noopener noreferrer">External Dependencies</a>。</p>
+<h2 id="2-安装docker"><a href="#2-安装docker" class="headerlink" title="2. 安装docker"></a>2. 安装docker</h2><p>详细版本搭配见<a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#external-dependencies" rel="external nofollow noopener noreferrer" target="_blank">External Dependencies</a>。</p>
 <p>添加docker的yum源（yum的源配置 <code>/etc/yum.repos.d/</code>）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
 <p>【注】如果没有代理，将上述yum的源改成国内的，这里使用阿里云:</p>
@@ -301,7 +301,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">[init] Using Kubernetes version: v1.14.0</span><br><span class="line">[preflight] Running pre-flight checks</span><br><span class="line">	[WARNING IsDockerSystemdCheck]: detected &quot;cgroupfs&quot; as the Docker cgroup driver. The recommended driver is &quot;systemd&quot;. Please follow the guide at https://kubernetes.io/docs/setup/cri/</span><br><span class="line">[preflight] Pulling images required for setting up a Kubernetes cluster</span><br><span class="line">[preflight] This might take a minute or two, depending on the speed of your internet connection</span><br><span class="line">[preflight] You can also perform this action in beforehand using &apos;kubeadm config images pull&apos;</span><br><span class="line">[kubelet-start] Writing kubelet environment file with flags to file &quot;/var/lib/kubelet/kubeadm-flags.env&quot;</span><br><span class="line">[kubelet-start] Writing kubelet configuration to file &quot;/var/lib/kubelet/config.yaml&quot;</span><br><span class="line">[kubelet-start] Activating the kubelet service</span><br><span class="line">[certs] Using certificateDir folder &quot;/etc/kubernetes/pki&quot;</span><br><span class="line">[certs] Generating &quot;etcd/ca&quot; certificate and key</span><br><span class="line">[certs] Generating &quot;apiserver-etcd-client&quot; certificate and key</span><br><span class="line">[certs] Generating &quot;etcd/server&quot; certificate and key</span><br><span class="line">[certs] etcd/server serving cert is signed for DNS names [k8smaster localhost] and IPs [10.4.37.24 127.0.0.1 ::1]</span><br><span class="line">[certs] Generating &quot;etcd/peer&quot; certificate and key</span><br><span class="line">[certs] etcd/peer serving cert is signed for DNS names [k8smaster localhost] and IPs [10.4.37.24 127.0.0.1 ::1]</span><br><span class="line">[certs] Generating &quot;etcd/healthcheck-client&quot; certificate and key</span><br><span class="line">[certs] Generating &quot;front-proxy-ca&quot; certificate and key</span><br><span class="line">[certs] Generating &quot;front-proxy-client&quot; certificate and key</span><br><span class="line">[certs] Generating &quot;ca&quot; certificate and key</span><br><span class="line">[certs] Generating &quot;apiserver&quot; certificate and key</span><br><span class="line">[certs] apiserver serving cert is signed for DNS names [k8smaster kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 10.4.37.24]</span><br><span class="line">[certs] Generating &quot;apiserver-kubelet-client&quot; certificate and key</span><br><span class="line">[certs] Generating &quot;sa&quot; key and public key</span><br><span class="line">[kubeconfig] Using kubeconfig folder &quot;/etc/kubernetes&quot;</span><br><span class="line">[kubeconfig] Writing &quot;admin.conf&quot; kubeconfig file</span><br><span class="line">[kubeconfig] Writing &quot;kubelet.conf&quot; kubeconfig file</span><br><span class="line">[kubeconfig] Writing &quot;controller-manager.conf&quot; kubeconfig file</span><br><span class="line">[kubeconfig] Writing &quot;scheduler.conf&quot; kubeconfig file</span><br><span class="line">[control-plane] Using manifest folder &quot;/etc/kubernetes/manifests&quot;</span><br><span class="line">[control-plane] Creating static Pod manifest for &quot;kube-apiserver&quot;</span><br><span class="line">[control-plane] Creating static Pod manifest for &quot;kube-controller-manager&quot;</span><br><span class="line">[control-plane] Creating static Pod manifest for &quot;kube-scheduler&quot;</span><br><span class="line">[etcd] Creating static Pod manifest for local etcd in &quot;/etc/kubernetes/manifests&quot;</span><br><span class="line">[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &quot;/etc/kubernetes/manifests&quot;. This can take up to 4m0s</span><br><span class="line">[apiclient] All control plane components are healthy after 30.503797 seconds</span><br><span class="line">[upload-config] storing the configuration used in ConfigMap &quot;kubeadm-config&quot; in the &quot;kube-system&quot; Namespace</span><br><span class="line">[kubelet] Creating a ConfigMap &quot;kubelet-config-1.14&quot; in namespace kube-system with the configuration for the kubelets in the cluster</span><br><span class="line">[upload-certs] Skipping phase. Please see --experimental-upload-certs</span><br><span class="line">[mark-control-plane] Marking the node k8smaster as control-plane by adding the label &quot;node-role.kubernetes.io/master=&apos;&apos;&quot;</span><br><span class="line">[mark-control-plane] Marking the node k8smaster as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]</span><br><span class="line">[bootstrap-token] Using token: pl1vir.d7e5xy3xy3uuymou</span><br><span class="line">[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles</span><br><span class="line">[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials</span><br><span class="line">[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token</span><br><span class="line">[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster</span><br><span class="line">[bootstrap-token] creating the &quot;cluster-info&quot; ConfigMap in the &quot;kube-public&quot; namespace</span><br><span class="line">[addons] Applied essential addon: CoreDNS</span><br><span class="line">[addons] Applied essential addon: kube-proxy</span><br><span class="line"></span><br><span class="line">Your Kubernetes control-plane has initialized successfully!</span><br><span class="line"></span><br><span class="line">To start using your cluster, you need to run the following as a regular user:</span><br><span class="line"></span><br><span class="line">  mkdir -p $HOME/.kube</span><br><span class="line">  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">  sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br><span class="line"></span><br><span class="line">You should now deploy a pod network to the cluster.</span><br><span class="line">Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:</span><br><span class="line">  https://kubernetes.io/docs/concepts/cluster-administration/addons/</span><br><span class="line"></span><br><span class="line">Then you can join any number of worker nodes by running the following on each as root:</span><br><span class="line"></span><br><span class="line">kubeadm join 10.4.37.24:6443 --token pl1vir.d7e5xy3xy3uuymou \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:b6ecd6ad73e072f2290a14213e32b681cd41c9010a9403bb32e1e213f7c167d2</span><br></pre></td></tr></table></figure>
 <p>这里需要记录一下 <code>kubeadm init</code> 输出的 <code>kubeadm join ……</code> 命令，后面需要这个命令将各个节点加入集群中，<font color="red">先将它复制到其他地方备份，这玩意儿是真重要（没骗你……）</font>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join 10.4.37.24:6443 --token pl1vir.d7e5xy3xy3uuymou \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:b6ecd6ad73e072f2290a14213e32b681cd41c9010a9403bb32e1e213f7c167d2</span><br></pre></td></tr></table></figure>
-<p>上述的令牌（已经加密，生命周期24小时）用于 master 和加入的 node 之间相互身份之间验证，凭借这个令牌可以让任何人将认证的节点加入到该集群，如果需要对令牌进行增、删、查的操作，可以使用 <code>kubeadm token</code> 命令，具体可参看<a href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-token/" target="_blank" rel="external nofollow noopener noreferrer">kubeadm token</a>。</p>
+<p>上述的令牌（已经加密，生命周期24小时）用于 master 和加入的 node 之间相互身份之间验证，凭借这个令牌可以让任何人将认证的节点加入到该集群，如果需要对令牌进行增、删、查的操作，可以使用 <code>kubeadm token</code> 命令，具体可参看<a href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-token/" rel="external nofollow noopener noreferrer" target="_blank">kubeadm token</a>。</p>
 <p>根据它的提示，为了让 kubelet 为非root用户使用，需要作如下的一些配置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $HOME/.kube</span><br><span class="line">sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br></pre></td></tr></table></figure>
 <p>当然如果已经是 root 用户安装的（我这边本地虚拟机就是以root用户执行的），可以执行：</p>
@@ -712,15 +712,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,15 +736,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,6 +788,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -800,14 +808,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">锁</a>
               </li>
              
@@ -816,19 +816,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -860,15 +860,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外网映射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -896,6 +896,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -912,15 +920,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -929,6 +945,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对接文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,14 +961,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主备</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -996,10 +1008,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
@@ -1013,10 +1021,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
             
             <div class="clearfix"></div>

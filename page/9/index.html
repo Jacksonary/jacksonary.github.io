@@ -596,6 +596,113 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-String的intern-方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/ec8fef68.html">String的intern()方法</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/ec8fef68.html" class="pageViews"></span>次
+  </a>
+
+        
+        <a href="/posts/ec8fef68.html" class="archive-article-date">
+  	<time datetime="2018-05-14T11:11:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;关于<code>String</code>类的<code>intern()</code>方法，平时没怎么用过，在啃JVM这段时间突然遇到这玩意儿，突然发现还挺有意思的，记录下。<br>&emsp;呐，先看例子（直接拿的书中的）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringIntern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str1 = <span class="keyword">new</span> StringBuilder(<span class="string">"计算机"</span>).append(<span class="string">"软件"</span>).toString();</span><br><span class="line">        System.out.println(str1.intern()==str1);</span><br><span class="line"></span><br><span class="line">        String str2 = <span class="keyword">new</span> StringBuilder(<span class="string">"ja"</span>).append(<span class="string">"va"</span>).toString();</span><br><span class="line">        System.out.println(str2.intern()==str2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：<code>true false</code>，jdk是1.8的版本(1.7版本结果一样)，1.6版本是两个<code>false</code>。在1.6版本的JDK中，<code>intern()</code>方法会将首次遇见的字符串实例直接复制到永久代中，返回的<code>String</code>是永久代中这个字符串实例的引用，所以第一个比较就是永久代内存上的实例引用和堆内存上(<code>StringBuilder</code>是对象，存放在堆内存上)的实例，所以两者必然不同，而在JDK1.7后，<code>intern()</code>方法不再进行复制这一行为了，只是在常量池中记录首次出现该字符串的引用，返回的和首次出现该字符引用是同一个，所以第一个比较的结果是<code>true</code>，第二个比较也是同样的道理。<br>&emsp;<code>intern()</code>方法主要是为了重用<code>String</code>对象，节省内存消耗，可以通过循环创建字符串<code>&quot;xxx&quot;</code>放进数组，为了作比较，再用<code>&quot;xxx&quot;.intern()</code>放进做一次同样的放入操作，可以发现后者可以节省更多的内存消耗，可以通过一些内存分析工具进行查看。</p>
+
+      
+
+      <!--版权 start-->
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+      <!--版权 end-->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">intern</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/ec8fef68.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-NIO学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -665,111 +772,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/posts/f2b89749.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-面试记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/8e14516.html">面试记录</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 浏览量:<span id="/posts/8e14516.html" class="pageViews"></span>次
-  </a>
-
-        
-        <a href="/posts/8e14516.html" class="archive-article-date">
-  	<time datetime="2018-04-27T07:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-处女面，来自阿里的电话面试（2017-07-30-时长90分钟）"><a href="#1-处女面，来自阿里的电话面试（2017-07-30-时长90分钟）" class="headerlink" title="1. 处女面，来自阿里的电话面试（2017/07/30,时长90分钟）"></a>1. 处女面，来自阿里的电话面试（2017/07/30,时长90分钟）</h2><h3 id="1-1-java中的反射Reflection"><a href="#1-1-java中的反射Reflection" class="headerlink" title="1.1 java中的反射Reflection"></a>1.1 java中的反射Reflection</h3><p>&emsp;反射能动态地加载一个类、调用方法、访问属性，出发点在于JVM为每个类创建了一个java.lang.Class类的实例，通过这份对象可以获取这个类的信息，通过反射包下的API达到各种动态需求。<br>
-        
-      
-
-      <!--版权 start-->
-      
-    
-      <div class="declare" hidden="hidden"></div>
-    
-      <!--版权 end-->
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习/" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/8e14516.html">展开全文 >></a>
         </p>
       
 
@@ -908,15 +910,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
+                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,15 +934,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">K8S</a>
+                <a href="javascript:void(0)" class="js-tag color1">Feign</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Apollo</a>
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -984,6 +986,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -996,14 +1006,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">锁</a>
               </li>
              
@@ -1012,19 +1014,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1056,15 +1058,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">外网映射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1092,6 +1094,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -1108,15 +1118,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1125,6 +1143,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对接文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1137,14 +1159,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主备</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,10 +1206,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
@@ -1209,10 +1219,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
             
             <div class="clearfix"></div>
