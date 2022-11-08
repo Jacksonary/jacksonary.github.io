@@ -1,0 +1,8 @@
+User-agent: * 
+Allow: /
+Disallow: /vendors/
+Disallow: /categories/
+
+
+Sitemap: https://jacksonary.github.io/sitemap.xml
+Sitemap: https://jacksonary.github.io/baidusitemap.xml
