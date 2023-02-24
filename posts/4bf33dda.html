@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
       
         <p>&emsp;存储驱动允许用户在容器的可写层创建数据，但这些数据并不会持久化，随着容器的消亡而消亡，而且存储驱动的赋予这些文件读、写速度都比本地文件系统的性能要慢。</p>
 <h2 id="1-关于-image-和-layer"><a href="#1-关于-image-和-layer" class="headerlink" title="1. 关于 image 和 layer"></a>1. 关于 image 和 layer</h2><p>&emsp;Docker镜像是以一系列的layers为基础构建出来的，镜像中的每个layer都代表着一条指令，除最后一层其他每层都是只读的，所以镜像可以理解为是一个个的只读层堆积起来的。像下面的 Dokcerfile :</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">18.04</span></span><br><span class="line"><span class="keyword">COPY</span> . /app</span><br><span class="line"><span class="keyword">RUN</span> make /app</span><br><span class="line"><span class="keyword">CMD</span> python /app/app.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">18.04</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> make /app</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> python /app/app.py</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>上述的 Dockerfile 就会创建4层 layer，<code>FROM</code>指令从 ubuntu:18.04 镜像创建一个 layer，<code>COPY</code>指令从Docker客户端的当前目录添加文件，<code>RUN</code>指令使用<code>make</code>命令来编译应用，最后一个layer指定了容器中运行的命令。</p>
 <p>&emsp;每一个layer都是一系列和前一个layer不同的东西组成，然后这些layer相互堆积。当创建一个新的容器时，其实这个行为的实质就是在底层的 layer 上添加了一个可写层，这个可写层就是常说的“容器层”，接下来容器内所有的增、改行为（创建、修改文件）都是写入到这个可写层上。存储驱动解决了这些layers之间的通信，不同的存储驱动在不同情况下各有利弊，应该根据业务场景选型。</p>
@@ -268,15 +268,15 @@ var _hmt = _hmt || [];
 <p><img src="https://fastly.jsdelivr.net/gh/Jacksonary/img_bed@main/blog/%E5%AE%B9%E5%99%A8%E5%92%8C%E9%95%9C%E5%83%8F%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="容器和镜像的关系"></p>
 <p>可以简单的理解为<code>容器 = 镜像 + 可写层</code>，而Docker的存储驱动就是Docker用来管理镜像层和可写容器层的，每个存储驱动实现方式都不太一样，但所有的存储驱动都是使用可堆积的镜像层和“写时复制”策略（Cow - copy-on-write）。</p>
 <h2 id="3-容器的size"><a href="#3-容器的size" class="headerlink" title="3. 容器的size"></a>3. 容器的size</h2><p>&emsp;使用 <code>docker ps -s</code>中的<code>-s</code>参数可以看到一列名为 SIZE 的列，该列包含的内容大概形式为“0B (virtual 64.2MB)”，0表示容器可写层中的数据量（一般不会为0，除非容器已经停止），括号中的<code>virtual 64.2MB</code>表示镜像+容器可写层的总数据量。因为多个容器可以共享只读的镜像层，如果镜像层是同一个，那它们的只读数据肯定都是共享的，但如果由两个不同的镜像创建的两个容器，但如果这2个镜像中有相同的layer也会共享，因此很难推断总虚拟化的大小（只是简单的进行加和的话），一般都是比加和的总共要小。下面是我简单看了下官方一直叨叨的 the thin writable layer ：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker ps -s</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> alpine-base:1.0 是一个包含openjdk8和nodejs12的最小化Linux</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES               SIZE</span><br><span class="line">fa689846c376        alpine-base:1.0     "/bin/sh"           2 hours ago         Up 2 hours                              focused_rubin       193B (virtual 153MB)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker ps -s</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> alpine-base:1.0 是一个包含openjdk8和nodejs12的最小化Linux</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES               SIZE</span><br><span class="line">fa689846c376        alpine-base:1.0     "/bin/sh"           2 hours ago         Up 2 hours                              focused_rubin       193B (virtual 153MB)</span><br></pre></td></tr></table></figure>
 <p>可以看到可写容器层的数据量只占用了193B，确实很小很苗条，但个人理解可写层厚薄与否实际取决于应用在可写层操作行为，比如我在容器内生成一个体积较大的块<code>dd if=/dev/zero of=test bs=1M count=1000</code>，然后再看一下可写层的数据量：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps -s</span><br><span class="line"></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS               NAMES               SIZE</span><br><span class="line">418eb1cbcea5        22de903425e2        "/bin/sh"           About a minute ago   Up About a minute                       angry_newton        1.05GB (virtual 1.2GB)</span><br></pre></td></tr></table></figure>
 <p>瞬间就达到了1.05G，但Docker本身倡导 thin writable container layer，如果你的应用在容器有很大的数据量写入，建议使用数据卷 volume 挂载，这样可以提高I/O效率，而且和应用本身隔离，容器可写层不会占用太多空间，这也是被提倡的。</p>
 <h2 id="4-写时复制-Copy-on-Write"><a href="#4-写时复制-Copy-on-Write" class="headerlink" title="4. 写时复制 Copy-on-Write"></a>4. 写时复制 Copy-on-Write</h2><p>&emsp;写时复制是一种共享和复制文件的策略，能最大程度地提高效率，如果某个文件或目录已经存在于镜像中的底层 layer 中，然后另外一个layer（可以是镜像中的某个layer或直接是容器可写层）需要读取这个文件或目录，那这个文件或目录就会被复制到需要读取该文件的layer中进行相应的读取或修改，这样可以将I/O和每个后续层的大小最小化。</p>
 <h3 id="4-1-最小化镜像大小"><a href="#4-1-最小化镜像大小" class="headerlink" title="4.1 最小化镜像大小"></a>4.1 最小化镜像大小</h3><p>&emsp;当使用<code>docker pull</code>拉取镜像时，或者使用一个不存在的镜像创建容器时，docker 会进行镜像的拉取，可以看到它是一个layer一个layer独立拉取的，存储到Docker本地存储区中（通常是<code>/var/lib/docker</code>目录），每个layer存储到Docker宿主机器的目录中，可以查看<code>/var/lib/docker/&lt;storage-driver&gt;</code>目录，比如 overlay 或者 overlay2，但里面的目录并不是和layer的id一一对应的。注意Docker中的镜像是以layer为基础的，就算2个镜像不同，但如果它们之间有相同的layer时还是会进行共享的，通常可以使用<code>docker history &lt;image-name/image-id&gt;</code>查看镜像中的layer信息，比如下面是 alpine-base:1.0 （一个包含openjdk8和nodejs12的最小化Linux）镜像的Dockerfile：</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine:latest</span><br><span class="line"><span class="keyword">MAINTAINER</span> WeiguoLiu &lt;jacksonary@<span class="number">163</span>.com&gt;</span><br><span class="line"><span class="keyword">USER</span> root</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span> apk update</span><br><span class="line"><span class="keyword">RUN</span> apk fetch openjdk8</span><br><span class="line"><span class="keyword">RUN</span> apk add openjdk8</span><br><span class="line"><span class="keyword">RUN</span> apk add nodejs</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine:latest</span><br><span class="line"><span class="keyword">MAINTAINER</span> WeiguoLiu &lt;jacksonary@<span class="number">163</span>.com&gt;</span><br><span class="line"><span class="keyword">USER</span> root</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk fetch openjdk8</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add openjdk8</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add nodejs</span></span><br></pre></td></tr></table></figure>
 <p>build完再看一下该镜像的layer：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 alpine-base:1.0 的层信息</span><br><span class="line">docker history bec86562d726</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 结果</span><br><span class="line">IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT</span><br><span class="line">bec86562d726        2 days ago          /bin/sh -c apk add nodejs                       29.6MB              </span><br><span class="line">60359c5a2fda        2 days ago          /bin/sh -c apk add openjdk8                     100MB               </span><br><span class="line">cb259c1d667d        2 days ago          /bin/sh -c apk fetch openjdk8                   15.8MB              </span><br><span class="line">ef35bbeb82c2        2 days ago          /bin/sh -c apk update                           1.57MB              </span><br><span class="line">0e8ab980a0c8        2 days ago          /bin/sh -c #(nop)  USER root                    0B                  </span><br><span class="line">2dda369aac80        2 days ago          /bin/sh -c #(nop)  MAINTAINER WeiguoLiu &lt;liu…   0B                  </span><br><span class="line">cc0abc535e36        2 weeks ago         /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B                  </span><br><span class="line">&lt;missing&gt;           2 weeks ago         /bin/sh -c #(nop) ADD file:36fdc8cb08228a870…   5.59MB</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看 alpine-base:1.0 的层信息</span></span><br><span class="line">docker history bec86562d726</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 结果</span></span><br><span class="line">IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT</span><br><span class="line">bec86562d726        2 days ago          /bin/sh -c apk add nodejs                       29.6MB              </span><br><span class="line">60359c5a2fda        2 days ago          /bin/sh -c apk add openjdk8                     100MB               </span><br><span class="line">cb259c1d667d        2 days ago          /bin/sh -c apk fetch openjdk8                   15.8MB              </span><br><span class="line">ef35bbeb82c2        2 days ago          /bin/sh -c apk update                           1.57MB              </span><br><span class="line">0e8ab980a0c8        2 days ago          /bin/sh -c #(nop)  USER root                    0B                  </span><br><span class="line">2dda369aac80        2 days ago          /bin/sh -c #(nop)  MAINTAINER WeiguoLiu &lt;liu…   0B                  </span><br><span class="line">cc0abc535e36        2 weeks ago         /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B                  </span><br><span class="line">&lt;missing&gt;           2 weeks ago         /bin/sh -c #(nop) ADD file:36fdc8cb08228a870…   5.59MB</span><br></pre></td></tr></table></figure>
 <p>和之前说的一样，Dockerfile中的每个命令都是一个新的layer，上面展现出来的layer信息几乎和Dockerfile中是一样的，而且可以发现除了在使用<code>apk add</code>安装软件外，其他指令几乎不会占用空间（因为大部分的指令仅仅是一个“指令”），此外很多底层镜像都会在<code>FROM XXX</code>引入基础镜像，但这个镜像是在本地所没有的或者是使用另一个系统构建的，那在显式层信息时就会显式上面的<code>&lt;missing&gt;</code>的样式。</p>
 <h3 id="4-2-提高容器效率"><a href="#4-2-提高容器效率" class="headerlink" title="4.2 提高容器效率"></a>4.2 提高容器效率</h3><p>&emsp;当创建容器时，一个薄薄的可写层（感觉docker每次提及 the thin writable layer 时都是可骄傲可骄傲的，哈哈o(<em>￣▽￣</em>)o）将加到镜像的顶层，然后容器内<font color="red">所有文件系统的改变</font>都会存储到这个可写层，而容器中其他任何没有发生改动的文件都不会复制到可写层，所以说这点可以在一定程度上减小了容器可写层的数据量。</p>
 <p>&emsp;在容器内对一个文件进行修改时，那存储驱动就会进行“写时复制”（CoW）的操作，具体操作流程会根据不同的存储驱动而有所不同（而且是强依赖、强相关），比如<code>aufs</code>、<code>overlay</code>和<code>overlay2</code>这3种存储驱动，但写时复制遵循下面大致的顺序：</p>
@@ -617,7 +617,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-right">
-    		&copy; 2022 Jacksonary
+    		&copy; 2023 Jacksonary
     	</div>
 		<!--
       	<div class="footer-right">
@@ -719,15 +719,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Cat</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">存储驱动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">overlay</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -747,6 +763,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">写作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
@@ -763,47 +787,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">存储驱动</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">overlay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">写作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Hystrix</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">限流组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Head</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ES</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ElasticSearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,11 +807,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">Head</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">ES</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ElasticSearch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,11 +831,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
+                <a href="javascript:void(0)" class="js-tag color2">InnoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,6 +844,22 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">并发编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -871,15 +879,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -887,7 +899,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,51 +911,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OAuth2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限认证</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Prometheus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">告警</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Lua</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -955,6 +923,38 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OAuth2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">权限认证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Prometheus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">告警</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Lua</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -963,35 +963,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">模块装配</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">intern</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1003,15 +987,35 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">intern</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">UML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">模块装配</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主备</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1027,11 +1031,43 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DDD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软甲设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主备</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式事务</a>
+                <a href="javascript:void(0)" class="js-tag color5">GraphEasy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ASCII Flow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1043,15 +1079,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">kubeadm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GraphEasy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ASCII Flow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1067,11 +1099,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1088,42 +1120,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">commit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mongo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
             
             <div class="clearfix"></div>
